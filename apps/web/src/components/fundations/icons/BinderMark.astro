@@ -23,30 +23,47 @@ if (variant === "teal") { left = right = "var(--color-mb-teal)"; }
 if (variant === "purple") { left = right = "var(--color-mb-purple)"; }
 if (variant === "duo-purple") { left = "var(--color-mb-pink)"; right = "var(--color-mb-purple)"; }
 if (variant === "duo-ink") { left = "var(--color-mb-pink)"; right = "var(--color-ink)"; }
+
+// Two interlocking rings — bound, not infinite.
+// Slight clockwise tilt for couture-wonky feel.
+// Stroke widths chosen for legibility at favicon sizes.
 ---
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 96 56"
+  viewBox="0 0 64 36"
   width={dim}
   height="auto"
   class={`${glow ? "binder-glow" : ""} ${className}`}
   role="img"
   aria-label={ariaLabel}
 >
-  <path
-    d="M48 28 C48 16, 36 6, 24 6 C8 6, 4 22, 14 30 C24 38, 40 28, 48 28 Z"
-    fill="none"
-    stroke={left}
-    stroke-width="7"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M48 28 C48 40, 60 50, 72 50 C88 50, 92 34, 82 26 C72 18, 56 28, 48 28 Z"
-    fill="none"
-    stroke={right}
-    stroke-width="7"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <g transform="rotate(-4 32 18)">
+    <!-- Left ring (typically pink) -->
+    <circle
+      cx="22"
+      cy="18"
+      r="13"
+      fill="none"
+      stroke={left}
+      stroke-width="4.4"
+    />
+    <!-- Right ring (typically teal) -->
+    <circle
+      cx="42"
+      cy="18"
+      r="13"
+      fill="none"
+      stroke={right}
+      stroke-width="4.4"
+    />
+    <!-- Weave: redraw the right side of the left ring on top of the right ring,
+         so the two rings actually look interlinked rather than just side-by-side. -->
+    <path
+      d="M 32 5.5 A 13 13 0 0 1 35 18 A 13 13 0 0 1 32 30.5"
+      fill="none"
+      stroke={left}
+      stroke-width="4.4"
+      stroke-linecap="round"
+    />
+  </g>
 </svg>

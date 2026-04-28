@@ -1,0 +1,130 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const alts = [
+  {
+    n: "ii.",
+    href: "/two",
+    name: "Yin Yang",
+    eyebrow: "ALT DESIGN · 02",
+    palette: ["#0b0b0b", "#e91e63"],
+    blurb:
+      "A split-screen manifesto. The dark half lays out the world we’re leaving — your photos training models, your memories on someone else's balance sheet. The pink half answers it, point for point. Designed to be read like a confession card.",
+    notes: [
+      "Hero is a literal half-and-half — ink vs. pink.",
+      "Each contrast is set as a paired statement, not a feature card.",
+      "More opinionated, less editorial. Closer to a zine than a brochure.",
+    ],
+  },
+  {
+    n: "iii.",
+    href: "/three",
+    name: "Pocket-sized ownership",
+    eyebrow: "ALT DESIGN · 03",
+    palette: ["#6b4fec", "#e91e63"],
+    blurb:
+      "An app-launch page. Two stacked phone mockups, an App Store-style badge, a real-looking QR code, and a purple-pink wash that pushes the “this is a mobile app” thesis to the front. Heavier on motion and product feel.",
+    notes: [
+      "Phones with full mock app screens (wallet view + feed view).",
+      "Three-tap “memory → title” explainer rather than feature columns.",
+      "Saturated color sections — closer to a product launch site.",
+    ],
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Alt designs" }}>
+  <!-- Hero -->
+  <section>
+    <Wrapper variant="standard" class="pt-20 pb-12 lg:pt-28 lg:pb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">ALT DESIGNS</p>
+          <h1 class="page-hero-title text-ink">
+            Two other ways <span class="couture-wonky text-mb-pink italic">of telling it.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            The main site at <a href="/" class="text-ink underline underline-offset-4 decoration-mb-pink">/</a>
+            is the canonical home. These are two other directions we drafted for the same brief —
+            kept around as study material and to share when picking direction.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Alt cards -->
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+        {alts.map((a) => (
+          <a
+            href={a.href}
+            class="group relative flex flex-col gap-6 rounded-3xl border border-divider bg-wall p-8 lg:p-10 hover:border-ink transition-colors"
+          >
+            <div class="flex items-baseline justify-between">
+              <span class={`couture italic text-4xl lg:text-5xl text-ink leading-none`}>
+                {a.n}
+              </span>
+              <span class="mono-label text-ink-muted">{a.eyebrow}</span>
+            </div>
+
+            <!-- Mini palette preview -->
+            <div
+              class="aspect-[16/9] rounded-2xl overflow-hidden border border-divider relative"
+              style={`background: linear-gradient(135deg, ${a.palette[0]} 0%, ${a.palette[1]} 100%);`}
+            >
+              <div class="absolute inset-0 flex items-center justify-center">
+                <BinderMark size={64} variant={a.name === "Yin Yang" ? "duo-ink" : "duo-purple"} glow={false} />
+              </div>
+              <span class="absolute bottom-4 left-5 mono-label text-white/80">preview</span>
+            </div>
+
+            <div>
+              <h2 class="couture text-3xl lg:text-4xl text-ink mb-4 leading-tight">
+                {a.name}
+              </h2>
+              <p class="text-sm lg:text-base text-ink-soft leading-relaxed">
+                {a.blurb}
+              </p>
+            </div>
+
+            <ul class="flex flex-col gap-2 text-sm text-ink-muted">
+              {a.notes.map((note) => (
+                <li class="flex gap-3">
+                  <span class="mt-2 inline-block w-1 h-1 rounded-full bg-mb-pink shrink-0"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 flex items-center justify-between border-t border-divider pt-5">
+              <span class="mono-label text-ink-muted">{a.href}</span>
+              <span class="inline-flex items-center gap-1 text-sm font-medium text-ink group-hover:text-mb-pink transition-colors">
+                View design
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Back -->
+  <section>
+    <Wrapper variant="standard" class="py-12 lg:py-16">
+      <a href="/" class="mono-label text-ink hover:text-mb-pink transition-colors">
+        ← Back to the canonical home
+      </a>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -338,7 +338,7 @@ const tones = {
             <SiteImage
               src={drops[0].img}
               alt={drops[0].title}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.015]"
               widths={[640, 960, 1280]}
               sizes="(min-width: 1024px) 60vw, 100vw"
               loading="lazy"
@@ -363,7 +363,7 @@ const tones = {
           {drops.slice(1).map((d) => (
             <article class="group flex gap-5 items-stretch">
               <div class="relative overflow-hidden rounded-[20px] aspect-[3/4] w-[42%] shrink-0 bg-ink">
-                <SiteImage src={d.img} alt={d.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" widths={[280, 400]} sizes="220px" loading="lazy" />
+                <SiteImage src={d.img} alt={d.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.02]" widths={[280, 400]} sizes="220px" loading="lazy" />
               </div>
               <div class="flex flex-col justify-between py-1">
                 <div>
@@ -400,7 +400,7 @@ const tones = {
         {collections.map((c) => (
           <article class="group">
             <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-ink">
-              <SiteImage src={c.img} alt={c.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" widths={[300, 480, 640]} sizes="(min-width: 1024px) 24vw, 48vw" loading="lazy" />
+              <SiteImage src={c.img} alt={c.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.025]" widths={[300, 480, 640]} sizes="(min-width: 1024px) 24vw, 48vw" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0 pointer-events-none"></div>
               <span class={`absolute top-4 left-4 sticker bg-wall ${tones[c.tone as keyof typeof tones]}`}>
                 Wallet · {c.count}
@@ -436,7 +436,7 @@ const tones = {
         {memories.map((m, i) => (
           <article class={`group ${i % 4 === 1 ? "lg:translate-y-8" : i % 4 === 3 ? "lg:translate-y-4" : ""}`}>
             <div class="relative overflow-hidden rounded-[18px] aspect-[4/5] bg-wall/5">
-              <SiteImage src={m.img} alt={m.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" widths={[260, 380, 520]} sizes="(min-width: 1024px) 22vw, 45vw" loading="lazy" />
+              <SiteImage src={m.img} alt={m.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.02]" widths={[260, 380, 520]} sizes="(min-width: 1024px) 22vw, 45vw" loading="lazy" />
               <span class="absolute top-3 left-3 sticker bg-wall/95 border-wall/40 text-ink">{m.tag}</span>
               <span class="absolute top-3 right-3 mono-label text-wall/90 bg-black/30 backdrop-blur px-2 py-1 rounded-full">auth ✓</span>
             </div>

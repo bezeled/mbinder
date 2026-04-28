@@ -1,14 +1,14 @@
 ---
 interface Props {
-  variant?: "standard" | "narrow" | "prose"; // Define any variants you need
-  class?: string; // Optional prop for additional classes
-  id?: string; // Optional prop for additional classes
+  variant?: "standard" | "narrow" | "wide" | "prose";
+  class?: string;
+  id?: string;
 }
 const { variant = "standard", class: extraClass = "" } = Astro.props;
-// Map each variant to its specific classes
 const variantClasses = {
   narrow: "max-w-3xl w-full px-4 sm:px-6 mx-auto",
   standard: "w-full max-w-7xl 2xl:max-w-[1656px] px-4 sm:px-6 lg:px-8 mx-auto",
+  wide: "w-full max-w-[1480px] 2xl:max-w-[1760px] px-6 sm:px-10 lg:px-16 mx-auto",
   // Prose styles
   prose:
     "prose w-full max-w-none prose-headings:text-base prose-headings:tracking-tight prose-headings:font-medium prose-p:text-ink-muted prose-a:text-ink prose-a:underline prose-a:hover:text-ink-light prose-blockquote:italic prose-blockquote:text-ink-muted prose-blockquote:border-l-2 prose-blockquote:border-ink prose-strong:text-ink prose-strong:font-bold prose-pre:bg-base-800 prose-pre:text-white prose-pre:p-4 prose-pre:overflow-x-auto prose-pre:max-w-full prose-img:rounded-none prose-img:max-w-full prose-table:border-collapse prose-table:overflow-x-auto prose-headings:font-sans prose-strong:font-sans prose-th:border-b-2 prose-th:border-divider prose-td:border-b prose-td:border-divider prose-hr:border-divider text-sm first-letter:text-2xl",

@@ -28,8 +28,11 @@ const navColumns = [
     ],
   },
   {
-    title: "Registry",
-    links: [{ name: "Registry", href: "/registry" }],
+    title: "More",
+    links: [
+      { name: "Registry", href: "/registry" },
+      { name: "Alt designs", href: "/alt-designs" },
+    ],
   },
   {
     title: "Legal",
@@ -43,39 +46,54 @@ const navColumns = [
 ---
 
 <footer class="z-0 w-full border-t border-divider pb-[env(safe-area-inset-bottom,0px)] bg-wall">
-  <Wrapper variant="standard" class="py-10 md:py-16 lg:py-20">
+  <Wrapper variant="standard" class="py-16 md:py-24 lg:py-28">
     <!-- Mobile compact -->
-    <div class="flex flex-col gap-3 md:hidden">
-      <div class="flex items-center justify-between gap-4">
-        <a href="/">
-          <Wordmark size="sm" variant="duo" />
-        </a>
-        <p class="text-[11px] text-ink-muted text-right">
-          &copy; {new Date().getFullYear()} MemoryBinder
-        </p>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-muted">
+    <div class="flex flex-col gap-5 md:hidden">
+      <a href="/" class="inline-flex">
+        <Wordmark size="md" variant="duo" />
+      </a>
+      <p class="text-sm text-ink-muted leading-relaxed max-w-[28ch]">
+        Your story. Your asset. Legally.
+      </p>
+      <nav class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-ink-muted mt-2">
+        <a href="/marketplace" class="hover:text-mb-pink transition-colors">Marketplace</a>
+        <a href="/vision" class="hover:text-mb-pink transition-colors">Vision</a>
+        <a href="/products" class="hover:text-mb-pink transition-colors">Products</a>
+        <a href="/learn" class="hover:text-mb-pink transition-colors">Learn</a>
+        <a href="/trust" class="hover:text-mb-pink transition-colors">Trust</a>
+        <a href="/blog" class="hover:text-mb-pink transition-colors">Blog</a>
         <a href="/registry" class="hover:text-mb-pink transition-colors">Registry</a>
+        <a href="/alt-designs" class="hover:text-mb-pink transition-colors">Alt designs</a>
+      </nav>
+      <hr class="border-divider my-2" />
+      <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink-muted">
         <a href="/legal/privacy" class="hover:text-mb-pink transition-colors">Privacy</a>
         <a href="/legal/terms" class="hover:text-mb-pink transition-colors">Terms</a>
         <a href="/contact" class="hover:text-mb-pink transition-colors">Contact</a>
-      </div>
+      </nav>
+      <p class="text-[11px] text-ink-muted mt-3">
+        &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
+      </p>
     </div>
 
     <!-- Desktop full -->
-    <div class="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
-      <div class="lg:col-span-1">
-        <a href="/">
+    <div class="hidden md:grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14">
+      <div class="lg:col-span-3 flex flex-col gap-6">
+        <a href="/" class="inline-flex">
           <Wordmark size="md" variant="duo" />
         </a>
-        <p class="mt-5 text-sm text-ink-muted leading-relaxed max-w-[26ch]">
+        <p class="text-sm text-ink-muted leading-relaxed max-w-[26ch]">
           Your story. Your asset. Legally.
+        </p>
+        <p class="text-xs text-ink-faint mt-2 max-w-[28ch] leading-relaxed">
+          The legal property infrastructure for personal data, memories,
+          and consumer AI agents.
         </p>
       </div>
       {navColumns.map((col) => (
-        <div>
-          <p class="mono-label text-ink font-medium mb-4">{col.title}</p>
-          <nav class="flex flex-col gap-2">
+        <div class="lg:col-span-2 last:lg:col-span-1">
+          <p class="mono-label text-ink font-medium mb-5">{col.title}</p>
+          <nav class="flex flex-col gap-3">
             {col.links.map((link) => (
               <a
                 href={link.href}
@@ -89,15 +107,10 @@ const navColumns = [
       ))}
     </div>
 
-    <hr class="section-rule my-10 hidden md:block" />
+    <hr class="section-rule mt-16 lg:mt-20 mb-8 hidden md:block" />
 
-    <div class="hidden md:flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-      <p class="text-xs text-ink-muted font-mono">
-        &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
-      </p>
-      <p class="text-xs text-ink-muted font-mono">
-        Built in Naarm.
-      </p>
-    </div>
+    <p class="hidden md:block text-xs text-ink-muted font-mono">
+      &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
+    </p>
   </Wrapper>
 </footer>
