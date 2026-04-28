@@ -182,10 +182,39 @@ body {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
   font-weight: 350;
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-size: clamp(3rem, 10vw, 8rem);
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+/* Section-level title inside content blocks. */
+.section-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
+  font-weight: 350;
+  font-size: clamp(2rem, 5vw, 3.6rem);
   letter-spacing: -0.025em;
   line-height: 0.98;
   text-wrap: balance;
+}
+
+/* Clean grotesk kicker — replaces the mono-uppercase eyebrows site-wide. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-grotesk);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.005em;
+  color: var(--color-ink-muted);
+}
+.eyebrow .eyebrow-dot {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 9999px;
+  background: var(--color-mb-pink);
 }
 
 .hero-title-line {

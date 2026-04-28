@@ -66,16 +66,22 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
 <BaseLayout seo={{ title: "Don't lose your marbles" }}>
   <!-- Hero -->
   <section class="relative">
-    <Wrapper variant="standard" class="pt-20 pb-16 lg:pt-32 lg:pb-24">
+    <Wrapper variant="standard" class="pt-16 pb-20 lg:pt-24 lg:pb-28">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div class="lg:col-span-7 relative z-10">
+          <div class="eyebrow mb-8">
+            <BinderMark size={32} variant="duo" glow={false} />
+            <span>The legal property layer for personal data</span>
+            <span class="eyebrow-dot"></span>
+            <span>iOS · Q3 2026</span>
+          </div>
           <h1 id="hero-title" class="page-hero-title text-ink kerning-display"></h1>
-          <p class="mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-ink-muted">
+          <p class="mt-10 max-w-xl text-lg lg:text-xl leading-relaxed text-ink-soft">
             MemoryBinder is the legal property layer for your digital life. Photos,
             stories, audio, the moments that make a life — owned by you, recorded
             in law, portable everywhere they go.
           </p>
-          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-10">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-12">
             <a href="/waitlist" class="btn-pink shimmer-hover">
               Try MemoryBinder
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -178,15 +184,13 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
 
   <!-- Manifesto -->
   <section class="relative">
-    <Wrapper variant="standard" class="py-20 lg:py-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink">
-            When rights are clear,
-            <span class="couture-wonky text-mb-pink">everyone wins.</span>
-          </h2>
-        </div>
-        <div class="lg:col-span-7 lg:pt-6">
+    <Wrapper variant="standard" class="py-24 lg:py-36">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-10 items-start">
+        <h2 class="col-span-12 lg:col-span-5 section-title text-ink">
+          When rights are clear,
+          <span class="couture-wonky text-mb-pink">everyone wins.</span>
+        </h2>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-6">
           <div class="flex flex-col gap-6 text-base lg:text-lg leading-relaxed text-ink-soft">
             <p>
               The personal data economy is broken. Not because the supply does
@@ -216,16 +220,16 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
 
   <!-- Editorial wall of memory orbs -->
   <section class="relative bg-wall-warm border-y border-divider">
-    <Wrapper variant="standard" class="py-20 lg:py-28">
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
-        <div>
-          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink max-w-2xl">
-            Photos. Stories. Audio. <span class="couture-wonky">Moments that make a life.</span>
-          </h2>
+    <Wrapper variant="standard" class="py-24 lg:py-32">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-8 items-end mb-16">
+        <h2 class="col-span-12 lg:col-span-8 section-title text-ink">
+          Photos. Stories. Audio. <span class="couture-wonky">Moments that make a life.</span>
+        </h2>
+        <div class="col-span-12 lg:col-span-3 lg:col-start-10 lg:flex lg:justify-end">
+          <a href="/marketplace" class="btn-ghost">
+            See the marketplace
+          </a>
         </div>
-        <a href="/marketplace" class="btn-ghost">
-          See the marketplace
-        </a>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-10">
@@ -242,48 +246,42 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     </Wrapper>
   </section>
 
-  <!-- Features — vertical chapter list, no rip-off four-column grid -->
+  <!-- Features — vertical chapter list -->
   <section class="bg-wall">
-    <Wrapper variant="standard" class="py-20 lg:py-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16">
-        <div class="lg:col-span-5">
-          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink leading-[0.95]">
-            Four layers. <span class="couture-wonky text-mb-pink italic">One property system.</span>
-          </h2>
-        </div>
-        <div class="lg:col-span-6 lg:col-start-7 lg:pt-4">
-          <p class="text-base lg:text-lg text-ink-muted leading-relaxed max-w-xl">
-            Each layer makes the next more valuable. Together, they put consumer
-            personal data on the legal footing it has never had.
-          </p>
-        </div>
+    <Wrapper variant="standard" class="py-24 lg:py-36">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-6 mb-16 lg:mb-20 items-baseline">
+        <h2 class="col-span-12 lg:col-span-5 section-title text-ink">
+          Four layers. <span class="couture-wonky text-mb-pink italic">One property system.</span>
+        </h2>
+        <p class="col-span-12 lg:col-span-6 lg:col-start-6 text-base lg:text-lg text-ink-muted leading-relaxed max-w-xl">
+          Each layer makes the next more valuable. Together, they put consumer
+          personal data on the legal footing it has never had.
+        </p>
       </div>
 
-      <ol class="flex flex-col gap-3 lg:gap-4">
+      <ol class="flex flex-col">
         {features.map((f) => {
           const a = accentMap[f.accent];
           return (
             <li>
               <a
                 href={f.href}
-                class={`feature-row group flex items-stretch gap-6 lg:gap-10 py-7 lg:py-9 border-t border-divider hover:border-ink`}
+                class="feature-row group grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-2 py-8 lg:py-10 border-t border-divider hover:border-ink transition-colors items-baseline"
               >
-                <span class={`shrink-0 self-start font-display italic text-3xl lg:text-5xl ${a.text} leading-none w-16 lg:w-24 pt-1`}>
+                <span class={`col-span-2 lg:col-span-1 font-display italic text-3xl lg:text-4xl leading-none ${a.text}`}>
                   {f.n}
                 </span>
-                <div class="flex-1 min-w-0 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline">
-                  <h3 class={`md:col-span-4 couture text-2xl lg:text-3xl text-ink group-hover:${a.text} transition-colors`}>
-                    {f.label}
-                  </h3>
-                  <p class="md:col-span-7 text-sm lg:text-base text-ink-soft leading-relaxed max-w-2xl">
-                    {f.description}
-                  </p>
-                  <span class="md:col-span-1 hidden md:flex justify-end items-center text-ink-muted group-hover:text-ink transition-colors">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
+                <h3 class={`col-span-10 lg:col-span-4 couture text-2xl lg:text-3xl text-ink group-hover:${a.text} transition-colors`}>
+                  {f.label}
+                </h3>
+                <p class="col-span-12 lg:col-span-6 text-sm lg:text-base text-ink-soft leading-relaxed">
+                  {f.description}
+                </p>
+                <span class="hidden lg:flex col-span-1 justify-end items-center text-ink-muted group-hover:text-ink transition-colors">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
               </a>
             </li>
           );
@@ -295,13 +293,13 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
   <!-- Pull quote -->
   <section class="relative overflow-hidden">
     <SectionRule />
-    <Wrapper variant="standard" class="py-20 lg:py-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-2 hidden lg:flex justify-center">
+    <Wrapper variant="standard" class="py-24 lg:py-36">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 items-center">
+        <div class="col-span-12 lg:col-span-2 hidden lg:flex justify-start">
           <BinderMark size={92} variant="duo" />
         </div>
-        <blockquote class="lg:col-span-10">
-          <p class="couture text-[clamp(1.8rem,4vw,3rem)] text-ink max-w-4xl">
+        <blockquote class="col-span-12 lg:col-span-9 lg:col-start-4">
+          <p class="section-title text-ink">
             People keep doing what they love. Sharing memories. Gifting content.
             Telling their story. <span class="couture-wonky text-mb-pink">MemoryBinder makes sure that story
             and the responsibility is legally theirs.</span>
@@ -313,17 +311,15 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
 
   <!-- CTA -->
   <section class="relative bg-ink text-wall">
-    <Wrapper variant="standard" class="py-20 lg:py-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-        <div class="lg:col-span-7">
-          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)]">
-            Be one of the <span class="couture-wonky text-mb-pink">first million</span>
-            to legally own what they create.
-          </h2>
-        </div>
-        <div class="lg:col-span-5">
-          <p class="text-base text-wall/70 leading-relaxed">
-            500+ sign-ups across 23 countries and counting. iOS launch Q3 2026.
+    <Wrapper variant="standard" class="py-24 lg:py-36">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-10 items-end">
+        <h2 class="col-span-12 lg:col-span-7 section-title">
+          Be one of the <span class="couture-wonky text-mb-pink">first million</span>
+          to legally own what they create.
+        </h2>
+        <div class="col-span-12 lg:col-span-4 lg:col-start-9">
+          <p class="text-base lg:text-lg text-wall/70 leading-relaxed">
+            500+ sign-ups across 23 countries. iOS launch Q3 2026.
             Get notified the moment we hit the App Store.
           </p>
           <a href="/waitlist" class="btn-pink shimmer-hover mt-8">

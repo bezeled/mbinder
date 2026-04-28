@@ -24,50 +24,28 @@ if (variant === "purple") { left = right = "var(--color-mb-purple)"; }
 if (variant === "duo-purple") { left = "var(--color-mb-pink)"; right = "var(--color-mb-purple)"; }
 if (variant === "duo-ink") { left = "var(--color-mb-pink)"; right = "var(--color-ink)"; }
 
-// Split infinity: two interlocking oval loops, chain-link weave.
-// Loops are taller than wide so the silhouette reads as ∞ but with a real link
-// in the middle — the right edge of the left loop crosses over the right loop.
+// Split infinity: two interlocking vertical loops, chain-link weave.
+// Tall ovals (ry > rx) so each loop reads as a real link, not a circle.
+// Right half of the left loop is redrawn over the right loop to create the weave.
 ---
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 72 40"
+  viewBox="0 0 72 48"
   width={dim}
   height="auto"
   class={`${glow ? "binder-glow" : ""} ${className}`}
   role="img"
   aria-label={ariaLabel}
 >
-  <g transform="rotate(-6 36 20)">
-    <!-- Left loop -->
-    <ellipse
-      cx="25"
-      cy="20"
-      rx="13"
-      ry="15"
-      fill="none"
-      stroke={left}
-      stroke-width="4.6"
-      stroke-linejoin="round"
-    />
-    <!-- Right loop -->
-    <ellipse
-      cx="47"
-      cy="20"
-      rx="13"
-      ry="15"
-      fill="none"
-      stroke={right}
-      stroke-width="4.6"
-      stroke-linejoin="round"
-    />
-    <!-- Weave: redraw the inner half of the left loop on top of the right loop
-         so the two genuinely interlock instead of just overlapping. -->
+  <g transform="rotate(-4 36 24)" fill="none" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Left loop (pink) -->
+    <ellipse cx="24" cy="24" rx="16" ry="18.5" stroke={left} />
+    <!-- Right loop (teal) -->
+    <ellipse cx="48" cy="24" rx="16" ry="18.5" stroke={right} />
+    <!-- Weave: redraw the right half of the left loop on top of the right loop -->
     <path
-      d="M 36 6.4 A 13 15 0 0 1 38 20 A 13 15 0 0 1 36 33.6"
-      fill="none"
+      d="M 24 5.5 A 16 18.5 0 0 1 40 24 A 16 18.5 0 0 1 24 42.5"
       stroke={left}
-      stroke-width="4.6"
-      stroke-linecap="round"
     />
   </g>
 </svg>
