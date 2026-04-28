@@ -3,7 +3,6 @@ import "@/styles/global.css";
 import BaseHead from "@/components/fundations/head/BaseHead.astro";
 import Navigation from "@/components/global/navigation/Navigation.astro";
 import Footer from "@/components/global/Footer.astro";
-import AudioPlayerScript from "@/components/fundations/scripts/AudioPlayerScript.astro";
 
 interface Props {
   seo?: {
@@ -35,6 +34,5 @@ const {
     {!hideNavigation && <Navigation />}
     <main class="grow min-w-0"><slot /></main>
     {!hideFooter && <Footer />}
-    <AudioPlayerScript />
   </body>
 </html>
