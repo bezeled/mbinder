@@ -65,17 +65,11 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
 
 <BaseLayout seo={{ title: "Don't lose your marbles" }}>
   <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="geo-circle hidden lg:block" style="width: 540px; height: 540px; top: -180px; left: -180px;"></div>
-    <div class="geo-rect hidden lg:block" style="width: 200px; height: 200px; top: 80px; right: 5vw;"></div>
+  <section class="relative">
     <Wrapper variant="standard" class="pt-20 pb-16 lg:pt-32 lg:pb-24">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         <div class="lg:col-span-7 relative z-10">
-          <div class="flex items-center gap-3 mb-8">
-            <BinderMark size={42} variant="duo" glow={false} />
-            <span class="mono-label text-ink-muted">Q3 2026 · iOS</span>
-          </div>
-          <h1 id="hero-title" class="couture text-[clamp(2.6rem,9vw,7rem)] text-ink kerning-display"></h1>
+          <h1 id="hero-title" class="page-hero-title text-ink kerning-display"></h1>
           <p class="mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-ink-muted">
             MemoryBinder is the legal property layer for your digital life. Photos,
             stories, audio, the moments that make a life — owned by you, recorded
@@ -91,11 +85,6 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
             <a href="/vision" class="btn-ghost">
               Read the vision
             </a>
-          </div>
-          <div class="mt-12 flex items-center gap-4 text-sm text-ink-muted">
-            <span class="couture-chip text-ink-muted">don&rsquo;t lose your marbles</span>
-            <span class="hidden sm:inline-block w-12 h-px bg-divider"></span>
-            <span class="hidden sm:inline mono-label">Your story. Your asset. Legally.</span>
           </div>
         </div>
 
@@ -187,33 +176,12 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     })();
   </script>
 
-  <!-- Couture marquee ribbon -->
-  <section class="border-y border-ink bg-ink">
-    <div class="mb-marquee py-3">
-      <div class="mb-marquee-track text-mb-pink mono-label">
-        {Array.from({ length: 2 }).map(() => (
-          <>
-            <span>Your story · Your asset · Legally</span>
-            <span class="text-wall">★</span>
-            <span>Provenance recorded · Ownership established</span>
-            <span class="text-wall">★</span>
-            <span>The right travels with the asset</span>
-            <span class="text-wall">★</span>
-            <span>Don&rsquo;t lose your marbles</span>
-            <span class="text-wall">★</span>
-          </>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Manifesto -->
   <section class="relative">
     <Wrapper variant="standard" class="py-20 lg:py-32">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <div class="lg:col-span-5">
-          <p class="mono-label text-mb-pink mb-6">THE INSIGHT</p>
-          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink">
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink">
             When rights are clear,
             <span class="couture-wonky text-mb-pink">everyone wins.</span>
           </h2>
@@ -251,8 +219,7 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     <Wrapper variant="standard" class="py-20 lg:py-28">
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
         <div>
-          <p class="mono-label text-mb-pink mb-3">A WALL OF MEMORIES</p>
-          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink max-w-2xl">
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink max-w-2xl">
             Photos. Stories. Audio. <span class="couture-wonky">Moments that make a life.</span>
           </h2>
         </div>
@@ -280,8 +247,7 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     <Wrapper variant="standard" class="py-20 lg:py-32">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-16">
         <div class="lg:col-span-5">
-          <p class="mono-label text-mb-pink mb-5">THE STACK</p>
-          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink leading-[0.95]">
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink leading-[0.95]">
             Four layers. <span class="couture-wonky text-mb-pink italic">One property system.</span>
           </h2>
         </div>
@@ -350,8 +316,7 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     <Wrapper variant="standard" class="py-20 lg:py-32">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
         <div class="lg:col-span-7">
-          <p class="mono-label text-mb-pink mb-6">JOIN THE WAITLIST</p>
-          <h2 class="couture text-[clamp(2rem,6vw,4.5rem)]">
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)]">
             Be one of the <span class="couture-wonky text-mb-pink">first million</span>
             to legally own what they create.
           </h2>

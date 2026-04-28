@@ -25,13 +25,16 @@ const navColumns = [
     links: [
       { name: "Memories", href: "/learn/memories" },
       { name: "Wallets & Walls", href: "/learn/wallets" },
+      { name: "Registry", href: "/registry" },
     ],
   },
   {
-    title: "More",
+    title: "Designs",
     links: [
-      { name: "Registry", href: "/registry" },
-      { name: "Alt designs", href: "/alt-designs" },
+      { name: "Main", href: "/" },
+      { name: "Yin yang", href: "/two" },
+      { name: "Main app", href: "/three" },
+      { name: "All alts", href: "/alt-designs" },
     ],
   },
   {
@@ -39,16 +42,16 @@ const navColumns = [
     links: [
       { name: "Privacy", href: "/legal/privacy" },
       { name: "Terms", href: "/legal/terms" },
-      { name: "Contact us", href: "/contact" },
+      { name: "Contact", href: "/contact" },
     ],
   },
 ];
 ---
 
 <footer class="z-0 w-full border-t border-divider pb-[env(safe-area-inset-bottom,0px)] bg-wall">
-  <Wrapper variant="standard" class="py-16 md:py-24 lg:py-28">
+  <Wrapper variant="standard" class="py-20 lg:py-28">
     <!-- Mobile compact -->
-    <div class="flex flex-col gap-5 md:hidden">
+    <div class="flex flex-col gap-6 md:hidden">
       <a href="/" class="inline-flex">
         <Wordmark size="md" variant="duo" />
       </a>
@@ -76,41 +79,49 @@ const navColumns = [
       </p>
     </div>
 
-    <!-- Desktop full -->
-    <div class="hidden md:grid grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14">
-      <div class="lg:col-span-3 flex flex-col gap-6">
-        <a href="/" class="inline-flex">
-          <Wordmark size="md" variant="duo" />
-        </a>
-        <p class="text-sm text-ink-muted leading-relaxed max-w-[26ch]">
-          Your story. Your asset. Legally.
-        </p>
-        <p class="text-xs text-ink-faint mt-2 max-w-[28ch] leading-relaxed">
-          The legal property infrastructure for personal data, memories,
-          and consumer AI agents.
-        </p>
-      </div>
-      {navColumns.map((col) => (
-        <div class="lg:col-span-2 last:lg:col-span-1">
-          <p class="mono-label text-ink font-medium mb-5">{col.title}</p>
-          <nav class="flex flex-col gap-3">
-            {col.links.map((link) => (
-              <a
-                href={link.href}
-                class="text-sm text-ink-muted hover:text-mb-pink transition-colors break-words"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+    <!-- Desktop -->
+    <div class="hidden md:block">
+      <div class="grid grid-cols-12 gap-x-10 gap-y-12">
+        <div class="col-span-12 lg:col-span-4 flex flex-col gap-5">
+          <a href="/" class="inline-flex">
+            <Wordmark size="md" variant="duo" />
+          </a>
+          <p class="text-base text-ink leading-relaxed max-w-[32ch]">
+            Your story. Your asset. Legally.
+          </p>
+          <p class="text-sm text-ink-muted leading-relaxed max-w-[34ch]">
+            The legal property infrastructure for personal data, memories,
+            and consumer AI agents.
+          </p>
         </div>
-      ))}
+
+        <div class="col-span-12 lg:col-span-8">
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10">
+            {navColumns.map((col) => (
+              <div>
+                <p class="text-sm font-grotesk font-semibold text-ink mb-4">{col.title}</p>
+                <nav class="flex flex-col gap-2.5">
+                  {col.links.map((link) => (
+                    <a
+                      href={link.href}
+                      class="text-sm text-ink-muted hover:text-mb-pink transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-rule mt-16 lg:mt-20 mb-6" />
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ink-muted">
+        <p>&copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.</p>
+        <p>Made with care in Sydney.</p>
+      </div>
     </div>
-
-    <hr class="section-rule mt-16 lg:mt-20 mb-8 hidden md:block" />
-
-    <p class="hidden md:block text-xs text-ink-muted font-mono">
-      &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
-    </p>
   </Wrapper>
 </footer>

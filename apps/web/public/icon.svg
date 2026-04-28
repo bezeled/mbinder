@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MemoryBinder">
-  <rect width="64" height="64" fill="#FFFFFF"/>
-  <g transform="rotate(-4 32 32)">
-    <circle cx="22" cy="32" r="13" fill="none" stroke="#E91E63" stroke-width="4.6"/>
-    <circle cx="42" cy="32" r="13" fill="none" stroke="#1F7A7E" stroke-width="4.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="MemoryBinder">
+  <rect width="72" height="72" fill="#FFFFFF"/>
+  <g transform="rotate(-6 36 36)">
+    <ellipse cx="25" cy="36" rx="13" ry="15" fill="none" stroke="#E91E63" stroke-width="4.8" stroke-linejoin="round"/>
+    <ellipse cx="47" cy="36" rx="13" ry="15" fill="none" stroke="#1F7A7E" stroke-width="4.8" stroke-linejoin="round"/>
     <path
-      d="M 32 19.5 A 13 13 0 0 1 35 32 A 13 13 0 0 1 32 44.5"
+      d="M 36 22.4 A 13 15 0 0 1 38 36 A 13 15 0 0 1 36 49.6"
       fill="none"
       stroke="#E91E63"
-      stroke-width="4.6"
+      stroke-width="4.8"
       stroke-linecap="round"
     />
   </g>
