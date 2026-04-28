@@ -1,0 +1,189 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import HomeIterationSwitcher from "@/components/global/HomeIterationSwitcher.astro";
+import SiteImage from "@/components/SiteImage.astro";
+import butterflyImg from "@/images/butterfly-flower.jpg";
+import waterfallImg from "@/images/waterfall-explorers.jpg";
+import lanternsImg from "@/images/hanging-lanterns.jpg";
+import balletImg from "@/images/ballet-dancer.jpg";
+import autumnImg from "@/images/autumn-forest.jpg";
+
+const yinPoints = [
+  { k: "Without MemoryBinder", v: "Your photos train models nobody asked you about." },
+  { k: "Without MemoryBinder", v: "Your memories live on someone else's balance sheet." },
+  { k: "Without MemoryBinder", v: "Your story has no legal title. So it has no value." },
+  { k: "Without MemoryBinder", v: "When you leave the platform, the asset stays behind." },
+];
+
+const yangPoints = [
+  { k: "With MemoryBinder", v: "Every memory authenticated. Provenance recorded." },
+  { k: "With MemoryBinder", v: "Ownership established. Title is yours." },
+  { k: "With MemoryBinder", v: "The right travels with the asset, everywhere it goes." },
+  { k: "With MemoryBinder", v: "Share. Gift. License. Legally documented every time." },
+];
+---
+
+<BaseLayout
+  seo={{ title: "Two halves of one story" }}
+  bodyClass="bg-wall"
+>
+  <!-- Hero — yin-yang split -->
+  <section class="relative">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <!-- Yin: ink -->
+      <div class="relative bg-ink text-wall px-6 sm:px-10 lg:px-16 py-24 lg:py-36 overflow-hidden">
+        <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mb-pink/30 blur-3xl"></div>
+        <div class="relative z-10 max-w-xl mx-auto lg:mx-0 lg:ml-auto lg:mr-12">
+          <p class="mono-label text-mb-pink mb-8">SIDE A · THE PROBLEM</p>
+          <h1 class="couture text-[clamp(2.6rem,7vw,5.4rem)] text-wall leading-[0.95] mb-8">
+            We lost control
+            <span class="couture-wonky text-mb-pink"> of our own stories.</span>
+          </h1>
+          <p class="text-base lg:text-lg text-wall/70 leading-relaxed">
+            We became the supply chain for someone else&rsquo;s balance sheet.
+            And we are just waking up.
+          </p>
+        </div>
+      </div>
+
+      <!-- Yang: pink -->
+      <div class="relative bg-mb-pink text-wall px-6 sm:px-10 lg:px-16 py-24 lg:py-36 overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-ink/30 blur-3xl"></div>
+        <div class="relative z-10 max-w-xl mx-auto lg:mx-0 lg:mr-auto lg:ml-12">
+          <p class="mono-label text-ink mb-8">SIDE B · THE FIX</p>
+          <h1 class="couture text-[clamp(2.6rem,7vw,5.4rem)] text-wall leading-[0.95] mb-8">
+            Your story.
+            <br /><span class="couture-wonky text-ink">Your asset.</span>
+            <br /><span>Legally.</span>
+          </h1>
+          <p class="text-base lg:text-lg text-wall/85 leading-relaxed">
+            MemoryBinder builds the legal property layer underneath what you
+            already do. Photos. Stories. Audio. Owned.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The mark, centred between -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:flex items-center justify-center">
+      <div class="rounded-full bg-wall p-6 border border-ink shadow-[0_24px_60px_-20px_rgba(11,11,11,0.5)]">
+        <BinderMark size={86} variant="duo" />
+      </div>
+    </div>
+    <div class="lg:hidden flex justify-center -mt-10 -mb-10 relative z-20">
+      <div class="rounded-full bg-wall p-5 border border-ink shadow-[0_18px_40px_-16px_rgba(11,11,11,0.4)]">
+        <BinderMark size={72} variant="duo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA bar -->
+  <section class="border-t border-divider bg-wall">
+    <Wrapper variant="standard" class="py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <p class="mono-label text-ink-muted">Q3 2026 · iOS launch</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="/waitlist" class="btn-pink">Try MemoryBinder</a>
+        <a href="/vision" class="btn-ghost">Read the vision</a>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Two columns: contrast -->
+  <section class="bg-wall border-t border-divider">
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div class="space-y-6">
+          <p class="mono-label text-ink-muted">SIDE A</p>
+          <h2 class="couture text-3xl lg:text-5xl text-ink-soft max-w-md">
+            What it looks like <span class="couture-wonky">without title.</span>
+          </h2>
+          <ul class="flex flex-col gap-4">
+            {yinPoints.map((p) => (
+              <li class="flex gap-4 border-t border-divider pt-4">
+                <span class="mono-label text-ink-muted shrink-0 w-32">{p.k}</span>
+                <span class="text-ink leading-relaxed flex-1">{p.v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="space-y-6 lg:pl-10 lg:border-l border-ink">
+          <p class="mono-label text-mb-pink">SIDE B</p>
+          <h2 class="couture text-3xl lg:text-5xl text-ink max-w-md">
+            What it looks like <span class="couture-wonky text-mb-pink">when title is yours.</span>
+          </h2>
+          <ul class="flex flex-col gap-4">
+            {yangPoints.map((p) => (
+              <li class="flex gap-4 border-t border-ink pt-4">
+                <span class="mono-label text-mb-pink shrink-0 w-32">{p.k}</span>
+                <span class="text-ink leading-relaxed flex-1">{p.v}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Floating gallery -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-wall via-wall-warm to-wall pointer-events-none"></div>
+    <Wrapper variant="standard" class="relative py-20 lg:py-32">
+      <div class="max-w-2xl mb-14">
+        <p class="mono-label text-mb-pink mb-4">THE PRODUCT</p>
+        <h2 class="couture text-[clamp(2rem,5vw,4rem)] text-ink">
+          Same behaviour. <span class="couture-wonky text-mb-pink">Radically different outcome.</span>
+        </h2>
+        <p class="mt-6 text-base lg:text-lg text-ink-soft leading-relaxed">
+          MemoryBinder looks and feels like the sharing apps people already
+          use. People share photos. They gift content. They build collections.
+          Nothing about the behaviour changes. What changes is what happens
+          underneath.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8">
+        <div class="memory-orb aspect-square float-slow">
+          <SiteImage src={butterflyImg} alt="Butterfly" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-fast translate-y-8">
+          <SiteImage src={waterfallImg} alt="Waterfall" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-med">
+          <SiteImage src={balletImg} alt="Ballet" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-slow translate-y-12">
+          <SiteImage src={lanternsImg} alt="Lanterns" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-med">
+          <SiteImage src={autumnImg} alt="Autumn" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Big block CTA -->
+  <section class="bg-ink text-wall border-t border-ink">
+    <Wrapper variant="standard" class="py-24 lg:py-36">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-8">
+          <h2 class="couture text-[clamp(2.4rem,7vw,5.4rem)]">
+            Don&rsquo;t lose your <span class="couture-wonky text-mb-pink">marbles.</span>
+          </h2>
+          <p class="mt-6 max-w-xl text-base lg:text-lg text-wall/70 leading-relaxed">
+            iOS app launches Q3 2026. Scan, sign up, or join the waitlist —
+            we&rsquo;ll let you know the moment it hits the App Store.
+          </p>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Try MemoryBinder</a>
+          <a href="/marketplace" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">See the marketplace</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <HomeIterationSwitcher current="v2" />
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section>
+  <Wrapper variant="standard" class="py-20 lg:py-32">
+    <div class="max-w-2xl">
+      <p class="mono-label text-ink-muted mb-4">SUBSCRIBE</p>
+      <p class="text-base text-ink-muted leading-relaxed">
+        Research, policy updates, and developments in AI governance and legal authentication — delivered when it matters.
+      </p>
+      <form class="flex flex-col items-stretch w-full mt-8 gap-4 sm:flex-row sm:items-end sm:gap-3">
+        <div class="w-full">
+          <label for="email" class="sr-only">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full h-10 px-0 py-2 text-sm bg-transparent border-0 border-b border-ink text-ink placeholder-ink-muted/40 focus:outline-none focus:ring-0 focus:border-ink"
+            placeholder="you@example.com"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full sm:w-auto bg-ink text-white text-sm font-medium px-6 py-2.5 hover:bg-ink-light transition-colors whitespace-nowrap"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </Wrapper>
+</section>

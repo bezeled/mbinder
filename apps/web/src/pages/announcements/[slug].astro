@@ -1,0 +1,124 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import { getAllNewsPosts, getNewsPostBySlug } from "@/lib/data";
+import { portableTextToHtml } from "@/lib/sanity";
+
+export async function getStaticPaths() {
+  const announcementEntries = (await getAllNewsPosts()).sort(
+    (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+  );
+
+  return announcementEntries.map((announcement) => ({
+    params: { slug: announcement.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const announcementEntries = (await getAllNewsPosts()).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+const cmsAnnouncement = slug ? await getNewsPostBySlug(slug) : null;
+
+if (!cmsAnnouncement) {
+  return Astro.redirect("/404");
+}
+
+const title = cmsAnnouncement.data.title;
+const category = cmsAnnouncement.data.category;
+const publishedAt = cmsAnnouncement.data.publishedAt;
+const excerpt = cmsAnnouncement.data.excerpt || "";
+const intro = excerpt;
+const bodyHtml =
+  cmsAnnouncement.body && cmsAnnouncement.body.length > 0
+    ? portableTextToHtml(cmsAnnouncement.body)
+    : "";
+const heroImage = cmsAnnouncement.data.image;
+const seo = {
+  title,
+  description: excerpt,
+  image: heroImage,
+  type: "article" as const,
+  publishedTime: publishedAt.toISOString(),
+};
+const relatedEntries = announcementEntries
+  .filter((entry) => entry.slug !== slug)
+  .slice(0, 3);
+---
+
+<BaseLayout seo={seo}>
+  <section class="relative overflow-hidden">
+    <div class="geo-circle hidden lg:block" style="width: 420px; height: 420px; top: -120px; right: -160px;"></div>
+    <Wrapper variant="standard" class="pt-24 pb-16 lg:pt-36 lg:pb-20">
+      <div class="max-w-5xl">
+        <a href="/announcements" class="mono-label text-ink-muted hover:text-ink transition-colors">
+          Back to announcements
+        </a>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <p class="mono-label text-ink-muted">{category.toUpperCase()}</p>
+          <time class="mono-label text-ink-muted" datetime={publishedAt.toISOString()}>
+            {publishedAt.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
+          </time>
+        </div>
+        <h1 class="mt-6 text-4xl lg:text-6xl font-medium text-ink leading-tight max-w-5xl">
+          {title}
+        </h1>
+        {intro && (
+          <p class="mt-8 max-w-3xl text-lg leading-relaxed text-ink">
+            {intro}
+          </p>
+        )}
+        {heroImage?.url && (
+          <div class="mt-10 overflow-hidden border border-ghost-stroke bg-linen-dark">
+            <img
+              src={heroImage.url}
+              alt={heroImage.alt || title}
+              class="w-full aspect-[16/9] object-cover"
+              loading="lazy"
+            />
+          </div>
+        )}
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="max-w-4xl">
+        {bodyHtml && (
+          <article class="max-w-3xl">
+            <div
+              class="prose prose-sm max-w-none text-ink-muted leading-relaxed"
+              set:html={bodyHtml}
+            />
+          </article>
+        )}
+
+        {relatedEntries.length > 0 && (
+          <aside class="mt-16 max-w-3xl lg:mt-20">
+            <div class="border-t border-divider pt-6">
+              <p class="mono-label text-ink-muted">More from MemoryBinder</p>
+              <div class="mt-6 flex flex-col">
+                {relatedEntries.map((entry) => (
+                  <a href={`/announcements/${entry.slug}`} class="block border-t border-divider py-5 hover:bg-linen-dark/30 transition-colors -mx-4 px-4">
+                    <p class="mono-label text-ink-muted">{entry.data.category.toUpperCase()}</p>
+                    <h2 class="mt-2 text-lg font-medium text-ink leading-snug">{entry.data.title}</h2>
+                    {entry.data.excerpt && (
+                      <p class="mt-2 text-sm leading-relaxed text-ink-muted">{entry.data.excerpt}</p>
+                    )}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </aside>
+        )}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

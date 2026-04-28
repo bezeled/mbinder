@@ -1,0 +1,103 @@
+---
+import Wrapper from "../fundations/containers/Wrapper.astro";
+import Wordmark from "../fundations/icons/Wordmark.astro";
+
+const navColumns = [
+  {
+    title: "Product",
+    links: [
+      { name: "Marketplace", href: "/marketplace" },
+      { name: "Products", href: "/products" },
+      { name: "Try MemoryBinder", href: "/waitlist" },
+    ],
+  },
+  {
+    title: "Story",
+    links: [
+      { name: "Vision", href: "/vision" },
+      { name: "Trust", href: "/trust" },
+      { name: "Blog", href: "/blog" },
+      { name: "Announcements", href: "/announcements" },
+    ],
+  },
+  {
+    title: "Learn",
+    links: [
+      { name: "Memories", href: "/learn/memories" },
+      { name: "Wallets & Walls", href: "/learn/wallets" },
+    ],
+  },
+  {
+    title: "Registry",
+    links: [{ name: "Registry", href: "/registry" }],
+  },
+  {
+    title: "Legal",
+    links: [
+      { name: "Privacy", href: "/legal/privacy" },
+      { name: "Terms", href: "/legal/terms" },
+      { name: "Contact us", href: "/contact" },
+    ],
+  },
+];
+---
+
+<footer class="z-0 w-full border-t border-divider pb-[env(safe-area-inset-bottom,0px)] bg-wall">
+  <Wrapper variant="standard" class="py-10 md:py-16 lg:py-20">
+    <!-- Mobile compact -->
+    <div class="flex flex-col gap-3 md:hidden">
+      <div class="flex items-center justify-between gap-4">
+        <a href="/">
+          <Wordmark size="sm" variant="duo" />
+        </a>
+        <p class="text-[11px] text-ink-muted text-right">
+          &copy; {new Date().getFullYear()} MemoryBinder
+        </p>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-muted">
+        <a href="/registry" class="hover:text-mb-pink transition-colors">Registry</a>
+        <a href="/legal/privacy" class="hover:text-mb-pink transition-colors">Privacy</a>
+        <a href="/legal/terms" class="hover:text-mb-pink transition-colors">Terms</a>
+        <a href="/contact" class="hover:text-mb-pink transition-colors">Contact</a>
+      </div>
+    </div>
+
+    <!-- Desktop full -->
+    <div class="hidden md:grid grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
+      <div class="lg:col-span-1">
+        <a href="/">
+          <Wordmark size="md" variant="duo" />
+        </a>
+        <p class="mt-5 text-sm text-ink-muted leading-relaxed max-w-[26ch]">
+          Your story. Your asset. Legally.
+        </p>
+      </div>
+      {navColumns.map((col) => (
+        <div>
+          <p class="mono-label text-ink font-medium mb-4">{col.title}</p>
+          <nav class="flex flex-col gap-2">
+            {col.links.map((link) => (
+              <a
+                href={link.href}
+                class="text-sm text-ink-muted hover:text-mb-pink transition-colors break-words"
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      ))}
+    </div>
+
+    <hr class="section-rule my-10 hidden md:block" />
+
+    <div class="hidden md:flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="text-xs text-ink-muted font-mono">
+        &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
+      </p>
+      <p class="text-xs text-ink-muted font-mono">
+        Built in Naarm.
+      </p>
+    </div>
+  </Wrapper>
+</footer>

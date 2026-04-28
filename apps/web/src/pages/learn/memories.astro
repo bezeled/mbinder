@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import SiteImage from "@/components/SiteImage.astro";
+import butterflyImg from "@/images/butterfly-flower.jpg";
+import balletImg from "@/images/ballet-dancer.jpg";
+import lanternsImg from "@/images/hanging-lanterns.jpg";
+
+const lifecycle = [
+  {
+    n: "01",
+    label: "CAPTURE",
+    body: "You upload a photo, an audio note, a story. The same way you've always done.",
+  },
+  {
+    n: "02",
+    label: "AUTHENTICATE",
+    body: "MemoryBinder registers it on the legal infrastructure. Provenance is recorded. Title is established.",
+  },
+  {
+    n: "03",
+    label: "TRAVEL",
+    body: "The right travels with the asset. Share it, gift it, license it — the legal record goes where the memory goes.",
+  },
+  {
+    n: "04",
+    label: "ATTACH",
+    body: "Real-world legal events — birth, marriage, travel, contracts — attach to the memory through Smart Legal Contracts and verified APIs.",
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Memories" }}>
+  <section class="relative">
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-32 lg:pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">LEARN · MEMORIES</p>
+          <h1 class="page-hero-title text-ink">
+            A memory is <span class="couture-wonky text-mb-pink">a property right.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            Photos, audio, video, stories — the moments that make a life. On
+            MemoryBinder, every one is wrapped with a legal title that
+            travels with it.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Editorial -->
+  <section>
+    <Wrapper variant="standard" class="pb-12">
+      <div class="grid grid-cols-3 gap-6">
+        <div class="memory-orb aspect-square float-slow">
+          <SiteImage src={butterflyImg} alt="Butterfly" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-med translate-y-12">
+          <SiteImage src={balletImg} alt="Ballet" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+        </div>
+        <div class="memory-orb aspect-square float-fast">
+          <SiteImage src={lanternsImg} alt="Lanterns" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Lifecycle -->
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <p class="mono-label text-mb-pink mb-12">THE LIFECYCLE OF A MEMORY</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        {lifecycle.map((l) => (
+          <div class="border-t border-ink pt-6">
+            <p class="couture text-5xl text-mb-pink mb-3">{l.n}</p>
+            <p class="mono-label text-ink mb-3">{l.label}</p>
+            <p class="text-sm text-ink-muted leading-relaxed">{l.body}</p>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="bg-wall-warm border-y border-divider">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <blockquote class="max-w-3xl">
+        <p class="couture text-[clamp(1.6rem,3.6vw,2.8rem)] text-ink">
+          A user shares a photo. MemoryBinder authenticates it as their legal
+          property. Provenance recorded. Ownership established.
+          <span class="couture-wonky text-mb-pink">The right travels with the asset.</span>
+        </p>
+        <cite class="mono-label text-ink-muted mt-6 block not-italic">— How it works</cite>
+      </blockquote>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <BinderMark size={48} variant="duo" />
+          <h2 class="couture text-3xl lg:text-5xl mt-6">
+            Start collecting. <span class="couture-wonky text-mb-pink">Start owning.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Try MemoryBinder</a>
+          <a href="/learn/wallets" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">Learn about wallets</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

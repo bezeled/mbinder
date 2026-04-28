@@ -1,0 +1,52 @@
+---
+interface Props {
+  size?: number | string;
+  variant?: "duo" | "ink" | "pink" | "teal" | "purple" | "duo-purple" | "duo-ink";
+  class?: string;
+  ariaLabel?: string;
+  glow?: boolean;
+}
+const {
+  size = 48,
+  variant = "duo",
+  class: className = "",
+  ariaLabel = "MemoryBinder mark",
+  glow = true,
+} = Astro.props;
+const dim = typeof size === "number" ? `${size}px` : size;
+
+let left = "var(--color-mb-pink)";
+let right = "var(--color-mb-teal)";
+if (variant === "ink") { left = right = "var(--color-ink)"; }
+if (variant === "pink") { left = right = "var(--color-mb-pink)"; }
+if (variant === "teal") { left = right = "var(--color-mb-teal)"; }
+if (variant === "purple") { left = right = "var(--color-mb-purple)"; }
+if (variant === "duo-purple") { left = "var(--color-mb-pink)"; right = "var(--color-mb-purple)"; }
+if (variant === "duo-ink") { left = "var(--color-mb-pink)"; right = "var(--color-ink)"; }
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 96 56"
+  width={dim}
+  height="auto"
+  class={`${glow ? "binder-glow" : ""} ${className}`}
+  role="img"
+  aria-label={ariaLabel}
+>
+  <path
+    d="M48 28 C48 16, 36 6, 24 6 C8 6, 4 22, 14 30 C24 38, 40 28, 48 28 Z"
+    fill="none"
+    stroke={left}
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M48 28 C48 40, 60 50, 72 50 C88 50, 92 34, 82 26 C72 18, 56 28, 48 28 Z"
+    fill="none"
+    stroke={right}
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

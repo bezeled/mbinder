@@ -1,0 +1,209 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const tiers = [
+  {
+    name: "Free",
+    eyebrow: "FOR EVERYONE",
+    price: "$0",
+    cadence: "always free",
+    blurb: "Get on the property ladder. Every user gets a wallet and ten asset uploads per month, up to 2GB.",
+    features: [
+      "1 wallet, ten asset uploads / month",
+      "Up to 2 GB of authenticated storage",
+      "Read-only access to wallets shared by paying users — always free",
+      "No credit card. No time limit.",
+    ],
+    cta: { label: "Join the waitlist", href: "/waitlist" },
+    accent: "ink",
+  },
+  {
+    name: "Vault",
+    eyebrow: "FOR ACTIVE CUSTODIANS",
+    price: "AUD$3.99",
+    cadence: "/ month",
+    blurb: "Unlimited authenticated uploads up to 500GB, agents, sharing, and gifting.",
+    features: [
+      "Unlimited uploads (up to 500 GB)",
+      "Authenticated assets, agents, sharing & gifting",
+      "Move from Free → Vault automatically when you hit 10 uploads in a month",
+      "Audio memories. Video. Photos. Stories.",
+    ],
+    cta: { label: "Join the waitlist", href: "/waitlist" },
+    accent: "pink",
+    featured: true,
+  },
+  {
+    name: "Vault+",
+    eyebrow: "FOR THE FAMILY ARCHIVE",
+    price: "AUD$8.99",
+    cadence: "/ month",
+    blurb: "Unlimited uploads up to 1TB, plus the legal tooling to license, transfer, and trade.",
+    features: [
+      "Everything in Vault, up to 1 TB",
+      "Shared authenticated collections",
+      "Estate & transfer tooling — gift it, pass it on",
+      "Access to the Smart Legal Contract layer",
+    ],
+    cta: { label: "Join the waitlist", href: "/waitlist" },
+    accent: "purple",
+  },
+];
+
+const skins = [
+  { label: "PORTRAIT WALLET", price: "AUD$1.99" },
+  { label: "VINTAGE LEATHER", price: "AUD$8" },
+  { label: "EVENING CLUTCH", price: "AUD$25" },
+  { label: "COUTURE EDITION", price: "AUD$100" },
+];
+---
+
+<BaseLayout seo={{ title: "Products" }}>
+  <!-- Hero -->
+  <section class="relative">
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-32 lg:pb-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">PRODUCTS</p>
+          <h1 class="page-hero-title text-ink">
+            Three layers. <span class="couture-wonky text-mb-pink">Each makes the others more valuable.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            MemoryBinder is free to start, fair to scale. Pay only when you
+            outgrow the free tier. Your property travels with you, regardless
+            of plan.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Tier cards -->
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {tiers.map((t) => {
+          const isFeatured = t.featured;
+          const cardBase = isFeatured
+            ? "bg-ink text-wall border-ink"
+            : "bg-wall text-ink border-divider";
+          const accentClass =
+            t.accent === "pink" ? "text-mb-pink" : t.accent === "purple" ? "text-mb-purple" : "text-ink";
+          return (
+            <article class={`relative rounded-3xl border ${cardBase} p-8 lg:p-10 flex flex-col gap-6 ${isFeatured ? "lg:-translate-y-4 shadow-[0_24px_60px_-20px_rgba(11,11,11,0.35)]" : ""}`}>
+              {isFeatured && (
+                <span class="absolute -top-3 left-8 sticker bg-mb-pink text-wall border-mb-pink">Most popular</span>
+              )}
+              <div>
+                <p class={`mono-label ${isFeatured ? "text-mb-pink" : "text-ink-muted"} mb-2`}>{t.eyebrow}</p>
+                <h2 class={`couture text-4xl ${isFeatured ? "text-wall" : "text-ink"}`}>{t.name}</h2>
+              </div>
+              <div class="flex items-baseline gap-2">
+                <p class={`couture text-5xl ${accentClass}`}>{t.price}</p>
+                <p class={`mono-label ${isFeatured ? "text-wall/70" : "text-ink-muted"}`}>{t.cadence}</p>
+              </div>
+              <p class={`text-sm leading-relaxed ${isFeatured ? "text-wall/80" : "text-ink-muted"}`}>{t.blurb}</p>
+              <ul class={`flex flex-col gap-3 mt-2 text-sm ${isFeatured ? "text-wall/85" : "text-ink"}`}>
+                {t.features.map((f) => (
+                  <li class="flex gap-3 items-start">
+                    <span class={`mt-1.5 inline-block w-1.5 h-1.5 rounded-full ${isFeatured ? "bg-mb-pink" : "bg-ink"}`}></span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={t.cta.href}
+                class={`mt-auto ${isFeatured ? "btn-pink" : "btn-ghost"} w-full justify-center`}
+              >
+                {t.cta.label}
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Skins -->
+  <section class="bg-wall-warm border-y border-divider">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-4">
+          <p class="mono-label text-mb-pink mb-6">PREMIUM SKINS &amp; WALLETS</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink">
+            Couture for your <span class="couture-wonky text-mb-pink">digital estate.</span>
+          </h2>
+          <p class="mt-6 text-base text-ink-muted leading-relaxed">
+            We partner with fashion houses to release digital models of premium
+            bags and wallets on a shared profit model. Limited edition drops
+            for holidays and events.
+          </p>
+        </div>
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            {skins.map((s) => (
+              <div class="relative bg-wall border border-divider rounded-3xl p-8 flex flex-col gap-5 group">
+                <div class="market-orb aspect-[5/4] rounded-2xl"></div>
+                <div class="flex items-baseline justify-between">
+                  <p class="mono-label text-ink">{s.label}</p>
+                  <p class="mono-label text-mb-pink">{s.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Enterprise -->
+  <section>
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-5">
+          <p class="mono-label text-mb-pink mb-6">ENTERPRISE &amp; GOVERNMENT</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink max-w-md">
+            The supply the compliant economy <span class="couture-wonky text-mb-pink">has been waiting for.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {[
+            { k: "API access", v: "Verified, provenance-clear, consent-documented consumer data. Priced per query or per verified record." },
+            { k: "Agent governance", v: "Licensing for organisations that need to allow legally wrapped consumer agents into their platforms." },
+            { k: "Bulk authentication", v: "Contracts for regulated industries authenticating existing data estates against MemoryBinder's legal infrastructure." },
+            { k: "Marketplace fees", v: "Transaction fees on licensed, traded, and gifted assets moving through the authenticated marketplace." },
+          ].map((b) => (
+            <div class="rounded-3xl border border-divider p-6">
+              <p class="mono-label text-ink mb-3">{b.k}</p>
+              <p class="text-sm text-ink-muted leading-relaxed">{b.v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <BinderMark size={56} variant="duo" />
+          <h2 class="couture text-[clamp(2rem,6vw,4rem)] mt-6">
+            Free to start. <span class="couture-wonky text-mb-pink">Yours forever.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Join the waitlist</a>
+          <a href="/contact" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">Talk to enterprise</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+interface Props {
+  size?: "sm" | "md" | "lg";
+  variant?: "duo" | "ink" | "duo-purple" | "duo-ink";
+  showWord?: boolean;
+  wordVariant?: "duo" | "ink";
+  class?: string;
+}
+const {
+  size = "md",
+  variant = "duo",
+  showWord = true,
+  wordVariant = "duo",
+  class: className = "",
+} = Astro.props;
+
+const sizeMap = {
+  sm: { mark: 26, text: "text-[1rem]" },
+  md: { mark: 34, text: "text-[1.2rem]" },
+  lg: { mark: 56, text: "text-[2rem]" },
+};
+const s = sizeMap[size];
+---
+<span class={`logo-wordmark group/logo font-grotesk font-semibold tracking-tightest text-ink ${className}`}>
+  <BinderMark size={s.mark} variant={variant} ariaLabel="MemoryBinder" glow={false} />
+  {showWord && (
+    <span class={`relative z-10 leading-none ${s.text}`}>
+      {wordVariant === "duo" ? (
+        <><span class="text-mb-teal">memory</span><span class="text-mb-pink">binder</span></>
+      ) : (
+        <span class="text-ink">memorybinder</span>
+      )}
+    </span>
+  )}
+  <span class="logo-glow"></span>
+</span>

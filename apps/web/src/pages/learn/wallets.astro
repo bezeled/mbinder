@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const types = [
+  {
+    label: "PERSONAL WALLET",
+    body: "A private space for the memories that matter to you. Permissioned, encrypted, ready to be shared on your terms.",
+  },
+  {
+    label: "FAMILY WALLET",
+    body: "Shared between custodians. Pass it on, generation to generation. The legal record reflects every change of hands.",
+  },
+  {
+    label: "TRAVEL WALLET",
+    body: "A trip, a project, a season. Group memories by the chapter of life they belong to.",
+  },
+  {
+    label: "PUBLIC WALL",
+    body: "The face you choose to put outward. Make a wall public; everything else stays private.",
+  },
+  {
+    label: "MARKETPLACE WALLET",
+    body: "Items for sale, items licensed, items gifted. Title and terms travel with each one.",
+  },
+  {
+    label: "AGENT WALLET",
+    body: "AI agents acting on your behalf — wrapped with legal identity. Accountable. Allowed in.",
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Wallets & Walls" }}>
+  <section class="relative">
+    <Wrapper variant="standard" class="pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">LEARN · WALLETS &amp; WALLS</p>
+          <h1 class="page-hero-title text-ink">
+            Where your memories <span class="couture-wonky text-mb-pink">live.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            Wallets group memories by collection. Walls are the public face of
+            a wallet. You decide what goes private, what goes public, what
+            goes on the market.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Diagram -->
+  <section class="bg-wall-warm border-y border-divider">
+    <Wrapper variant="standard" class="py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+        <div class="text-center lg:text-left">
+          <p class="mono-label text-mb-pink mb-4">A MEMORY</p>
+          <p class="couture text-3xl lg:text-4xl text-ink">A photo, audio, story.</p>
+          <p class="text-sm text-ink-muted mt-3">The atomic unit. Authenticated, with title.</p>
+        </div>
+        <div class="text-center">
+          <p class="mono-label text-mb-pink mb-4">↓ GROUPED INTO</p>
+          <p class="couture text-3xl lg:text-4xl text-ink">A wallet.</p>
+          <p class="text-sm text-ink-muted mt-3">A private collection. Yours by default.</p>
+        </div>
+        <div class="text-center lg:text-right">
+          <p class="mono-label text-mb-pink mb-4">↓ EXPRESSED AS</p>
+          <p class="couture text-3xl lg:text-4xl text-ink">A wall.</p>
+          <p class="text-sm text-ink-muted mt-3">The face you choose to share with the world.</p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Wallet types -->
+  <section>
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <p class="mono-label text-mb-pink mb-12">SHAPES OF WALLETS</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {types.map((t, i) => (
+          <div class={`rounded-3xl border border-divider bg-wall p-8 ${i % 3 === 1 ? "lg:translate-y-6" : ""}`}>
+            <BinderMark size={28} variant={i % 2 === 0 ? "duo" : "duo-purple"} glow={false} />
+            <p class="mono-label text-ink mt-5 mb-2">{t.label}</p>
+            <p class="text-sm text-ink-muted leading-relaxed">{t.body}</p>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <h2 class="couture text-3xl lg:text-5xl">
+            Build a wallet. <span class="couture-wonky text-mb-pink">Pass it on.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Try MemoryBinder</a>
+          <a href="/marketplace" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">See the marketplace</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

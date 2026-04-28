@@ -1,0 +1,142 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const pageSections = [
+  {
+    title: "Static  ",
+    columns: [
+      {
+        category: " Pages",
+        links: [
+          { text: "Home", href: "/" },
+          { text: "404", href: "/404" },
+          { text: "About", href: "/about" },
+          { text: "Subscription", href: "/pricing" },
+        ],
+      },
+      {
+        category: "Forms",
+        links: [
+          { text: "Login", href: "/login" },
+          { text: "Sign up", href: "/signup" },
+          { text: "Contact", href: "/contact" },
+        ],
+      },
+      {
+        category: "System",
+        links: [
+          { text: "Colors", href: "/system/colors" },
+          { text: "Links", href: "/system/link" },
+          { text: "Buttons", href: "/system/buttons" },
+          { text: "Typography", href: "/system/typography" },
+        ],
+      },
+      {
+        category: "Resources",
+        links: [
+          { text: "Social", href: "https://x.com/lexingtonthemes" },
+          {
+            text: "License",
+            href: "https://lexingtonthemes.com/legal/license",
+          },
+          {
+            text: "Documentation",
+            href: "https://lexingtonthemes.com/documentation/quick-start",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Content",
+    columns: [
+      {
+        category: "News",
+        links: [
+          { text: "News", href: "/news" },
+          { text: "Announcements", href: "/announcements" },
+        ],
+      },
+      {
+        category: "Research",
+        links: [
+          { text: "Research Home", href: "/research" },
+          { text: "Working Paper", href: "/research/legal-attribution-gap" },
+        ],
+      },
+      {
+        category: "Offerings",
+        links: [
+          { text: "Products", href: "/products" },
+          { text: "Solutions", href: "/solutions" },
+        ],
+      },
+      {
+        category: "Legal",
+        links: [
+          { text: "Details", href: "/legal/privacy" },
+         
+        ],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="py-24">
+      <Text
+        tag="h1"
+        variant="displaySM"
+        class="font-medium text-base-900 uppercase"
+      >
+        Overview
+      </Text>
+      <div class="mt-12 flex flex-col gap-12 gap-4">
+        {
+          pageSections.map((section) => (
+            <div>
+              <Text
+                tag="h3"
+                variant="textBase"
+                class="font-serif text-base-900 "
+              >
+                {section.title}
+              </Text>
+              <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 mt-4  gap-8 lg:col-span-3">
+                {section.columns.map((column) => (
+                  <div class="flex flex-col gap-">
+                    <Text
+                      tag="p"
+                      variant="textXS"
+                      class="font-medium text-base-900 uppercase"
+                    >
+                      {column.category}
+                    </Text>
+                    <ul role="list" class="mt-1 list-none">
+                      {column.links.map((link) => (
+                        <li>
+                          <Text
+                            tag="a"
+                            variant="textXS"
+                            class="font-medium text-base-600 hover:text-base-900 hover:underline "
+                            href={link.href}
+                          >
+                            {link.text}
+                          </Text>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

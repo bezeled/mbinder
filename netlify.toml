@@ -1,0 +1,15 @@
+[build]
+  command = "pnpm build:web"
+  publish = "apps/web/dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+  PNPM_VERSION = "9.15.0"
+
+# Install pnpm before build
+[build.processing]
+
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404

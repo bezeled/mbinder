@@ -1,0 +1,165 @@
+---
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Wordmark from "@/components/fundations/icons/Wordmark.astro";
+---
+
+<header
+  id="navigation"
+  class="sticky top-0 z-50 border-b border-divider/60 bg-wall/90 backdrop-blur-md supports-[backdrop-filter]:bg-wall/85 pt-[env(safe-area-inset-top,0px)]"
+>
+  <Wrapper variant="standard">
+    <div class="flex items-center justify-between py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+      <a href="/" class="lg:justify-self-start">
+        <Wordmark size="md" variant="duo" />
+      </a>
+
+      <nav class="hidden lg:flex lg:items-center lg:justify-self-center lg:gap-7">
+        <a href="/marketplace" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Marketplace</a>
+        <a href="/vision" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Vision</a>
+        <a href="/products" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Products</a>
+
+        <div class="relative group" data-dropdown>
+          <button
+            type="button"
+            class="text-ink text-sm font-medium flex items-center gap-1 hover:text-mb-pink transition-colors"
+          >
+            Learn
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-0.5 transition-transform group-hover:rotate-180">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="bg-wall border border-divider py-2 min-w-[220px] shadow-[0_12px_30px_-16px_rgba(11,11,11,0.2)] rounded-2xl">
+              <p class="px-4 pt-2 pb-1 mono-label text-ink-muted text-[0.6rem]">Concepts</p>
+              <a href="/learn/memories" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">Memories</a>
+              <a href="/learn/wallets" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">Wallets &amp; Walls</a>
+              <a href="/learn" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">All concepts</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/trust" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Trust</a>
+        <a href="/blog" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Blog</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-4 lg:justify-self-end lg:gap-3">
+        <a
+          href="/waitlist"
+          class="hidden lg:inline-flex lg:items-center lg:justify-center lg:whitespace-nowrap lg:bg-mb-pink lg:px-5 lg:py-2.5 lg:rounded-full lg:text-sm lg:font-medium lg:text-white lg:transition-colors hover:lg:bg-mb-pink-deep"
+        >
+          Try MemoryBinder
+        </a>
+
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          class="mobile-nav-toggle lg:hidden"
+        >
+          <span class="mobile-nav-icon" aria-hidden="true">
+            <span class="mobile-nav-line"></span>
+            <span class="mobile-nav-line"></span>
+            <span class="mobile-nav-line"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </Wrapper>
+</header>
+
+<div id="mobile-menu-backdrop" class="mobile-nav-backdrop lg:hidden" data-open="false" aria-hidden="true"></div>
+<nav
+  id="mobile-menu"
+  class="mobile-nav-panel lg:hidden"
+  data-open="false"
+  aria-label="Mobile navigation"
+>
+  <div class="mobile-nav-shell">
+    <div class="mobile-nav-header mobile-nav-item" style="--mobile-nav-delay: 0.02s;">
+      <a href="/">
+        <Wordmark size="sm" variant="duo" />
+      </a>
+
+      <button
+        id="mobile-menu-close"
+        type="button"
+        aria-label="Close menu"
+        class="mobile-nav-close"
+      >
+        <span class="mobile-nav-close-line"></span>
+        <span class="mobile-nav-close-line"></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav-section mobile-nav-item" style="--mobile-nav-delay: 0.06s;">
+      <a href="/marketplace" class="mobile-nav-link">Marketplace</a>
+      <a href="/vision" class="mobile-nav-link">Vision</a>
+      <a href="/products" class="mobile-nav-link">Products</a>
+    </div>
+
+    <hr class="section-rule mobile-nav-divider mobile-nav-item" style="--mobile-nav-delay: 0.1s;" />
+
+    <div class="mobile-nav-section mobile-nav-item" style="--mobile-nav-delay: 0.14s;">
+      <p class="mono-label text-ink-muted">Learn</p>
+      <a href="/learn/memories" class="mobile-nav-link pl-4">Memories</a>
+      <a href="/learn/wallets" class="mobile-nav-link pl-4">Wallets &amp; Walls</a>
+    </div>
+
+    <hr class="section-rule mobile-nav-divider mobile-nav-item" style="--mobile-nav-delay: 0.18s;" />
+
+    <a href="/trust" class="mobile-nav-link mobile-nav-item" style="--mobile-nav-delay: 0.22s;">Trust</a>
+    <a href="/blog" class="mobile-nav-link mobile-nav-item" style="--mobile-nav-delay: 0.26s;">Blog</a>
+
+    <hr class="section-rule mobile-nav-divider mobile-nav-item" style="--mobile-nav-delay: 0.3s;" />
+
+    <p class="mono-label text-ink-muted mobile-nav-item" style="--mobile-nav-delay: 0.34s;">Design iterations</p>
+    <a href="/" class="mobile-nav-link mobile-nav-item text-ink-muted text-base" style="--mobile-nav-delay: 0.36s;">V1 — Editorial</a>
+    <a href="/two" class="mobile-nav-link mobile-nav-item text-ink-muted text-base" style="--mobile-nav-delay: 0.38s;">V2 — Yin Yang</a>
+    <a href="/three" class="mobile-nav-link mobile-nav-item text-ink-muted text-base" style="--mobile-nav-delay: 0.40s;">V3 — Marketplace</a>
+
+    <a
+      href="/waitlist"
+      class="mobile-nav-cta mobile-nav-item"
+      style="--mobile-nav-delay: 0.46s;"
+    >
+      Try MemoryBinder
+    </a>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("mobile-menu-btn");
+    const closeBtn = document.getElementById("mobile-menu-close");
+    const menu = document.getElementById("mobile-menu");
+    const backdrop = document.getElementById("mobile-menu-backdrop");
+    const items = menu?.querySelectorAll(".mobile-nav-item");
+    const links = menu?.querySelectorAll("a");
+    if (!btn || !menu) return;
+
+    let open = false;
+
+    const setMenuState = (nextOpen: boolean) => {
+      open = nextOpen;
+      btn.setAttribute("aria-expanded", String(open));
+      (menu as HTMLElement).dataset.open = String(open);
+      backdrop?.setAttribute("data-open", String(open));
+      document.body.classList.toggle("mobile-nav-open", open);
+      items?.forEach((item) => item.classList.toggle("is-visible", open));
+    };
+
+    btn.addEventListener("click", () => setMenuState(!open));
+    closeBtn?.addEventListener("click", () => setMenuState(false));
+    backdrop?.addEventListener("click", () => setMenuState(false));
+    links?.forEach((link) => link.addEventListener("click", () => setMenuState(false)));
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) setMenuState(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenuState(false);
+    });
+  });
+</script>

@@ -1,0 +1,336 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import HomeIterationSwitcher from "@/components/global/HomeIterationSwitcher.astro";
+import SiteImage from "@/components/SiteImage.astro";
+import butterflyImg from "@/images/butterfly-flower.jpg";
+import pinkCamelliasImg from "@/images/pink-camellias.jpg";
+import autumnImg from "@/images/autumn-forest.jpg";
+import balletImg from "@/images/ballet-dancer.jpg";
+import waterfallImg from "@/images/waterfall-explorers.jpg";
+import lanternsImg from "@/images/hanging-lanterns.jpg";
+
+const wallMemories = [
+  { img: butterflyImg, title: "Birthday song for Natasha", who: "Amani · 12 Apr" },
+  { img: pinkCamelliasImg, title: "Vineyard Coffee Table Book", who: "Amani · 02 Mar" },
+  { img: autumnImg, title: "Easter egg hunt", who: "Amani · 28 Mar" },
+  { img: balletImg, title: "Wings of Wonder: a symphony", who: "Amani · 15 Feb" },
+  { img: waterfallImg, title: "Two yellow raincoats", who: "Amani · 04 Jan" },
+  { img: lanternsImg, title: "Lantern night, Hanoi", who: "Amani · 09 Nov" },
+];
+
+const features = [
+  {
+    label: "MEMORIES",
+    description:
+      "Every photo, audio note, and story you upload becomes legally authenticated property. Provenance recorded. Ownership established.",
+    href: "/learn/memories",
+  },
+  {
+    label: "WALLETS",
+    description:
+      "Group memories into wallets. Share, gift, license. The legal record travels with the asset, everywhere it goes.",
+    href: "/learn/wallets",
+  },
+  {
+    label: "MARKETPLACE",
+    description:
+      "An authenticated marketplace where personal property finds its value. Licensed. Traded. Gifted. Always with clear title.",
+    href: "/marketplace",
+  },
+  {
+    label: "REGISTRY",
+    description:
+      "An independent legal registry for consumer data and consumer agents. Real-time. Machine-readable. Operative across borders.",
+    href: "/registry",
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Don't lose your marbles" }}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="geo-circle hidden lg:block" style="width: 540px; height: 540px; top: -180px; left: -180px;"></div>
+    <div class="geo-rect hidden lg:block" style="width: 200px; height: 200px; top: 80px; right: 5vw;"></div>
+    <Wrapper variant="standard" class="pt-20 pb-16 lg:pt-32 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-7 relative z-10">
+          <div class="flex items-center gap-3 mb-8">
+            <BinderMark size={42} variant="duo" glow={false} />
+            <span class="mono-label text-ink-muted">Q3 2026 · iOS</span>
+          </div>
+          <h1 id="hero-title" class="couture text-[clamp(2.6rem,9vw,7rem)] text-ink kerning-display"></h1>
+          <p class="mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-ink-muted">
+            MemoryBinder is the legal property layer for your digital life. Photos,
+            stories, audio, the moments that make a life — owned by you, recorded
+            in law, portable everywhere they go.
+          </p>
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-10">
+            <a href="/waitlist" class="btn-pink shimmer-hover">
+              Try MemoryBinder
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="/vision" class="btn-ghost">
+              Read the vision
+            </a>
+          </div>
+          <div class="mt-12 flex items-center gap-4 text-sm text-ink-muted">
+            <span class="couture-chip text-ink-muted">don&rsquo;t lose your marbles</span>
+            <span class="hidden sm:inline-block w-12 h-px bg-divider"></span>
+            <span class="hidden sm:inline mono-label">Your story. Your asset. Legally.</span>
+          </div>
+        </div>
+
+        <!-- Phone with App Store QR -->
+        <div class="lg:col-span-5 relative z-10">
+          <div class="relative mx-auto max-w-[300px] sm:max-w-[340px]">
+            <div class="phone-frame float-slow">
+              <div class="phone-screen">
+                <div class="phone-notch"></div>
+                <!-- App preview -->
+                <div class="absolute inset-0 flex flex-col px-5 pt-12 pb-6 bg-wall">
+                  <div class="flex items-center justify-between mb-4">
+                    <p class="text-[10px] mono-label text-ink-muted">10:28</p>
+                    <BinderMark size={20} variant="duo" glow={false} />
+                  </div>
+                  <p class="font-grotesk text-base font-semibold text-ink mb-1">Amani's Personal Wall</p>
+                  <p class="mono-label text-ink-muted mb-4">12 memories &middot; private</p>
+                  <div class="grid grid-cols-2 gap-3 grow">
+                    {wallMemories.slice(0, 4).map((m) => (
+                      <div>
+                        <div class="memory-orb aspect-square">
+                          <SiteImage src={m.img} alt={m.title} class="memory-orb-img" widths={[180, 240]} sizes="180px" loading="lazy" />
+                        </div>
+                        <p class="text-[10px] font-grotesk text-ink mt-2 leading-tight">{m.title}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div class="flex items-center justify-around pt-3 mt-3 border-t border-divider">
+                    <span class="mono-label text-ink-muted">create</span>
+                    <span class="mono-label text-mb-pink">wallet</span>
+                    <span class="mono-label text-ink-muted">market</span>
+                    <span class="mono-label text-ink-muted">more</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- QR sticker -->
+            <div class="absolute -bottom-6 -right-2 sm:-right-6 rotate-3">
+              <div class="bg-wall border border-ink p-3 rounded-2xl shadow-[0_18px_30px_-16px_rgba(11,11,11,0.3)]">
+                <div class="grid grid-cols-7 gap-[2px] w-[78px]">
+                  {Array.from({ length: 49 }).map((_, i) => (
+                    <span class={`block w-full aspect-square ${[0,1,2,5,6,7,9,11,12,14,15,16,18,20,23,24,26,28,30,31,33,35,38,40,42,43,44,46,47,48].includes(i) ? "bg-ink" : ""}`}></span>
+                  ))}
+                </div>
+                <p class="mono-label text-ink mt-2 text-[8px] tracking-[0.18em]">App&nbsp;Store</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <script>
+    (function () {
+      const lines = [
+        ["Don't", "lose"],
+        ["your", "marbles."],
+      ];
+      const el = document.getElementById("hero-title");
+      if (!el) return;
+      const fragment = document.createDocumentFragment();
+      let wordIndex = 0;
+      lines.forEach(function (words, lineIndex) {
+        const line = document.createElement("span");
+        line.className = "hero-title-line";
+        words.forEach(function (word, i) {
+          const span = document.createElement("span");
+          span.className = "word";
+          if (lineIndex === 0 && i === 1) {
+            span.classList.add("couture-wonky");
+            span.style.color = "var(--color-mb-pink)";
+          }
+          if (lineIndex === 1 && i === 1) {
+            span.classList.add("couture-wonky");
+          }
+          span.textContent = word;
+          span.style.setProperty("--word-delay", wordIndex * 0.07 + "s");
+          wordIndex += 1;
+          line.appendChild(span);
+          if (i < words.length - 1) {
+            line.appendChild(document.createTextNode(" "));
+          }
+        });
+        fragment.appendChild(line);
+      });
+      el.appendChild(fragment);
+    })();
+  </script>
+
+  <!-- Couture marquee ribbon -->
+  <section class="border-y border-ink bg-ink">
+    <div class="mb-marquee py-3">
+      <div class="mb-marquee-track text-mb-pink mono-label">
+        {Array.from({ length: 2 }).map(() => (
+          <>
+            <span>Your story · Your asset · Legally</span>
+            <span class="text-wall">★</span>
+            <span>Provenance recorded · Ownership established</span>
+            <span class="text-wall">★</span>
+            <span>The right travels with the asset</span>
+            <span class="text-wall">★</span>
+            <span>Don&rsquo;t lose your marbles</span>
+            <span class="text-wall">★</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section class="relative">
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div class="lg:col-span-5">
+          <p class="mono-label text-mb-pink mb-6">THE INSIGHT</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink">
+            When rights are clear,
+            <span class="couture-wonky text-mb-pink">everyone wins.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pt-6">
+          <div class="flex flex-col gap-6 text-base lg:text-lg leading-relaxed text-ink-soft">
+            <p>
+              The personal data economy is broken. Not because the supply does
+              not exist. Because there is no legal infrastructure underneath it.
+            </p>
+            <p>
+              Three and a half billion people generating unowned digital wealth
+              every day. MemoryBinder builds the property rights underneath
+              what they already do.
+            </p>
+            <p class="text-ink">
+              <strong class="font-grotesk font-semibold">Not another pay-for-data platform.</strong>
+              Payment without ownership is still extraction. We start earlier.
+              Before the transaction. At the property right itself.
+            </p>
+          </div>
+          <a href="/vision" class="inline-flex items-center gap-2 mt-10 text-sm font-medium text-ink hover:text-mb-pink transition-colors">
+            Read the full vision
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Editorial wall of memory orbs -->
+  <section class="relative bg-wall-warm border-y border-divider">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+        <div>
+          <p class="mono-label text-mb-pink mb-3">A WALL OF MEMORIES</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink max-w-2xl">
+            Photos. Stories. Audio. <span class="couture-wonky">Moments that make a life.</span>
+          </h2>
+        </div>
+        <a href="/marketplace" class="btn-ghost">
+          See the marketplace
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-10">
+        {wallMemories.map((m, i) => (
+          <a href="/learn/memories" class={`group block ${i % 2 === 0 ? "float-slow" : "float-med"}`}>
+            <div class="memory-orb aspect-square">
+              <SiteImage src={m.img} alt={m.title} class="memory-orb-img" widths={[260, 320, 480]} sizes="(min-width: 1024px) 18vw, 40vw" loading="lazy" />
+            </div>
+            <p class="font-grotesk font-medium text-sm text-ink mt-4 group-hover:text-mb-pink transition-colors">{m.title}</p>
+            <p class="mono-label text-ink-muted">{m.who}</p>
+          </a>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <p class="mono-label text-mb-pink mb-12">WHAT MEMORYBINDER DOES</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        {features.map((f) => (
+          <a href={f.href} class="block border-t border-ink pt-6 group">
+            <div class="flex items-start gap-2 mb-3">
+              <span class="geo-dot mt-1.5 shrink-0"></span>
+              <span class="mono-label mono-label-wrap text-ink font-medium">{f.label}</span>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">{f.description}</p>
+            <span class="inline-flex items-center gap-1 mt-4 text-sm font-medium text-ink group-hover:text-mb-pink transition-colors">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Pull quote -->
+  <section class="relative overflow-hidden">
+    <SectionRule />
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-2 hidden lg:flex justify-center">
+          <BinderMark size={92} variant="duo" />
+        </div>
+        <blockquote class="lg:col-span-10">
+          <p class="couture text-[clamp(1.8rem,4vw,3rem)] text-ink max-w-4xl">
+            People keep doing what they love. Sharing memories. Gifting content.
+            Telling their story. <span class="couture-wonky text-mb-pink">MemoryBinder makes sure that story
+            and the responsibility is legally theirs.</span>
+          </p>
+          <cite class="mono-label text-ink-muted mt-8 block not-italic">— Executive Summary</cite>
+        </blockquote>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-7">
+          <p class="mono-label text-mb-pink mb-6">JOIN THE WAITLIST</p>
+          <h2 class="couture text-[clamp(2rem,6vw,4.5rem)]">
+            Be one of the <span class="couture-wonky text-mb-pink">first million</span>
+            to legally own what they create.
+          </h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-base text-wall/70 leading-relaxed">
+            500+ sign-ups across 23 countries and counting. iOS launch Q3 2026.
+            Get notified the moment we hit the App Store.
+          </p>
+          <a href="/waitlist" class="btn-pink shimmer-hover mt-8">
+            Try MemoryBinder
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <HomeIterationSwitcher current="v1" />
+</BaseLayout>

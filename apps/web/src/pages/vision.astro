@@ -1,0 +1,199 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import SiteImage from "@/components/SiteImage.astro";
+import waterfallImg from "@/images/waterfall-explorers.jpg";
+
+const chapters = [
+  {
+    label: "EXECUTIVE SUMMARY",
+    title: "The personal data economy is broken.",
+    body: [
+      "Not because the supply does not exist. Not because the demand does not exist. Because there is no legal infrastructure underneath it.",
+      "Three and a half billion people generating unowned digital wealth every day. Every corporation, government agency, and regulated industry hungry for authenticated consumer data and legal consumer agents. Neither side can reach the other.",
+      "MemoryBinder builds the infrastructure that connects them.",
+      "Not another pay-for-data platform. Every attempt to pay consumers for their data has failed. Payment without ownership is still extraction. The consumer has no legal standing and the market has no foundation.",
+      "MemoryBinder starts earlier. Before the transaction. At the property right itself.",
+      "Built by lawyers and technologists with years of experience building authenticated data and AI frameworks for enterprise. That same infrastructure applied at the consumer level for the first time.",
+      "People keep doing what they love. Sharing memories. Gifting content. Telling their story. MemoryBinder makes sure that story and the responsibility is legally theirs.",
+    ],
+  },
+  {
+    label: "THE PROBLEM",
+    title: "We lost control of our own stories.",
+    body: [
+      "People have always kept memories. Photos in boxes. Letters in drawers. Things to hold. Things to pass on.",
+      "Then came social media. And we handed all of it over.",
+      "Now the trust is gone. The ads that know too much. The feed designed to hold attention, not serve it. The slow realisation that every photo shared, every moment posted, every connection made is being fed into AI systems nobody really consented to train.",
+      "The instinct to leave is real. But leaving means losing something. Twenty years of memories. Family history. A life's worth of moments, held on someone else's infrastructure, under someone else's terms.",
+      "So people stay. Uncomfortable. Aware. Trapped.",
+      "And it is about to get harder. Agents are coming. Personal data is no longer sitting still. It is being acted on. Transacted with. Decisions are being made with it, by systems that have no legal accountability to the person it belongs to.",
+      "The rights have always existed. They just do not travel with the asset.",
+      "Digital property needs digital legal infrastructure. Legal rights and responsibilities that move at the same pace, the same scale, and stay connected to the content they protect. Everywhere it goes.",
+    ],
+  },
+  {
+    label: "WHY NOW?",
+    title: "The asset is appreciating. The risk is compounding. The gap is widening.",
+    body: [
+      "AI models are being trained on personal content. Agents are acting on personal data. The digital estate people have built over twenty years is no longer passive. It is active. Valuable. Being used in ways that were unimaginable when the first photo was posted.",
+      "And the legal attribution gap is growing with it. As agents proliferate, the question of who owns what, who is responsible for what an agent does with whose data, has no answer. Not because the law is silent. Because the infrastructure to connect legal rights to digital assets at speed and scale does not exist at the consumer level.",
+      "The asset is getting more complex. More valuable. More dangerous.",
+      "The moment to build the infrastructure is now. Before the gap becomes permanent.",
+    ],
+  },
+  {
+    label: "THE INSIGHT",
+    title: "When rights are clear, everyone wins.",
+    body: [
+      "This is not a privacy problem. It is an ownership problem.",
+      "Privacy tools exist. They slow extraction. They do not create ownership.",
+      "The answer is property rights. When rights are clear, markets function. When a seller knows what they own and a buyer knows what they are acquiring, value flows cleanly to the right places.",
+      "Property law did not exist to make landowners rich. It existed to make land transactions possible. Clear title is what creates a market. Everything else follows.",
+      "When rights are clear, everyone wins. Not just as a market mechanic. As the right thing to do. And for once, those two things are exactly the same thing.",
+    ],
+  },
+  {
+    label: "THE PRODUCT",
+    title: "Everything people already love doing. With ownership built in underneath.",
+    body: [
+      "MemoryBinder looks and feels like the sharing and gifting applications people already use. That is intentional. People share photos, stories, milestones, moments. They gift content to family. They build collections. Nothing about the behaviour changes.",
+      "What changes is what happens underneath.",
+      "Every piece of content is legally authenticated. Provenance recorded. Ownership established. A legal property right that travels with the asset. Not a platform promise. A right that holds.",
+      "Every AI agent carries a legal wrapper. Legal identity. Accountability. The governance structure that means any organisation with a responsible AI policy can allow them in. Nobody needs to understand any of this. They share. They gift. They collect. They tell their story.",
+      "What they build, organically, is a legal property portfolio. Not crypto. Not tokens. Real digital property. And because every right travels with every asset, those assets can move. Licensed. Traded. Gifted. Into a marketplace where authenticated personal property finds its value.",
+      "For the first time, the people who created the value participate in it.",
+    ],
+  },
+  {
+    label: "HOW IT WORKS",
+    title: "Same behaviour. Radically different outcome.",
+    body: [
+      "A user shares a photo. MemoryBinder authenticates it as their legal property. Provenance recorded. Ownership established. The right travels with the asset.",
+      "A user gifts audio memories to a family member. The transfer is legally documented. The recipient owns it. The giver chose to give it.",
+      "A user creates an AI agent. MemoryBinder wraps it with legal identity. It now has the governance structure that enterprise and government platforms require to allow it in.",
+      "And the portfolio grows.",
+      "Every asset added increases the value of what came before. But MemoryBinder does not just store what people create. It connects their digital property to the legal events and transactions that define a life.",
+      "Birth records. Death records. Marriage certificates. Travel. Contracts. Licences. Via Smart Legal Contracts and verified API connections, real world legal events attach to the digital estate. The asset record deepens over time. Authenticated. Legally connected. Portable.",
+      "When a user chooses to license content, the terms travel with it. When they trade an asset, the transaction is recorded. When life changes, the legal record reflects it. A property portfolio that grows with a life. That can be added to, curated, and passed on.",
+    ],
+  },
+  {
+    label: "WHO IT'S FOR",
+    title: "Two markets. Both massive. Both completely underserved.",
+    body: [
+      "Creators. They know their work has value. What they have never had is legal architecture to own it at the infrastructure level, without a label, an agent, or a corporate entity behind them. MemoryBinder gives individual creators the legal standing a studio has always had.",
+      "Custodians. The larger market. The billions of people who are not professional creators but who are the keepers of family history, community memory, cultural record. Grandparents with sixty years of photographs. Parents documenting their children growing up. Community leaders preserving local stories. Enormous digital wealth. No mechanism to own, protect, or pass it on.",
+      "Both markets share one thing. They have been generating value for platforms for two decades and received reach in return.",
+      "MemoryBinder offers them clear title.",
+    ],
+  },
+  {
+    label: "COMPETITIVE ADVANTAGE",
+    title: "Behaviour is easy to copy. Legal infrastructure is not.",
+    body: [
+      "Social platforms extract value from consumers. Privacy tools block extraction but create no ownership. Web3 attempted tokenisation but required consumers to think like traders. Pay-for-data platforms added a revenue layer on top of a broken ownership structure.",
+      "None of them built the legal infrastructure that makes ownership real. MemoryBinder sits in a different category. Not because of features. Because of foundation.",
+      "Built by lawyers and technologists who have spent years building authenticated data frameworks for enterprise. That same infrastructure applied at the consumer level for the first time.",
+      "No competitor currently operates at this architectural layer. Sharing apps can be replicated in months. Legal infrastructure cannot. The frameworks, the authentication protocols, the Smart Legal Contract layer, the agent governance structures. These take years to build and require deep legal and technical expertise to build correctly.",
+      "Every authenticated user strengthens the network. Every piece of legally verified content adds to the provenance record. Every enterprise and government relationship built on clean, registered and authenticated consumer data deepens the moat.",
+      "Legal infrastructure networks compound differently than social networks. Social networks grow by adding users. Legal infrastructure networks grow by adding authenticated provenance. Every record makes every other record more credible. The network becomes more valuable as it grows and harder to displace as it scales.",
+      "First mover in legal infrastructure is the deepest moat in technology. MemoryBinder is building it at the consumer level. Where no one has been before.",
+    ],
+  },
+  {
+    label: "THE ASK",
+    title: "Build the supply the compliant economy cannot function without.",
+    body: [
+      "The supply side is 3.5 billion people generating unowned digital wealth every day.",
+      "The demand side is every organisation in the compliant economy that needs authenticated consumer data and legal consumer agents to operate responsibly.",
+      "The timing is the convergence of consumer awareness, a rapidly appreciating personal data estate, and enterprise and government demand that has no legitimate supply.",
+      "We are raising US$5m to place legally authenticated data ownership in the hands of one million people for the first time. To put legal ownership in the hands of the first market that has never had it. To build the supply the compliant economy cannot function without. To become the infrastructure layer for the personal data economy. MemoryBinder.",
+      "Your story. Your asset. Legally.",
+    ],
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Vision" }}>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="geo-circle hidden lg:block" style="width: 480px; height: 480px; top: -120px; right: -160px;"></div>
+    <Wrapper variant="standard" class="pt-24 pb-16 lg:pt-36 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div class="lg:col-span-7">
+          <p class="mono-label text-mb-pink mb-6">VISION</p>
+          <h1 class="page-hero-title text-ink">
+            Everyone has <span class="couture-wonky text-mb-pink">a story.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-ink-muted">
+            The legal property infrastructure for personal data, memories, and
+            consumer AI agents. Read where MemoryBinder came from — and why it
+            is the moment to build it.
+          </p>
+        </div>
+        <div class="lg:col-span-5 lg:pt-12">
+          <BinderMark size={140} variant="duo" />
+          <p class="mt-8 mono-label text-ink-muted">"Everyone has a story…"</p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Editorial image -->
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-12 lg:py-20">
+      <div class="img-editorial">
+        <SiteImage
+          src={waterfallImg}
+          alt="A waterfall, two people in yellow raincoats."
+          class="w-full aspect-[21/9] object-cover object-bottom"
+          widths={[640, 960, 1280, 1920]}
+          sizes="100vw"
+          loading="lazy"
+        />
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Chapters -->
+  {chapters.map((c) => (
+    <section>
+      <SectionRule />
+      <Wrapper variant="standard" class="py-20 lg:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div class="lg:col-span-4">
+            <p class="mono-label text-mb-pink mb-6">{c.label}</p>
+            <h2 class="couture text-[clamp(1.8rem,4vw,2.8rem)] text-ink max-w-md">
+              {c.title}
+            </h2>
+          </div>
+          <div class="lg:col-span-8 flex flex-col gap-5 text-base lg:text-[1.05rem] leading-relaxed text-ink-soft">
+            {c.body.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+      </Wrapper>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">YOUR STORY · YOUR ASSET · LEGALLY</p>
+          <h2 class="couture text-[clamp(2rem,6vw,4.5rem)]">
+            Be one of the <span class="couture-wonky text-mb-pink">first million.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Try MemoryBinder</a>
+          <a href="/products" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">See pricing</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

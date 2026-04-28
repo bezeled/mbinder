@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+---
+
+<BaseLayout seo={{ title: "Message sent" }}>
+  <section class="relative overflow-hidden">
+    <Wrapper variant="standard" class="pt-24 pb-20 lg:pt-32 lg:pb-32 text-center">
+      <div class="flex justify-center mb-6">
+        <BinderMark size={64} variant="duo" />
+      </div>
+      <p class="mono-label text-mb-pink mb-4">MESSAGE SENT</p>
+      <h1 class="couture text-[clamp(2.4rem,7vw,5rem)] text-ink">
+        Thanks. We&rsquo;ll be in <span class="couture-wonky text-mb-pink">touch.</span>
+      </h1>
+      <p class="mt-6 text-base text-ink-muted leading-relaxed max-w-md mx-auto">
+        Expect a reply within a working week. In the meantime, the marketplace
+        and the vision are good places to wander.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="/" class="btn-pink">Back home</a>
+        <a href="/marketplace" class="btn-ghost">See the marketplace</a>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

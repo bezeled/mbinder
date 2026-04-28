@@ -1,0 +1,569 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import SiteImage from "@/components/SiteImage.astro";
+
+import butterflyImg from "@/images/butterfly-flower.jpg";
+import pinkCamelliasImg from "@/images/pink-camellias.jpg";
+import autumnImg from "@/images/autumn-forest.jpg";
+import balletImg from "@/images/ballet-dancer.jpg";
+import waterfallImg from "@/images/waterfall-explorers.jpg";
+import lanternsImg from "@/images/hanging-lanterns.jpg";
+import cathedralImg from "@/images/cathedral-dome.jpg";
+import grandStaircaseImg from "@/images/grand-staircase.jpg";
+import streetFestivalImg from "@/images/street-festival.jpg";
+import canyonImg from "@/images/river-canyon.jpg";
+import fernCurlImg from "@/images/fern-curl.jpg";
+import wetLeafImg from "@/images/wet-leaf.jpg";
+import balconyImg from "@/images/white-balcony.jpg";
+import mistyTreeImg from "@/images/misty-tree.jpg";
+import storyImg from "@/images/storm-highway.jpg";
+
+const filters = [
+  { id: "all", label: "Everything" },
+  { id: "wallets", label: "Wallets" },
+  { id: "memories", label: "Memories" },
+  { id: "audio", label: "Audio" },
+  { id: "video", label: "Video" },
+  { id: "stories", label: "Stories" },
+  { id: "drops", label: "Limited drops" },
+];
+
+// Wallet skins — rendered as CSS objects so they read like couture goods, not stock photos
+const walletSkins = [
+  {
+    name: "Portrait",
+    house: "MemoryBinder · Standard",
+    price: "AUD$1.99",
+    badge: "Free for Vault members",
+    palette: { from: "#0b0b0b", to: "#2a2a2a", accent: "#e91e63" },
+    edition: "OPEN EDITION",
+  },
+  {
+    name: "Vintage Leather",
+    house: "MemoryBinder × Atelier Saché",
+    price: "AUD$8.00",
+    badge: "Most loved",
+    palette: { from: "#7a3b1f", to: "#3a1a0c", accent: "#f2c94c" },
+    edition: "OPEN EDITION",
+  },
+  {
+    name: "Evening Clutch",
+    house: "MemoryBinder × Maison Verre",
+    price: "AUD$25.00",
+    badge: "New",
+    palette: { from: "#1f7a7e", to: "#0e3a3c", accent: "#fde4ec" },
+    edition: "DROP 03 · 2026",
+  },
+  {
+    name: "Couture Édition",
+    house: "MemoryBinder × Indira",
+    price: "AUD$100.00",
+    badge: "Limited · 500 pieces",
+    palette: { from: "#6b4fec", to: "#3d27a8", accent: "#fde4ec" },
+    edition: "NUMBERED · DROP 01",
+  },
+  {
+    name: "Storm Patent",
+    house: "MemoryBinder × Sable",
+    price: "AUD$60.00",
+    badge: "Members only",
+    palette: { from: "#b947d6", to: "#3d27a8", accent: "#f4eee0" },
+    edition: "DROP 02 · 2026",
+  },
+  {
+    name: "Honey Croc",
+    house: "MemoryBinder × Atelier Saché",
+    price: "AUD$45.00",
+    badge: "New",
+    palette: { from: "#f2c94c", to: "#a8801c", accent: "#0b0b0b" },
+    edition: "OPEN EDITION",
+  },
+];
+
+// Editorial drops — big-tile featured items
+const drops = [
+  {
+    img: pinkCamelliasImg,
+    eyebrow: "DROP 01 · IN BLOOM",
+    title: "Vineyard, a Coffee Table Book",
+    artist: "Amani Soysa",
+    license: "Print + Digital",
+    price: "AUD$120",
+  },
+  {
+    img: balletImg,
+    eyebrow: "AUDIOVISUAL · LIMITED",
+    title: "Wings of Wonder — a symphony in three movements",
+    artist: "Elif Özkan",
+    license: "Streaming licence",
+    price: "AUD$15",
+  },
+  {
+    img: lanternsImg,
+    eyebrow: "PHOTO · OPEN",
+    title: "Lantern night, Hanoi",
+    artist: "Phuc Nguyen",
+    license: "Print rights",
+    price: "AUD$8",
+  },
+];
+
+// Curated collections — magazine-style cards
+const collections = [
+  {
+    img: cathedralImg,
+    title: "Roma, in the off-season",
+    curator: "Marco Bellini",
+    count: 28,
+    tone: "ink",
+  },
+  {
+    img: streetFestivalImg,
+    title: "Harajuku, after dark",
+    curator: "Yumi Saito",
+    count: 41,
+    tone: "pink",
+  },
+  {
+    img: canyonImg,
+    title: "Edges of Aotearoa",
+    curator: "Tia Whetu",
+    count: 64,
+    tone: "teal",
+  },
+  {
+    img: storyImg,
+    title: "Driving home, 1996—",
+    curator: "Anouk Mercier",
+    count: 12,
+    tone: "purple",
+  },
+];
+
+// All memories for the gallery
+const memories = [
+  { img: butterflyImg, title: "Birthday song for Natasha", artist: "Amani Soysa", tag: "AUDIO", price: "Gifted" },
+  { img: autumnImg, title: "Easter egg hunt", artist: "Amani Soysa", tag: "PHOTO", price: "AUD$12" },
+  { img: cathedralImg, title: "Sant'Agnese, dome study", artist: "Marco Bellini", tag: "PHOTO", price: "AUD$25" },
+  { img: grandStaircaseImg, title: "Vatican staircase", artist: "Marco Bellini", tag: "PHOTO", price: "Licensed" },
+  { img: streetFestivalImg, title: "Harajuku street style", artist: "Yumi Saito", tag: "PHOTO", price: "AUD$25" },
+  { img: canyonImg, title: "River canyon, NSW", artist: "Hari Patel", tag: "PHOTO", price: "Owned" },
+  { img: fernCurlImg, title: "Fern, unfurling", artist: "Tia Whetu", tag: "MACRO", price: "AUD$5" },
+  { img: wetLeafImg, title: "Wet leaf, after rain", artist: "Tia Whetu", tag: "PHOTO", price: "Owned" },
+  { img: balconyImg, title: "Balcony chess set", artist: "Lina Valdez", tag: "PHOTO", price: "AUD$10" },
+  { img: mistyTreeImg, title: "First fog of autumn", artist: "Hari Patel", tag: "PHOTO", price: "AUD$6" },
+  { img: storyImg, title: "Driving home, 1996", artist: "Anouk Mercier", tag: "STORY", price: "AUD$3" },
+  { img: waterfallImg, title: "Two yellow raincoats", artist: "Amani Soysa", tag: "PHOTO", price: "Owned" },
+];
+
+const tones = {
+  ink: "border-ink text-ink",
+  pink: "border-mb-pink text-mb-pink",
+  teal: "border-mb-teal text-mb-teal",
+  purple: "border-mb-purple text-mb-purple",
+} as const;
+---
+
+<BaseLayout seo={{ title: "Marketplace" }}>
+  <!-- Editorial hero -->
+  <section class="relative bg-wall">
+    <Wrapper variant="standard" class="pt-20 pb-14 lg:pt-28 lg:pb-20">
+      <div class="flex items-center justify-between mb-10 lg:mb-14">
+        <div class="flex items-center gap-3">
+          <BinderMark size={28} variant="duo" />
+          <span class="mono-label text-ink">THE MARKETPLACE</span>
+        </div>
+        <div class="hidden md:flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-ink-muted">
+          <span>Spring 26</span>
+          <span class="w-px h-3 bg-divider"></span>
+          <span>Issue 01</span>
+          <span class="w-px h-3 bg-divider"></span>
+          <span class="text-mb-pink">Live</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-9">
+          <h1 class="couture text-[clamp(3.2rem,12vw,9.5rem)] leading-[0.86] text-ink">
+            <span class="block">A house for</span>
+            <span class="block couture-wonky text-mb-pink italic">authenticated</span>
+            <span class="block">things.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-3 lg:pl-6 lg:border-l border-ink space-y-5">
+          <p class="text-base leading-relaxed text-ink-soft">
+            Wallets. Memories. Drops. Every piece arrives with verifiable
+            title — licensed, traded, gifted, with provenance you can read.
+          </p>
+          <div class="flex flex-col gap-2">
+            <a href="#wallets" class="btn-ink shimmer-hover w-full justify-center">Browse wallets</a>
+            <a href="#gallery" class="btn-ghost w-full justify-center">See the floor</a>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Filter rail -->
+  <section class="sticky top-[64px] z-30 bg-wall/95 backdrop-blur border-y border-divider">
+    <Wrapper variant="wide" class="py-4">
+      <div class="flex flex-col lg:flex-row lg:items-center gap-4 lg:gap-6">
+        <label class="flex items-center gap-3 lg:flex-1 lg:max-w-md bg-wall-cool border border-divider rounded-full px-5 py-2.5">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="shrink-0 text-ink-muted">
+            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="m11 11 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <input type="text" placeholder="Search the house — wallets, drops, artists…" class="bg-transparent border-0 outline-none text-sm flex-1 placeholder:text-ink-muted" />
+          <span class="hidden sm:inline mono-label text-ink-faint">⌘K</span>
+        </label>
+        <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
+          {filters.map((f, i) => (
+            <button class={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-[0.18em] whitespace-nowrap transition-colors ${i === 0 ? "bg-ink text-mb-pink" : "border border-divider text-ink hover:border-ink"}`}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+        <div class="hidden xl:flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-ink-muted">
+          <span>Sort</span>
+          <button class="text-ink underline underline-offset-4 decoration-mb-pink">Newest</button>
+          <span>·</span>
+          <button class="hover:text-ink">Price ↑</button>
+          <span>·</span>
+          <button class="hover:text-ink">Most authenticated</button>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Wallet skins — couture lookbook -->
+  <section id="wallets" class="bg-wall">
+    <Wrapper variant="wide" class="py-16 lg:py-24">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 lg:mb-14">
+        <div class="max-w-2xl">
+          <p class="mono-label text-mb-pink mb-4">SKINS &amp; WALLETS · DROP 03</p>
+          <h2 class="couture text-[clamp(2.2rem,6vw,4.6rem)] text-ink leading-[0.95]">
+            Couture for your <span class="couture-wonky text-mb-pink italic">digital estate.</span>
+          </h2>
+          <p class="mt-5 text-sm lg:text-base text-ink-muted leading-relaxed max-w-xl">
+            Wallets are how you hold memories together. Skins are how you wear
+            them. Each one is a verified digital good, released in partnership
+            with fashion houses on a shared profit model.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="mono-label text-ink-muted">06 of 14</span>
+          <button aria-label="Previous" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-ink hover:text-wall transition-colors">
+            <span aria-hidden>←</span>
+          </button>
+          <button aria-label="Next" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-ink hover:text-wall transition-colors">
+            <span aria-hidden>→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {walletSkins.map((s, i) => (
+          <article class="group relative">
+            <div
+              class="wallet-card aspect-[4/5] relative overflow-hidden rounded-[28px] p-7 flex flex-col justify-between"
+              style={`background: linear-gradient(150deg, ${s.palette.from} 0%, ${s.palette.to} 100%);`}
+            >
+              <!-- Wallet body — pure CSS rendering -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div
+                  class="wallet-shape relative"
+                  style={`--accent: ${s.palette.accent};`}
+                >
+                  <div class="wallet-clasp"></div>
+                </div>
+              </div>
+
+              <!-- Top row -->
+              <div class="relative flex items-start justify-between">
+                <span class="mono-label text-white/80">{s.edition}</span>
+                <span class="text-white/90"><BinderMark size={20} variant="duo" /></span>
+              </div>
+
+              <!-- Bottom info -->
+              <div class="relative flex items-end justify-between gap-4">
+                <div>
+                  <p class="mono-label text-white/70 mb-1">{s.house}</p>
+                  <p class="font-display text-2xl text-white leading-tight">{s.name}</p>
+                </div>
+                <div class="text-right">
+                  <p class="mono-label text-white/70 mb-1">From</p>
+                  <p class="font-display text-xl text-white">{s.price}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex items-center justify-between gap-4">
+              <span class={`sticker ${i % 3 === 0 ? "border-mb-pink text-mb-pink" : i % 3 === 1 ? "border-mb-teal text-mb-teal" : "border-mb-purple text-mb-purple"}`}>
+                {s.badge}
+              </span>
+              <button class="text-xs font-mono uppercase tracking-[0.2em] text-ink hover:text-mb-pink transition-colors">
+                View · open ↗
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 lg:mt-16 flex justify-center">
+        <a href="/products" class="btn-ghost">See all skins &amp; pricing</a>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Featured drops — editorial -->
+  <section class="bg-wall-warm border-y border-divider">
+    <Wrapper variant="wide" class="py-20 lg:py-28">
+      <div class="flex items-end justify-between mb-12 lg:mb-16">
+        <div>
+          <p class="mono-label text-mb-pink mb-4">DROPS · THIS WEEK</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink">
+            Limited &amp; <span class="couture-wonky text-mb-pink italic">authenticated.</span>
+          </h2>
+        </div>
+        <a href="#gallery" class="hidden sm:inline mono-label text-ink hover:text-mb-pink">All drops →</a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <!-- Hero drop -->
+        <article class="lg:col-span-7 group">
+          <div class="relative overflow-hidden rounded-[28px] aspect-[4/5] lg:aspect-[5/6] bg-ink">
+            <SiteImage
+              src={drops[0].img}
+              alt={drops[0].title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              widths={[640, 960, 1280]}
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
+            <div class="absolute top-6 left-6 flex items-center gap-2">
+              <span class="sticker bg-wall border-wall text-ink">{drops[0].eyebrow}</span>
+              <span class="sticker bg-mb-pink border-mb-pink text-wall">Live</span>
+            </div>
+            <div class="absolute bottom-8 left-8 right-8 text-wall">
+              <p class="mono-label text-wall/70 mb-2">{drops[0].artist}</p>
+              <h3 class="couture text-[clamp(1.6rem,3.5vw,2.6rem)] leading-[1.05] mb-4">{drops[0].title}</h3>
+              <div class="flex items-end justify-between">
+                <p class="mono-label">{drops[0].license}</p>
+                <p class="font-display text-2xl">{drops[0].price}</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="lg:col-span-5 flex flex-col gap-8 lg:gap-10">
+          {drops.slice(1).map((d) => (
+            <article class="group flex gap-5 items-stretch">
+              <div class="relative overflow-hidden rounded-[20px] aspect-[3/4] w-[42%] shrink-0 bg-ink">
+                <SiteImage src={d.img} alt={d.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" widths={[280, 400]} sizes="220px" loading="lazy" />
+              </div>
+              <div class="flex flex-col justify-between py-1">
+                <div>
+                  <p class="mono-label text-mb-pink mb-2">{d.eyebrow}</p>
+                  <h3 class="couture text-xl lg:text-2xl text-ink leading-tight group-hover:text-mb-pink transition-colors">{d.title}</h3>
+                  <p class="text-sm text-ink-muted mt-2">by {d.artist}</p>
+                </div>
+                <div class="flex items-baseline justify-between mt-4 pt-4 border-t border-divider">
+                  <p class="mono-label text-ink-muted">{d.license}</p>
+                  <p class="font-display text-lg text-ink">{d.price}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Curated collections / wallets to explore -->
+  <section class="bg-wall">
+    <Wrapper variant="wide" class="py-20 lg:py-28">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="mono-label text-mb-pink mb-4">CURATED · WALLETS</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-ink">
+            Wallets, by the people <span class="couture-wonky text-mb-pink italic">keeping the record.</span>
+          </h2>
+        </div>
+        <a href="/learn/wallets" class="mono-label text-ink hover:text-mb-pink">What is a wallet? →</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
+        {collections.map((c) => (
+          <article class="group">
+            <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-ink">
+              <SiteImage src={c.img} alt={c.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" widths={[300, 480, 640]} sizes="(min-width: 1024px) 24vw, 48vw" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0 pointer-events-none"></div>
+              <span class={`absolute top-4 left-4 sticker bg-wall ${tones[c.tone as keyof typeof tones]}`}>
+                Wallet · {c.count}
+              </span>
+              <div class="absolute bottom-5 left-5 right-5 text-wall">
+                <p class="mono-label text-wall/70 mb-1">{c.curator}</p>
+                <p class="font-display text-lg leading-tight">{c.title}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- The floor / all memories -->
+  <section id="gallery" class="bg-ink text-wall">
+    <Wrapper variant="wide" class="py-20 lg:py-28">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="mono-label text-mb-pink mb-4">THE FLOOR · LIVE</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] text-wall">
+            Every memory, <span class="couture-wonky text-mb-pink italic">authenticated.</span>
+          </h2>
+        </div>
+        <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.2em] text-wall/60">
+          <span class="inline-block w-2 h-2 rounded-full bg-mb-pink animate-pulse"></span>
+          <span>{memories.length} on the floor right now</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-7">
+        {memories.map((m, i) => (
+          <article class={`group ${i % 4 === 1 ? "lg:translate-y-8" : i % 4 === 3 ? "lg:translate-y-4" : ""}`}>
+            <div class="relative overflow-hidden rounded-[18px] aspect-[4/5] bg-wall/5">
+              <SiteImage src={m.img} alt={m.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" widths={[260, 380, 520]} sizes="(min-width: 1024px) 22vw, 45vw" loading="lazy" />
+              <span class="absolute top-3 left-3 sticker bg-wall/95 border-wall/40 text-ink">{m.tag}</span>
+              <span class="absolute top-3 right-3 mono-label text-wall/90 bg-black/30 backdrop-blur px-2 py-1 rounded-full">auth ✓</span>
+            </div>
+            <div class="mt-3 flex items-baseline justify-between gap-2">
+              <div class="min-w-0">
+                <p class="font-grotesk font-medium text-sm text-wall leading-tight truncate group-hover:text-mb-pink transition-colors">{m.title}</p>
+                <p class="text-xs text-wall/60 truncate">by {m.artist}</p>
+              </div>
+              <p class="mono-label text-mb-pink whitespace-nowrap">{m.price}</p>
+            </div>
+            <div class="mt-1 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.18em] text-wall/50">
+              <button class="hover:text-mb-pink">↗ share</button>
+              <button class="hover:text-mb-pink">✎ note</button>
+              <button class="hover:text-mb-pink">♡ keep</button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-14 flex justify-center">
+        <button class="btn-pink-ghost">Load 24 more</button>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Provenance strip -->
+  <section class="bg-wall-warm border-t border-divider">
+    <Wrapper variant="wide" class="py-14 lg:py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-4">
+          <p class="mono-label text-mb-pink mb-4">PROVENANCE LOG · LIVE</p>
+          <h2 class="couture text-2xl lg:text-3xl text-ink leading-tight">
+            Every transaction <span class="couture-wonky text-mb-pink italic">recorded.</span>
+          </h2>
+          <p class="mt-4 text-sm text-ink-muted leading-relaxed">
+            Anyone can read the registry. Nothing on the floor moves without
+            being signed for, on the public record.
+          </p>
+          <a href="/registry" class="mono-label text-ink hover:text-mb-pink mt-5 inline-block">Open the registry →</a>
+        </div>
+        <ol class="lg:col-span-8 font-mono text-xs lg:text-sm text-ink-soft space-y-3">
+          {[
+            { t: "12s ago", e: "ASSET LICENCED", who: "Marco Bellini → Studio Verde", id: "MB-VAT-0418-1F" },
+            { t: "1m ago", e: "WALLET PUBLISHED", who: "Yumi Saito · Harajuku, after dark", id: "MB-WLT-0029" },
+            { t: "3m ago", e: "AGENT WRAPPED", who: "Hari Patel · personal agent", id: "MB-AGT-0014" },
+            { t: "5m ago", e: "GIFT TRANSFERRED", who: "Amani Soysa → Natasha", id: "MB-GFT-2811" },
+            { t: "9m ago", e: "DROP MINTED", who: "Atelier Saché · Honey Croc · 240/500", id: "MB-DRP-0312" },
+          ].map((r) => (
+            <li class="grid grid-cols-12 gap-3 lg:gap-6 items-baseline border-t border-divider pt-3">
+              <span class="col-span-3 lg:col-span-2 text-ink-muted">{r.t}</span>
+              <span class="col-span-9 lg:col-span-3 text-mb-pink">{r.e}</span>
+              <span class="col-span-12 lg:col-span-5 truncate">{r.who}</span>
+              <span class="col-span-12 lg:col-span-2 text-ink-faint truncate">{r.id}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <BinderMark size={48} variant="duo" />
+          <h2 class="couture text-[clamp(2rem,6vw,4rem)] text-ink mt-6">
+            Bring your memories. <span class="couture-wonky text-mb-pink italic">Walk out with title.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/waitlist" class="btn-pink shimmer-hover w-full">Try MemoryBinder</a>
+          <a href="/products" class="btn-ghost w-full">See pricing</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Pure-CSS wallet rendered inside each card. Keeps the lookbook lush
+     even before we have product photography. */
+  .wallet-shape {
+    width: 64%;
+    aspect-ratio: 7 / 5;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.18));
+    border-radius: 14px;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+      0 22px 38px -12px rgba(0, 0, 0, 0.55);
+    position: relative;
+  }
+  .wallet-shape::before {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 38%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+  .wallet-shape::after {
+    content: "";
+    position: absolute;
+    inset: 6%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9px;
+    pointer-events: none;
+  }
+  .wallet-clasp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 36%;
+    height: 22%;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow:
+      inset 0 0 0 2px rgba(0, 0, 0, 0.25),
+      0 6px 14px rgba(0, 0, 0, 0.35);
+  }
+  .wallet-card {
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .wallet-card:hover {
+    transform: translateY(-4px);
+  }
+</style>

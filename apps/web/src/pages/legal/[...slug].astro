@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import LegalLayout from "@/layouts/LegalLayout.astro";
+
+export async function getStaticPaths() {
+  const legal = await getCollection("legal");
+  const hiddenSlugs = new Set(["data-policy", "dpa"]);
+  return legal
+    .filter((page) => !hiddenSlugs.has(page.slug))
+    .map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<LegalLayout frontmatter={page.data}>
+  <Content />
+</LegalLayout>

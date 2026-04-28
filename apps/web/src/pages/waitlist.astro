@@ -1,0 +1,109 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const milestones = [
+  { period: "Q2 2026", milestone: "Development kickoff", status: "current" },
+  { period: "Q4 2026 — Q2 2027", milestone: "App development & testing", status: "next" },
+  { period: "Q3 2027", milestone: "iOS launch on the App Store", status: "future" },
+];
+---
+
+<BaseLayout seo={{ title: "Try MemoryBinder" }}>
+  <section class="relative overflow-hidden">
+    <div class="geo-circle hidden lg:block" style="width: 540px; height: 540px; top: -180px; left: -200px;"></div>
+    <Wrapper variant="standard" class="pt-20 pb-20 lg:pt-32 lg:pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="mono-label text-mb-pink mb-6">JOIN THE WAITLIST</p>
+          <h1 class="page-hero-title text-ink">
+            Be one of the <span class="couture-wonky text-mb-pink">first million</span> to legally own what you create.
+          </h1>
+          <p class="mt-8 max-w-xl text-base lg:text-lg leading-relaxed text-ink-muted">
+            500+ sign-ups across 23 countries and counting. The MemoryBinder
+            iOS app launches Q3 2027. Get notified the moment it hits the App
+            Store, plus early-access invites and product updates.
+          </p>
+
+          <form
+            name="waitlist"
+            action="/contact/success"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="mt-10 flex flex-col gap-4 max-w-xl"
+          >
+            <input type="hidden" name="form-name" value="waitlist" />
+            <p class="hidden">
+              <label>Do not fill this out if you are human: <input name="bot-field" type="text" /></label>
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                class="flex-1 h-12 px-5 bg-wall border border-divider rounded-full text-sm text-ink placeholder-ink-muted/60 focus:outline-none focus:border-ink"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="you@email.com"
+                required
+                class="flex-1 h-12 px-5 bg-wall border border-divider rounded-full text-sm text-ink placeholder-ink-muted/60 focus:outline-none focus:border-ink"
+              />
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input
+                type="text"
+                name="country"
+                placeholder="Country"
+                class="flex-1 h-12 px-5 bg-wall border border-divider rounded-full text-sm text-ink placeholder-ink-muted/60 focus:outline-none focus:border-ink"
+              />
+              <button type="submit" class="btn-pink shimmer-hover sm:w-auto justify-center">
+                Add me to the list
+              </button>
+            </div>
+
+            <p class="mono-label text-ink-muted mt-2">
+              By signing up you accept our <a href="/legal/privacy" class="underline hover:text-mb-pink">privacy policy</a>. You can leave any time.
+            </p>
+          </form>
+        </div>
+
+        <div class="lg:col-span-5 lg:pt-10">
+          <div class="bg-wall border border-ink rounded-3xl p-8 lg:p-10 shadow-[0_24px_60px_-24px_rgba(11,11,11,0.25)]">
+            <div class="flex items-center gap-3 mb-6">
+              <BinderMark size={32} variant="duo" />
+              <p class="mono-label text-ink">iOS · App Store</p>
+            </div>
+            <p class="font-grotesk text-lg text-ink leading-snug">
+              Scan to be redirected to the App Store the moment we launch.
+            </p>
+            <div class="mt-6 grid grid-cols-7 gap-[2px] w-[160px]">
+              {Array.from({ length: 49 }).map((_, i) => (
+                <span class={`block w-full aspect-square ${[0,1,2,5,6,7,9,11,12,14,15,16,18,20,23,24,26,28,30,31,33,35,38,40,42,43,44,46,47,48].includes(i) ? "bg-ink" : ""}`}></span>
+              ))}
+            </div>
+            <p class="mono-label text-ink-muted mt-4">QR points to the waitlist for now.</p>
+          </div>
+
+          <div class="mt-10">
+            <p class="mono-label text-mb-pink mb-4">ROADMAP</p>
+            <ul class="flex flex-col gap-4">
+              {milestones.map((m) => (
+                <li class="flex items-baseline justify-between gap-4 border-t border-divider pt-4">
+                  <span class="mono-label text-ink-muted">{m.period}</span>
+                  <span class="font-grotesk text-sm font-medium text-ink text-right">{m.milestone}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

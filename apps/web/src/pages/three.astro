@@ -1,0 +1,522 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+import HomeIterationSwitcher from "@/components/global/HomeIterationSwitcher.astro";
+import SiteImage from "@/components/SiteImage.astro";
+import butterflyImg from "@/images/butterfly-flower.jpg";
+import pinkCamelliasImg from "@/images/pink-camellias.jpg";
+import autumnImg from "@/images/autumn-forest.jpg";
+import balletImg from "@/images/ballet-dancer.jpg";
+import waterfallImg from "@/images/waterfall-explorers.jpg";
+import lanternsImg from "@/images/hanging-lanterns.jpg";
+
+const steps = [
+  {
+    n: "01",
+    label: "CAPTURE",
+    title: "Take it. Or upload it.",
+    body: "A photo. An audio note for a grandchild. A story you've been meaning to write down. Anything you make, anything you keep.",
+  },
+  {
+    n: "02",
+    label: "AUTHENTICATE",
+    title: "MemoryBinder signs it for you.",
+    body: "Provenance recorded. Title established. The legal property right travels with the asset, automatically.",
+  },
+  {
+    n: "03",
+    label: "OWN IT",
+    title: "It's yours. Wherever it goes.",
+    body: "Keep it. Gift it. License it. Trade it. Your story, your asset — legally — on or off MemoryBinder.",
+  },
+];
+
+const features = [
+  {
+    label: "WALLETS",
+    title: "Hold collections like couture.",
+    body: "Group your memories into wallets — public, private, gifted, for sale. Skin them in leather, velvet, or the latest drop.",
+  },
+  {
+    label: "AGENTS",
+    title: "Wrapped in legal identity.",
+    body: "Build personal agents that any compliant platform can let in. Identity, accountability, governance — out of the box.",
+  },
+  {
+    label: "REGISTRY",
+    title: "On the public record.",
+    body: "Every authentication, every transfer, every licence — recorded in the MemoryBinder Registry. Anyone can read it.",
+  },
+  {
+    label: "MARKETPLACE",
+    title: "A house for authenticated things.",
+    body: "Browse drops, wallets, and editions from creators who actually own what they sell.",
+  },
+];
+
+const phoneScreens = [
+  { img: pinkCamelliasImg, title: "Vineyard", artist: "Amani", auth: true },
+  { img: balletImg, title: "Wings of Wonder", artist: "Elif", auth: true },
+  { img: autumnImg, title: "Easter egg hunt", artist: "Amani", auth: true },
+  { img: butterflyImg, title: "Birthday song", artist: "Amani", auth: true },
+];
+---
+
+<BaseLayout seo={{ title: "Pocket-sized ownership" }}>
+  <!-- HERO — phone-first, dark with purple wash -->
+  <section class="relative bg-ink text-wall overflow-hidden isolate">
+    <!-- Color wash -->
+    <div aria-hidden class="absolute inset-0 -z-10 opacity-90" style="background: radial-gradient(80% 60% at 75% 30%, var(--color-mb-purple) 0%, transparent 60%), radial-gradient(60% 50% at 15% 80%, var(--color-mb-pink) 0%, transparent 55%), #0b0b0b;"></div>
+    <!-- Faint grid -->
+    <div aria-hidden class="absolute inset-0 -z-10 opacity-[0.07]" style="background-image: linear-gradient(var(--color-wall) 1px, transparent 1px), linear-gradient(90deg, var(--color-wall) 1px, transparent 1px); background-size: 80px 80px;"></div>
+
+    <Wrapper variant="standard" class="pt-16 pb-20 lg:pt-20 lg:pb-28">
+      <div class="flex items-center justify-between mb-12 lg:mb-16">
+        <div class="flex items-center gap-3">
+          <BinderMark size={28} variant="duo-purple" />
+          <span class="mono-label text-wall/80">MEMORYBINDER · iOS</span>
+        </div>
+        <span class="hidden sm:inline-flex items-center gap-2 sticker bg-wall text-ink border-wall">
+          <span class="w-1.5 h-1.5 rounded-full bg-mb-pink animate-pulse"></span>
+          Coming Q3 2026
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Copy + QR + App Store -->
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <p class="mono-label text-mb-pink mb-6">POCKET-SIZED OWNERSHIP</p>
+          <h1 class="couture text-[clamp(2.8rem,8vw,6rem)] leading-[0.95]">
+            <span class="block">It looks like</span>
+            <span class="block">an app.</span>
+            <span class="block couture-wonky italic" style="background: linear-gradient(90deg, #fde4ec, #ece7ff); -webkit-background-clip: text; background-clip: text; color: transparent;">
+              It is the law.
+            </span>
+          </h1>
+
+          <p class="mt-8 max-w-lg text-base lg:text-lg text-wall/80 leading-relaxed">
+            MemoryBinder is the first iOS app that turns the things you share
+            into legal property — automatically, in the background, every time
+            you tap upload.
+          </p>
+
+          <!-- App store + QR row -->
+          <div class="mt-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+            <a href="/waitlist" class="app-badge group">
+              <div class="app-badge-mark" aria-hidden></div>
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.2em] text-wall/60 leading-none mb-1">Notify me on</div>
+                <div class="font-display text-2xl text-wall leading-none">App Store</div>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4">
+              <div class="qr-block" aria-hidden>
+                <div class="qr-grid"></div>
+                <div class="qr-eye qr-eye-tl"></div>
+                <div class="qr-eye qr-eye-tr"></div>
+                <div class="qr-eye qr-eye-bl"></div>
+                <div class="qr-mark"><BinderMark size={20} variant="duo-purple" /></div>
+              </div>
+              <div class="text-xs font-mono uppercase tracking-[0.18em] text-wall/60 leading-snug">
+                Scan from your<br />phone to join<br />the waitlist
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex items-center gap-6 text-xs font-mono uppercase tracking-[0.2em] text-wall/50">
+            <span>iOS first</span>
+            <span class="w-px h-3 bg-wall/30"></span>
+            <span>Android · 2027</span>
+            <span class="w-px h-3 bg-wall/30"></span>
+            <span>Free tier · Always</span>
+          </div>
+        </div>
+
+        <!-- Phones -->
+        <div class="lg:col-span-6 order-1 lg:order-2 relative h-[520px] sm:h-[600px] lg:h-[700px]">
+          <!-- Back phone -->
+          <div class="phone-stack phone-stack-back">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <!-- Wallet view mock -->
+                <div class="absolute inset-0 bg-wall flex flex-col">
+                  <div class="px-5 pt-9 pb-3 flex items-center justify-between">
+                    <span class="mono-label text-ink-muted">10:28</span>
+                    <span class="mono-label text-ink-muted">●●●● 5G</span>
+                  </div>
+                  <div class="px-5 pb-2">
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-mb-pink font-mono mb-1">Wallet</p>
+                    <p class="font-display text-lg text-ink leading-tight">Amani's<br/>Travel Wallet</p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2 px-3 pb-3">
+                    {phoneScreens.slice(0, 4).map((s) => (
+                      <div class="relative aspect-square rounded-xl overflow-hidden">
+                        <SiteImage src={s.img} alt={s.title} class="w-full h-full object-cover" widths={[160, 240]} sizes="120px" loading="lazy" />
+                        <span class="absolute top-1 right-1 text-[8px] font-mono bg-mb-pink text-wall px-1.5 py-0.5 rounded-full">✓</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div class="mt-auto border-t border-divider px-3 pt-2 pb-4 flex items-center justify-around text-[8px] font-mono uppercase tracking-[0.18em] text-ink-muted">
+                    <span>Create</span>
+                    <span class="text-mb-pink">●Wallet</span>
+                    <span>Market</span>
+                    <span>More</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front phone -->
+          <div class="phone-stack phone-stack-front">
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <div class="absolute inset-0 bg-wall flex flex-col">
+                  <div class="px-5 pt-9 pb-3 flex items-center justify-between">
+                    <span class="mono-label text-ink-muted">10:28</span>
+                    <span class="mono-label text-ink-muted">●●●● 5G</span>
+                  </div>
+                  <div class="px-5 pb-3 flex items-center gap-2">
+                    <BinderMark size={20} variant="duo" />
+                    <span class="mono-label text-ink">memorybinder</span>
+                  </div>
+
+                  <!-- Hero memory -->
+                  <div class="mx-3 rounded-2xl overflow-hidden relative aspect-[4/5]">
+                    <SiteImage src={waterfallImg} alt="Two yellow raincoats" class="w-full h-full object-cover" widths={[260, 380]} sizes="220px" loading="lazy" />
+                    <span class="absolute top-3 left-3 sticker bg-wall border-wall text-ink text-[8px] px-2 py-1">PHOTO</span>
+                    <span class="absolute top-3 right-3 mono-label text-[7px] bg-mb-pink text-wall px-1.5 py-0.5 rounded-full">auth ✓</span>
+                    <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
+                      <p class="font-display text-sm text-wall leading-tight">Two yellow raincoats</p>
+                      <p class="text-[9px] text-wall/70 font-mono">Amani Soysa · just now</p>
+                    </div>
+                  </div>
+
+                  <!-- Authentication banner -->
+                  <div class="mx-3 mt-3 rounded-xl border border-mb-pink/30 bg-mb-pink-soft p-3">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-[9px] font-mono uppercase tracking-[0.2em] text-mb-pink-deep mb-0.5">Authenticated</p>
+                        <p class="text-[11px] text-ink font-grotesk">Title issued · MB-AST-3819</p>
+                      </div>
+                      <div class="w-7 h-7 rounded-full bg-mb-pink flex items-center justify-center text-wall text-xs">✓</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto border-t border-divider px-3 pt-2 pb-4 flex items-center justify-around text-[8px] font-mono uppercase tracking-[0.18em] text-ink-muted">
+                    <span class="text-mb-pink">●Feed</span>
+                    <span>Wallet</span>
+                    <span>Market</span>
+                    <span>More</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating sticker -->
+          <div class="absolute -top-2 right-0 hidden lg:block">
+            <div class="sticker bg-wall text-ink border-wall rotate-[6deg] shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+              real receipts. legal title.
+            </div>
+          </div>
+          <div class="absolute bottom-2 left-0 hidden lg:block">
+            <div class="sticker bg-mb-pink text-wall border-mb-pink -rotate-[4deg] shadow-[0_8px_24px_rgba(0,0,0,0.25)]">
+              Q3 2026 · iOS
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- BIG TYPOGRAPHIC LINE -->
+  <section class="border-y border-ink bg-wall">
+    <Wrapper variant="standard" class="py-10 lg:py-14">
+      <p class="couture text-[clamp(1.6rem,4vw,3rem)] leading-tight text-ink">
+        It looks like everything else you tap.
+        <span class="text-ink-muted">It is the first thing that</span>
+        <span class="couture-wonky text-mb-pink italic">actually keeps a record.</span>
+      </p>
+    </Wrapper>
+  </section>
+
+  <!-- THREE TAPS -->
+  <section class="bg-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        <div class="lg:col-span-5">
+          <p class="mono-label text-mb-pink mb-5">HOW IT WORKS</p>
+          <h2 class="couture text-[clamp(2.4rem,5vw,4rem)] text-ink leading-[0.95]">
+            Three taps from a memory <span class="couture-wonky text-mb-pink italic">to title.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pt-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed max-w-xl">
+            Same gestures you already make a hundred times a day. The legal
+            infrastructure runs underneath, automatically, with nothing for
+            you to set up or sign.
+          </p>
+        </div>
+      </div>
+
+      <ol class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {steps.map((s, i) => {
+          const colors = ["text-mb-pink", "text-mb-purple", "text-mb-teal"];
+          return (
+            <li class="relative rounded-3xl border border-divider bg-wall p-8 lg:p-10 flex flex-col gap-6 group hover:border-ink transition-colors">
+              <div class="flex items-baseline justify-between">
+                <p class={`couture text-6xl lg:text-7xl ${colors[i]} leading-none`}>{s.n}</p>
+                <span class="mono-label text-ink-muted">{s.label}</span>
+              </div>
+              <h3 class="couture text-2xl lg:text-3xl text-ink leading-tight">{s.title}</h3>
+              <p class="text-sm text-ink-muted leading-relaxed">{s.body}</p>
+              {i < 2 && (
+                <span aria-hidden class="hidden lg:block absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-px bg-divider"></span>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </Wrapper>
+  </section>
+
+  <!-- INSIDE THE APP — feature grid -->
+  <section class="bg-mb-purple text-wall relative overflow-hidden">
+    <div aria-hidden class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 30% 20%, white 0%, transparent 30%), radial-gradient(circle at 70% 80%, var(--color-mb-pink) 0%, transparent 35%);"></div>
+    <Wrapper variant="standard" class="py-20 lg:py-28 relative">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div>
+          <p class="mono-label text-mb-pink-soft mb-5">INSIDE THE APP</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.6rem)] leading-tight">
+            Four tabs. One <span class="couture-wonky italic" style="color: #fde4ec;">complete</span> property system.
+          </h2>
+        </div>
+        <a href="/learn" class="mono-label text-wall hover:text-mb-pink-soft self-start">Learn the concepts →</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {features.map((f, i) => (
+          <article class="rounded-3xl bg-wall/10 border border-wall/20 backdrop-blur p-8 lg:p-10 hover:bg-wall/15 transition-colors">
+            <div class="flex items-baseline justify-between mb-5">
+              <p class="mono-label text-mb-pink-soft">{f.label}</p>
+              <span class="mono-label text-wall/50">0{i + 1}</span>
+            </div>
+            <h3 class="couture text-2xl lg:text-3xl mb-4 leading-tight">{f.title}</h3>
+            <p class="text-sm lg:text-base text-wall/80 leading-relaxed">{f.body}</p>
+          </article>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- LIVE FEED scrolling marquee -->
+  <section class="bg-wall border-y border-ink overflow-hidden">
+    <div class="mb-marquee py-6 text-ink couture text-[clamp(2rem,5vw,3.4rem)] leading-none">
+      <span class="mx-8">Don't lose your marbles.</span>
+      <span class="mx-8 text-mb-pink couture-wonky italic">Your story.</span>
+      <span class="mx-8">Your asset.</span>
+      <span class="mx-8 text-mb-purple couture-wonky italic">Legally.</span>
+      <span class="mx-8">In your pocket.</span>
+      <span class="mx-8 text-mb-pink couture-wonky italic">Q3 2026.</span>
+      <span class="mx-8">Don't lose your marbles.</span>
+      <span class="mx-8 text-mb-pink couture-wonky italic">Your story.</span>
+      <span class="mx-8">Your asset.</span>
+      <span class="mx-8 text-mb-purple couture-wonky italic">Legally.</span>
+    </div>
+  </section>
+
+  <!-- LIVE PROOF row -->
+  <section class="bg-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5">
+          <p class="mono-label text-mb-pink mb-5">PROOF · LIVE</p>
+          <h2 class="couture text-[clamp(2rem,4vw,3rem)] text-ink leading-tight">
+            The first authenticated <span class="couture-wonky text-mb-pink italic">consumer property estate</span> in your pocket.
+          </h2>
+          <p class="mt-6 text-sm lg:text-base text-ink-muted leading-relaxed max-w-md">
+            Built by lawyers and technologists who spent years building
+            authenticated data frameworks for enterprise. That same
+            infrastructure, in your hand.
+          </p>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            { k: "3.5B", v: "potential users" },
+            { k: "0", v: "competitors at this layer" },
+            { k: "Q3 26", v: "iOS launch" },
+            { k: "AUD$0", v: "free forever, base tier" },
+            { k: "100%", v: "your title travels with you" },
+            { k: "23", v: "countries on the waitlist" },
+          ].map((s) => (
+            <div class="border-t border-ink pt-5">
+              <p class="couture text-3xl lg:text-4xl text-ink leading-none">{s.k}</p>
+              <p class="mt-2 text-xs text-ink-muted leading-tight font-mono uppercase tracking-[0.16em]">{s.v}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-ink text-wall relative overflow-hidden">
+    <div aria-hidden class="absolute inset-0 opacity-50" style="background: radial-gradient(60% 60% at 30% 50%, var(--color-mb-pink) 0%, transparent 60%), radial-gradient(60% 60% at 80% 50%, var(--color-mb-purple) 0%, transparent 60%);"></div>
+    <Wrapper variant="standard" class="py-24 lg:py-36 relative">
+      <div class="text-center max-w-4xl mx-auto">
+        <BinderMark size={72} variant="duo-purple" class="mx-auto mb-8" glow={true} />
+        <h2 class="couture text-[clamp(2.4rem,8vw,6rem)] leading-[0.95]">
+          Be one of the
+          <span class="block couture-wonky italic" style="background: linear-gradient(90deg, #fde4ec, #ece7ff); -webkit-background-clip: text; background-clip: text; color: transparent;">first million.</span>
+        </h2>
+        <p class="mt-6 text-base lg:text-lg text-wall/80 max-w-2xl mx-auto leading-relaxed">
+          We're putting legal ownership in the hands of one million people for
+          the first time. Your iOS invite is one tap away.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/waitlist" class="btn-pink shimmer-hover">Join the waitlist</a>
+          <a href="/marketplace" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink">Walk the marketplace</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <HomeIterationSwitcher current="v3" />
+</BaseLayout>
+
+<style>
+  /* Phone stacking */
+  .phone-stack {
+    position: absolute;
+    width: clamp(220px, 50%, 300px);
+  }
+  .phone-stack-back {
+    top: 8%;
+    left: 4%;
+    transform: rotate(-8deg);
+    z-index: 1;
+    opacity: 0.95;
+  }
+  .phone-stack-front {
+    top: 0;
+    right: 4%;
+    transform: rotate(4deg);
+    z-index: 2;
+  }
+  @media (min-width: 1024px) {
+    .phone-stack-back {
+      top: 18%;
+      left: 6%;
+    }
+    .phone-stack-front {
+      top: 4%;
+      right: 8%;
+    }
+  }
+
+  /* App Store-style badge */
+  .app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: 14px;
+    background: var(--color-wall);
+    color: var(--color-ink);
+    border: 1px solid var(--color-wall);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .app-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(255, 255, 255, 0.4);
+  }
+  .app-badge-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--color-ink);
+    -webkit-mask: radial-gradient(circle at 50% 30%, transparent 8%, black 9%) center / 100% 100% no-repeat;
+    mask: radial-gradient(circle at 50% 30%, transparent 8%, black 9%) center / 100% 100% no-repeat;
+    border-radius: 8px;
+    position: relative;
+  }
+  .app-badge-mark::before,
+  .app-badge-mark::after {
+    content: "";
+    position: absolute;
+    background: var(--color-ink);
+  }
+  .app-badge-mark::before {
+    /* apple body */
+    inset: 6px;
+    border-radius: 50%;
+  }
+  .app-badge-mark::after {
+    /* leaf */
+    width: 8px;
+    height: 12px;
+    border-radius: 50% 0 50% 0;
+    top: 0;
+    right: 8px;
+    transform: rotate(35deg);
+  }
+
+  /* QR */
+  .qr-block {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    background: var(--color-wall);
+    border-radius: 12px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .qr-grid {
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(circle, var(--color-ink) 35%, transparent 36%),
+      radial-gradient(circle, var(--color-ink) 35%, transparent 36%);
+    background-size: 8px 8px, 8px 8px;
+    background-position: 0 0, 4px 4px;
+    background-repeat: repeat;
+    -webkit-mask: linear-gradient(#000, #000);
+    mask: linear-gradient(#000, #000);
+  }
+  .qr-eye {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: var(--color-wall);
+    border: 4px solid var(--color-ink);
+    border-radius: 4px;
+  }
+  .qr-eye::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: var(--color-ink);
+    border-radius: 1px;
+  }
+  .qr-eye-tl { top: 8px; left: 8px; }
+  .qr-eye-tr { top: 8px; right: 8px; }
+  .qr-eye-bl { bottom: 8px; left: 8px; }
+  .qr-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    background: var(--color-wall);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px var(--color-wall);
+  }
+</style>

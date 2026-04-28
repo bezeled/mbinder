@@ -1,0 +1,84 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const concepts = [
+  {
+    label: "MEMORIES",
+    title: "Authenticated content with title.",
+    blurb:
+      "A memory is any digital artefact — photo, audio, story, video — wrapped in a legal property right that travels with it.",
+    href: "/learn/memories",
+  },
+  {
+    label: "WALLETS & WALLS",
+    title: "Where memories live.",
+    blurb:
+      "Wallets group memories by collection. Walls are the public face of a wallet — the part you choose to share with the world.",
+    href: "/learn/wallets",
+  },
+  {
+    label: "MARKETPLACE",
+    title: "Where memories find value.",
+    blurb:
+      "An authenticated marketplace for personal property. Licensed, traded, gifted — every transaction recorded.",
+    href: "/marketplace",
+  },
+  {
+    label: "REGISTRY",
+    title: "The independent legal layer.",
+    blurb:
+      "Real-time, machine-readable, legally operative across borders. The connective tissue beneath the app.",
+    href: "/registry",
+  },
+];
+---
+
+<BaseLayout seo={{ title: "Learn" }}>
+  <section class="relative">
+    <Wrapper variant="standard" class="pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">LEARN</p>
+          <h1 class="page-hero-title text-ink">
+            The MemoryBinder <span class="couture-wonky text-mb-pink">primer.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            Four concepts. The vocabulary that makes everything else click.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <section>
+    <Wrapper variant="standard" class="pb-24 lg:pb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {concepts.map((c, i) => (
+          <a
+            href={c.href}
+            class={`group rounded-3xl border border-divider bg-wall p-8 lg:p-10 flex flex-col gap-5 hover:border-ink transition-colors ${i % 2 === 1 ? "lg:translate-y-8" : ""}`}
+          >
+            <div class="flex items-center justify-between">
+              <p class="mono-label text-mb-pink">{c.label}</p>
+              <BinderMark size={32} variant={i % 2 === 0 ? "duo" : "duo-purple"} glow={false} />
+            </div>
+            <h2 class="couture text-3xl lg:text-4xl text-ink group-hover:text-mb-pink transition-colors">
+              {c.title}
+            </h2>
+            <p class="text-sm text-ink-muted leading-relaxed">{c.blurb}</p>
+            <span class="mt-2 inline-flex items-center gap-2 text-sm font-medium text-ink group-hover:text-mb-pink transition-colors">
+              Read on
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

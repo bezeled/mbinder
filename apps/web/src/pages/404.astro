@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+---
+
+<BaseLayout seo={{ title: "Lost your marbles" }}>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="flex flex-col items-center justify-center pt-32 pb-16 min-h-[60vh] text-center"
+    >
+      <BinderMark size={80} variant="duo" />
+      <h1 class="couture text-[clamp(3rem,12vw,8rem)] text-ink mt-8">
+        Lost your <span class="couture-wonky text-mb-pink">marbles?</span>
+      </h1>
+      <p class="mono-label text-ink-muted mt-4">404 · PAGE NOT FOUND</p>
+      <a href="/" class="btn-pink mt-10">Go back home</a>
+    </Wrapper>
+  </section>
+</BaseLayout>

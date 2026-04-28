@@ -1,0 +1,144 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import SectionRule from "@/components/fundations/containers/SectionRule.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const principles = [
+  {
+    n: "01",
+    title: "Title before transaction.",
+    body: "We do not pay people for their data. We give them legal title to it. Payment without ownership is still extraction.",
+  },
+  {
+    n: "02",
+    title: "The right travels with the asset.",
+    body: "If a memory leaves MemoryBinder — gifted, exported, transferred — its legal record goes with it. Nothing locked behind our walls.",
+  },
+  {
+    n: "03",
+    title: "No model trains on you without consent.",
+    body: "Your memories will never be silently fed into AI training pipelines. Consent is opt-in, granular, revocable, and recorded.",
+  },
+  {
+    n: "04",
+    title: "Provenance is permanent.",
+    body: "Every authentication, every transfer, every license is recorded. The legal record is append-only. The truth doesn't get rewritten.",
+  },
+  {
+    n: "05",
+    title: "Independent registry.",
+    body: "MemoryBinder operates a registry that any other organisation can verify against. Not a walled garden. A piece of legal infrastructure.",
+  },
+  {
+    n: "06",
+    title: "We are accountable to the law.",
+    body: "Built by lawyers and technologists. Smart Legal Contracts that hold up in court. Legal liability that lands on the entity acting, not the consumer they acted on.",
+  },
+];
+
+const trustees = [
+  { role: "Independent Trustee", body: "Our Data Trust holds custodianship rights over the registry, separate from MemoryBinder's commercial entity." },
+  { role: "Public Charter", body: "The Trust's charter is public. Any change requires consultation with users and trustees." },
+  { role: "Annual Report", body: "Each year we publish what we did with the registry — and what we refused to do." },
+];
+---
+
+<BaseLayout seo={{ title: "The Trust" }}>
+  <section class="relative">
+    <Wrapper variant="standard" class="pt-24 pb-16 lg:pt-32 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <p class="mono-label text-mb-pink mb-6">THE TRUST</p>
+          <h1 class="page-hero-title text-ink">
+            A data trust, <span class="couture-wonky text-mb-pink">in writing.</span>
+          </h1>
+        </div>
+        <div class="lg:col-span-4">
+          <p class="text-base lg:text-lg text-ink-muted leading-relaxed">
+            What we promise to do — and refuse to do — with the property
+            people place in our care. Read these as binding terms, not
+            marketing copy.
+          </p>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Principles -->
+  <section>
+    <SectionRule />
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <p class="mono-label text-mb-pink mb-12">SIX PROMISES</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-x-16 lg:gap-y-12">
+        {principles.map((p) => (
+          <div class="border-t border-ink pt-6">
+            <div class="flex items-baseline justify-between mb-3">
+              <p class="mono-label text-ink-muted">No. {p.n}</p>
+              <BinderMark size={22} variant="duo" glow={false} />
+            </div>
+            <h3 class="couture text-2xl lg:text-3xl text-ink mb-4">{p.title}</h3>
+            <p class="text-sm lg:text-base text-ink-muted leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Data trust -->
+  <section class="bg-wall-warm border-y border-divider">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5">
+          <p class="mono-label text-mb-pink mb-6">THE DATA TRUST</p>
+          <h2 class="couture text-[clamp(2rem,5vw,3.4rem)] text-ink">
+            The registry is held in trust. <span class="couture-wonky text-mb-pink">Not by us.</span>
+          </h2>
+          <p class="mt-6 text-base text-ink-muted leading-relaxed max-w-md">
+            MemoryBinder runs the platform. The Data Trust holds the registry.
+            That separation is the difference between a service we sell and
+            infrastructure we steward.
+          </p>
+        </div>
+        <div class="lg:col-span-7 space-y-6">
+          {trustees.map((t) => (
+            <div class="border-t border-ink pt-5">
+              <p class="mono-label text-mb-pink mb-2">{t.role}</p>
+              <p class="text-base text-ink-soft leading-relaxed">{t.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
+  <!-- Pull quote -->
+  <section>
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <blockquote class="max-w-3xl">
+        <p class="couture text-[clamp(1.6rem,3.6vw,2.6rem)] text-ink">
+          When rights are clear, everyone wins. Not just as a moral
+          proposition. <span class="couture-wonky text-mb-pink">As a market mechanic.</span>
+        </p>
+        <cite class="mono-label text-ink-muted mt-6 block not-italic">— The insight</cite>
+      </blockquote>
+    </Wrapper>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+        <div class="lg:col-span-8">
+          <h2 class="couture text-3xl lg:text-5xl">
+            Read the legals. <span class="couture-wonky text-mb-pink">Hold us to them.</span>
+          </h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <a href="/legal/terms" class="btn-pink w-full">Terms</a>
+          <a href="/legal/privacy" class="btn-ghost text-wall border-wall hover:bg-wall hover:text-ink w-full">Privacy</a>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

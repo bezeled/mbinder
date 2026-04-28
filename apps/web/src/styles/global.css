@@ -1,0 +1,681 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+@plugin "tailwind-scrollbar-hide";
+
+/* ============================================================================
+   MemoryBinder design tokens
+   ============================================================================
+   Walls are painted white. Color is applied to objects on the walls.
+   ============================================================================ */
+
+@theme {
+  /* Type pairings: editorial display + grotesk + mono */
+  --font-display: "Fraunces", "Iowan Old Style", "Georgia", serif;
+  --font-grotesk: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-serif: "Fraunces", "Iowan Old Style", "Georgia", serif;
+
+  /* Walls — painted white. */
+  --color-wall: #ffffff;
+  --color-wall-warm: #faf8f2;
+  --color-wall-cool: #f3f3f7;
+  --color-paper: #ffffff;
+  --color-divider: #e8e6e0;
+  --color-divider-soft: #f1efea;
+
+  /* Legacy aliases (kept so existing pages render before being rebuilt). */
+  --color-linen: #ffffff;
+  --color-linen-light: #ffffff;
+  --color-linen-dark: #f6f5f0;
+  --color-ghost: rgba(0, 0, 0, 0.04);
+  --color-ghost-stroke: rgba(11, 11, 11, 0.08);
+
+  /* Ink */
+  --color-ink: #0b0b0b;
+  --color-ink-light: #2a2a2a;
+  --color-ink-soft: #1f1f1f;
+  --color-ink-muted: #6b6b67;
+  --color-ink-faint: #9b9b96;
+
+  /* Signature pinks (from logo) */
+  --color-mb-pink: #e91e63;
+  --color-mb-pink-soft: #fde4ec;
+  --color-mb-pink-deep: #b0144a;
+
+  /* Signature teals (from logo) */
+  --color-mb-teal: #1f7a7e;
+  --color-mb-teal-soft: #d8ecec;
+  --color-mb-teal-deep: #134548;
+
+  /* Purple — playful & couture */
+  --color-mb-purple: #6b4fec;
+  --color-mb-purple-soft: #ece7ff;
+  --color-mb-purple-deep: #3d27a8;
+
+  /* Other accents */
+  --color-mb-orchid: #b947d6;
+  --color-mb-honey: #f2c94c;
+  --color-mb-bone: #f4eee0;
+
+  /* Legacy teal aliases. */
+  --color-teal: #1f7a7e;
+  --color-teal-light: #d8ecec;
+  --color-teal-dark: #134548;
+  --color-teal-muted: rgba(31, 122, 126, 0.12);
+
+  --color-base-50: #fafaf8;
+  --color-base-100: #f5f5f3;
+  --color-base-200: #ebebea;
+  --color-base-300: #d4d4d0;
+  --color-base-400: #a8a8a3;
+  --color-base-500: #7c7c78;
+  --color-base-600: #5c5c58;
+  --color-base-700: #3d3d3a;
+  --color-base-800: #252524;
+  --color-base-900: #121211;
+  --color-base-950: #060606;
+
+  --shadow-couture: 0 30px 60px -20px rgba(11, 11, 11, 0.18), 0 12px 30px -12px rgba(11, 11, 11, 0.12);
+  --shadow-orb: 0 18px 40px -16px rgba(11, 11, 11, 0.28), inset 0 -8px 18px rgba(11, 11, 11, 0.08);
+}
+
+html {
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: clip;
+  background: var(--color-wall);
+  color: var(--color-ink);
+}
+
+:root {
+  font-feature-settings: "ss01" 1, "calt" 1, "liga" 1, "tnum" 1;
+  font-family: "Inter", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------------------- Typography helpers */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 0;
+}
+.font-display-wonky {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+.font-grotesk {
+  font-family: var(--font-grotesk);
+}
+
+.tracking-tightest {
+  letter-spacing: -0.04em;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.couture {
+  font-family: var(--font-display);
+  font-weight: 350;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+.couture-wonky {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.mono-label-wrap {
+  overflow-wrap: anywhere;
+}
+
+.couture-underline {
+  background-image: linear-gradient(90deg, var(--color-mb-pink), var(--color-mb-purple));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.16em;
+  padding-bottom: 0.04em;
+}
+
+.decorative-underline {
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-mb-pink), var(--color-mb-pink));
+  background-position: 0 92%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.14em;
+  padding-bottom: 0.04em;
+}
+
+.dual-text {
+  background: linear-gradient(135deg, var(--color-mb-teal) 0%, var(--color-mb-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dual-text-purple {
+  background: linear-gradient(135deg, var(--color-mb-purple) 0%, var(--color-mb-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-hero-title {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
+  font-weight: 350;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+.hero-title-line .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em);
+  animation: word-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--word-delay, 0s);
+}
+
+@keyframes word-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------------------------------------- Section rule + dotted */
+.section-rule {
+  border: 0;
+  border-top: 1px solid var(--color-divider);
+  margin: 0;
+}
+
+.dotted-rule {
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 1px;
+  color: var(--color-ink-faint);
+  border: 0;
+}
+
+/* ----------------------------------------- Geo decorations (kept) */
+.geo-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(11, 11, 11, 0.08);
+  pointer-events: none;
+}
+.geo-circle-fill {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(11, 11, 11, 0.04);
+  pointer-events: none;
+}
+.geo-rect {
+  position: absolute;
+  border: 1px solid rgba(11, 11, 11, 0.08);
+  pointer-events: none;
+}
+.geo-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-mb-pink);
+  border-radius: 999px;
+  display: inline-block;
+}
+
+/* ----------------------------------------- Memory orbs (chrome bubble look) */
+.memory-orb {
+  position: relative;
+  border-radius: 9999px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: var(--shadow-orb);
+  background: var(--color-wall-warm);
+}
+.memory-orb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 30% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 45%),
+    radial-gradient(80% 60% at 70% 90%, rgba(11, 11, 11, 0.18) 0%, rgba(11, 11, 11, 0) 60%);
+  z-index: 1;
+}
+.memory-orb img,
+.memory-orb .orb-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ----------------------------------------- Phone frame */
+.phone-frame {
+  border-radius: 2.6rem;
+  background: #0b0b0b;
+  padding: 0.55rem;
+  box-shadow:
+    var(--shadow-couture),
+    0 0 0 2px rgba(11, 11, 11, 0.92),
+    0 0 0 6px rgba(255, 255, 255, 1),
+    0 0 0 7px rgba(11, 11, 11, 0.06);
+}
+.phone-screen {
+  border-radius: 2.05rem;
+  overflow: hidden;
+  background: var(--color-wall);
+  position: relative;
+  aspect-ratio: 9 / 19.5;
+}
+.phone-notch {
+  position: absolute;
+  top: 0.45rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  height: 1.2rem;
+  background: #0b0b0b;
+  border-radius: 0 0 1rem 1rem;
+  z-index: 30;
+}
+
+/* ----------------------------------------- Couture chip */
+.couture-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  border: 1px solid currentColor;
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--color-ink);
+  background: var(--color-wall);
+}
+
+/* ----------------------------------------- Buttons */
+.btn-ink,
+.btn-pink,
+.btn-ghost,
+.btn-pink-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+.btn-ink {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn-ink:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
+}
+.btn-pink {
+  background: var(--color-mb-pink);
+  color: #fff;
+}
+.btn-pink:hover {
+  background: var(--color-mb-pink-deep);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+.btn-ghost:hover {
+  background: var(--color-ink);
+  color: #fff;
+}
+.btn-pink-ghost {
+  background: transparent;
+  color: var(--color-mb-pink);
+  border: 1px solid var(--color-mb-pink);
+}
+.btn-pink-ghost:hover {
+  background: var(--color-mb-pink);
+  color: #fff;
+}
+
+.responsive-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+/* ----------------------------------------- Logo glow */
+.binder-glow {
+  filter: drop-shadow(0 6px 18px rgba(233, 30, 99, 0.18))
+    drop-shadow(0 1px 2px rgba(31, 122, 126, 0.18));
+}
+
+/* Wordmark hover glow used by Navigation. */
+.logo-wordmark { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; }
+.logo-glow {
+  position: absolute;
+  inset: -8px -14px;
+  background: radial-gradient(closest-side, rgba(233, 30, 99, 0.18), transparent 70%);
+  filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.group\/logo:hover .logo-glow { opacity: 1; }
+
+/* ----------------------------------------- Marquee for couture ribbon */
+@keyframes mb-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.mb-marquee {
+  display: flex;
+  overflow: hidden;
+  gap: 0;
+}
+.mb-marquee-track {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 2.5rem;
+  white-space: nowrap;
+  padding-right: 2.5rem;
+  animation: mb-marquee 40s linear infinite;
+}
+
+/* ----------------------------------------- Floating orbs animation */
+@keyframes mb-float {
+  0% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-14px) rotate(1deg); }
+  100% { transform: translateY(0) rotate(-1deg); }
+}
+.float-slow { animation: mb-float 7s ease-in-out infinite; }
+.float-med { animation: mb-float 5s ease-in-out infinite; }
+.float-fast { animation: mb-float 3.6s ease-in-out infinite; }
+
+/* ----------------------------------------- Yin Yang split helpers */
+.split-bg-yin {
+  background: linear-gradient(135deg, var(--color-ink) 0 50%, var(--color-mb-pink) 50% 100%);
+}
+
+/* ----------------------------------------- Edge ribbon (rebellious) */
+.edge-ribbon {
+  background: var(--color-ink);
+  color: var(--color-mb-pink);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 0.7rem;
+  padding: 0.65rem 0;
+}
+
+/* ----------------------------------------- Spotlight grid (V3) */
+.poster-grid {
+  background-image:
+    linear-gradient(to right, rgba(11, 11, 11, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 11, 11, 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ----------------------------------------- Iteration switcher pills */
+.iter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(11, 11, 11, 0.05);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.iter-pill[aria-current="page"] {
+  background: var(--color-ink);
+  color: var(--color-mb-pink);
+}
+.iter-pill:hover {
+  background: var(--color-mb-pink);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ----------------------------------------- Shimmer */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.shimmer-hover:hover::after {
+  transform: translateX(100%);
+}
+
+/* ----------------------------------------- Editorial offsets */
+.img-offset-right .img-editorial { transform: translateX(0); }
+.img-offset-left  .img-editorial { transform: translateX(0); }
+@media (min-width: 1024px) {
+  .img-offset-right { padding-right: 0; }
+  .img-offset-right .img-editorial { transform: translateX(2vw); }
+  .img-offset-left  .img-editorial { transform: translateX(-2vw); }
+}
+
+.img-editorial { box-shadow: var(--shadow-couture); }
+
+/* ----------------------------------------- Provenance chain (legacy) */
+.provenance-entry { font-family: var(--font-mono); }
+.provenance-pending { animation: provenance-pulse 1.4s ease-in-out infinite; }
+@keyframes provenance-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.provenance-connector { background: rgba(11, 11, 11, 0.08); }
+
+/* ----------------------------------------- Quote */
+.quote-block {
+  padding-left: 1.5rem;
+}
+
+/* ----------------------------------------- Mobile menu */
+.mobile-nav-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--color-wall);
+  z-index: 60;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.2, 1);
+  padding: 1rem 1.5rem 2rem;
+  overflow-y: auto;
+}
+.mobile-nav-panel[data-open="true"] { transform: translateY(0); }
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 11, 11, 0.32);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 55;
+}
+.mobile-nav-backdrop[data-open="true"] { opacity: 1; pointer-events: auto; }
+body.mobile-nav-open { overflow: hidden; }
+
+.mobile-nav-toggle {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-nav-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+}
+.mobile-nav-line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--color-ink);
+  border-radius: 1px;
+}
+.mobile-nav-shell { display: flex; flex-direction: column; gap: 0.5rem; max-width: 720px; margin: 0 auto; }
+.mobile-nav-header { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0 1rem; }
+.mobile-nav-close { width: 44px; height: 44px; position: relative; }
+.mobile-nav-close-line {
+  position: absolute; top: 50%; left: 50%; width: 22px; height: 2px;
+  background: var(--color-ink); transform-origin: center;
+}
+.mobile-nav-close-line:first-child { transform: translate(-50%, -50%) rotate(45deg); }
+.mobile-nav-close-line:last-child { transform: translate(-50%, -50%) rotate(-45deg); }
+.mobile-nav-section { padding: 0.75rem 0; }
+.mobile-nav-link {
+  display: block;
+  padding: 0.45rem 0;
+  font-family: var(--font-grotesk);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+.mobile-nav-divider { margin: 0.5rem 0; opacity: 0.7; }
+.mobile-nav-cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--color-mb-pink); color: #fff;
+  padding: 0.95rem 1.6rem; border-radius: 999px;
+  margin-top: 1rem; align-self: flex-start;
+  font-weight: 500;
+}
+.mobile-nav-item { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease var(--mobile-nav-delay, 0s), transform 0.4s ease var(--mobile-nav-delay, 0s); }
+.mobile-nav-item.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ----------------------------------------- Audio player legacy */
+.audio-player input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--color-ink);
+  outline: none;
+  cursor: pointer;
+}
+.audio-player input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-ink);
+}
+
+/* ----------------------------------------- Marketplace mock orbs */
+.market-orb {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-orb);
+  background: linear-gradient(135deg, #f4eee0 0%, #fff 100%);
+}
+.market-orb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 30% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 45%),
+    radial-gradient(80% 60% at 70% 90%, rgba(11, 11, 11, 0.16) 0%, rgba(11, 11, 11, 0) 60%);
+}
+
+.market-orb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* ----------------------------------------- Hero kerning for couture */
+.kerning-display {
+  font-feature-settings: "ss01" 1, "ss02" 1, "calt" 1, "liga" 1, "dlig" 1;
+}
+
+/* ----------------------------------------- Tape / sticker */
+.tape {
+  position: absolute;
+  width: 90px;
+  height: 22px;
+  background: rgba(233, 30, 99, 0.35);
+  transform: rotate(-6deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  border-left: 2px dotted rgba(11, 11, 11, 0.15);
+  border-right: 2px dotted rgba(11, 11, 11, 0.15);
+}

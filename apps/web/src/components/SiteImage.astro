@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import { IMAGE_QUALITY } from "@/lib/image-defaults";
+
+const { quality: qualityProp, format: formatProp, ...rest } = Astro.props;
+const quality = qualityProp ?? IMAGE_QUALITY;
+/** Astro defaults raster output to WebP; JPEG at max quality matches source photos better for editorial assets. */
+const format = formatProp ?? "jpeg";
+---
+
+<Image {...rest} quality={quality} format={format} />

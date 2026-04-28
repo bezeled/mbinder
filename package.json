@@ -1,0 +1,21 @@
+{
+  "name": "memorybinder",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --parallel -r dev",
+    "dev:web": "pnpm --filter @memorybinder/web dev",
+    "dev:studio": "pnpm --filter @memorybinder/studio dev",
+    "dev:all": "pnpm --parallel -r dev",
+    "build": "pnpm --parallel -r build",
+    "build:web": "pnpm --filter @memorybinder/web build && pnpm check:public-copy",
+    "build:studio": "pnpm --filter @memorybinder/studio build",
+    "check:public-copy": "node scripts/check-public-copy.mjs",
+    "clean": "bash scripts/clean.sh"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "devDependencies": {
+    "@sanity/client": "^6.24.1",
+    "gray-matter": "^4.0.3",
+    "tsx": "^4.21.0"
+  }
+}

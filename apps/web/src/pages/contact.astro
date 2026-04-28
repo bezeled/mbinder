@@ -1,0 +1,106 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import BinderMark from "@/components/fundations/icons/BinderMark.astro";
+
+const generalEmail = "hello@memorybinder.io";
+const enterpriseEmail = "enterprise@memorybinder.io";
+const pressEmail = "press@memorybinder.io";
+---
+
+<BaseLayout seo={{ title: "Contact" }}>
+  <section class="relative overflow-hidden">
+    <div class="geo-circle hidden lg:block" style="width: 420px; height: 420px; top: -120px; right: -120px;"></div>
+    <Wrapper variant="standard" class="pt-24 pb-20 lg:pt-32 lg:pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <div>
+          <p class="mono-label text-mb-pink mb-6">CONTACT</p>
+          <h1 class="page-hero-title text-ink">
+            Say <span class="couture-wonky text-mb-pink">hello.</span>
+          </h1>
+          <p class="mt-8 max-w-md text-base text-ink-muted leading-relaxed">
+            Three doors. Pick the one that fits. We answer everything that
+            comes in within a working week.
+          </p>
+          <div class="mt-12 space-y-8">
+            <div>
+              <p class="mono-label text-ink-muted mb-2">GENERAL</p>
+              <a href={`mailto:${generalEmail}`} class="text-lg text-ink font-medium decorative-underline">{generalEmail}</a>
+            </div>
+            <div>
+              <p class="mono-label text-ink-muted mb-2">ENTERPRISE &amp; GOVERNMENT</p>
+              <a href={`mailto:${enterpriseEmail}`} class="text-lg text-ink font-medium decorative-underline">{enterpriseEmail}</a>
+            </div>
+            <div>
+              <p class="mono-label text-ink-muted mb-2">PRESS</p>
+              <a href={`mailto:${pressEmail}`} class="text-lg text-ink font-medium decorative-underline">{pressEmail}</a>
+            </div>
+          </div>
+          <div class="mt-12">
+            <BinderMark size={48} variant="duo" />
+          </div>
+        </div>
+
+        <div class="lg:pt-16">
+          <form
+            name="contact"
+            action="/contact/success"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="flex flex-col gap-6 rounded-3xl border border-divider p-8 lg:p-10 bg-wall"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">
+              <label>Do not fill this out if you are human: <input name="bot-field" type="text" /></label>
+            </p>
+
+            <div class="flex flex-col gap-1">
+              <label class="mono-label text-ink-muted" for="name">NAME</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                class="w-full h-10 px-0 py-2 text-sm bg-transparent border-0 border-b border-divider text-ink placeholder-ink-muted/40 focus:outline-none focus:ring-0 focus:border-ink"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="mono-label text-ink-muted" for="email">EMAIL</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                class="w-full h-10 px-0 py-2 text-sm bg-transparent border-0 border-b border-divider text-ink placeholder-ink-muted/40 focus:outline-none focus:ring-0 focus:border-ink"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="mono-label text-ink-muted" for="company">COMPANY (OPTIONAL)</label>
+              <input
+                type="text"
+                name="company"
+                id="company"
+                class="w-full h-10 px-0 py-2 text-sm bg-transparent border-0 border-b border-divider text-ink placeholder-ink-muted/40 focus:outline-none focus:ring-0 focus:border-ink"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="mono-label text-ink-muted" for="message">MESSAGE</label>
+              <textarea
+                name="message"
+                id="message"
+                required
+                rows="5"
+                class="w-full px-0 py-2 text-sm bg-transparent border-0 border-b border-divider text-ink placeholder-ink-muted/40 focus:outline-none focus:ring-0 focus:border-ink resize-none"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-pink w-full justify-center mt-2">
+              Send message
+            </button>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

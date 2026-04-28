@@ -1,0 +1,146 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+const { frontmatter } = Astro.props;
+const pubDateLabel = frontmatter.pubDate instanceof Date
+  ? frontmatter.pubDate.toLocaleDateString("en-GB", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  : String(frontmatter.pubDate);
+const legalMeta = [
+  frontmatter.group,
+  frontmatter.effectiveDate ? `Effective: ${frontmatter.effectiveDate}` : `Last updated ${pubDateLabel}`,
+  frontmatter.version ? `Version ${frontmatter.version}` : null,
+].filter(Boolean);
+---
+
+<BaseLayout>
+  <section class="relative overflow-hidden">
+    <div class="geo-rect hidden lg:block" style="width: 280px; height: 360px; top: -60px; right: -100px;"></div>
+    <Wrapper variant="standard" class="pt-24 pb-12 lg:pt-36 lg:pb-16">
+      <p class="mono-label text-ink-muted mb-6">LEGAL</p>
+      <h1 class="page-hero-title text-ink max-w-3xl">
+        {frontmatter.page}
+      </h1>
+      <p class="mt-6 text-sm text-ink-muted max-w-2xl">
+        {legalMeta.join(" | ")}
+      </p>
+    </Wrapper>
+    <Wrapper variant="standard" class="pb-20 lg:pb-32">
+      <div class="legal-layout-grid">
+        <article
+          id="legal-document"
+          class="legal-document px-1 py-2 sm:px-0 lg:py-4"
+        >
+          <Wrapper variant="prose" class="max-w-none !first-letter:text-sm !first-letter:font-normal !first-letter:float-none">
+            <slot />
+          </Wrapper>
+        </article>
+
+        <aside class="legal-sidebar hidden xl:block">
+          <div class="legal-sidebar-card">
+            <p class="mono-label text-ink-muted mb-4">On This Page</p>
+            <nav aria-label="Legal page sections">
+              <ol id="legal-toc" class="legal-toc-list"></ol>
+            </nav>
+          </div>
+        </aside>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>
+
+<script>
+  const slugify = (value) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+
+  const clauseHeadingPattern = /^(\d+(?:\.\d+)*\.?)\s+(.+)$/;
+
+  const enhanceLegalHeadings = (article) => {
+    const headings = Array.from(article.querySelectorAll("h2, h3"));
+
+    headings.forEach((heading) => {
+      if (!(heading instanceof HTMLElement)) return;
+      if (heading.dataset.legalHeadingEnhanced === "true") return;
+
+      const text = heading.textContent?.trim();
+      if (!text) return;
+
+      const match = text.match(clauseHeadingPattern);
+      if (!match) return;
+
+      const [, marker, title] = match;
+
+      heading.dataset.legalHeadingEnhanced = "true";
+      heading.dataset.legalHeadingLabel = `${marker} ${title}`;
+      heading.classList.add("legal-numbered-heading");
+      heading.innerHTML = "";
+
+      const markerNode = document.createElement("span");
+      markerNode.className = "legal-clause-marker";
+      markerNode.textContent = marker;
+
+      const titleNode = document.createElement("span");
+      titleNode.className = "legal-clause-title";
+      titleNode.textContent = title;
+
+      heading.append(markerNode, titleNode);
+    });
+  };
+
+  const buildLegalToc = () => {
+    const article = document.querySelector("#legal-document");
+    const toc = document.querySelector("#legal-toc");
+
+    if (!(article instanceof HTMLElement) || !(toc instanceof HTMLElement)) return;
+
+    enhanceLegalHeadings(article);
+
+    const headings = Array.from(article.querySelectorAll("h2, h3"));
+    if (!headings.length) {
+      toc.innerHTML = "";
+      return;
+    }
+
+    const seen = new Map();
+    const items = headings.map((heading) => {
+      const text = heading.dataset.legalHeadingLabel || heading.textContent?.trim();
+      if (!text) return null;
+
+      const baseId = heading.id || slugify(text);
+      const count = seen.get(baseId) ?? 0;
+      seen.set(baseId, count + 1);
+      const id = count === 0 ? baseId : `${baseId}-${count + 1}`;
+
+      if (!heading.id) heading.id = id;
+
+      return {
+        id,
+        text,
+        level: heading.tagName.toLowerCase(),
+      };
+    }).filter(Boolean);
+
+    toc.innerHTML = items.map((item) => `
+      <li>
+        <a href="#${item.id}" class="legal-toc-link ${item.level === "h3" ? "is-subitem" : ""}">
+          ${item.text}
+        </a>
+      </li>
+    `).join("");
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", buildLegalToc, { once: true });
+  } else {
+    buildLegalToc();
+  }
+</script>
