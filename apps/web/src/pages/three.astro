@@ -2,13 +2,15 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
-import SiteImage from "@/components/SiteImage.astro";
-import butterflyImg from "@/images/butterfly-flower.jpg";
-import pinkCamelliasImg from "@/images/pink-camellias.jpg";
-import autumnImg from "@/images/autumn-forest.jpg";
-import balletImg from "@/images/ballet-dancer.jpg";
-import waterfallImg from "@/images/waterfall-explorers.jpg";
-import lanternsImg from "@/images/hanging-lanterns.jpg";
+
+const heroOrb = { src: "/assets/01.webp", title: "Poppy, the morning after" };
+
+const phoneScreens = [
+  { src: "/assets/04.webp", bg: "#f3e6f1" },
+  { src: "/assets/07.webp", bg: "#e6e7eb" },
+  { src: "/assets/03.webp", bg: "#fff6e0" },
+  { src: "/assets/02.webp", bg: "#faf8f2" },
+];
 
 const steps = [
   {
@@ -54,12 +56,6 @@ const features = [
   },
 ];
 
-const phoneScreens = [
-  { img: pinkCamelliasImg, title: "Vineyard", artist: "Amani", auth: true },
-  { img: balletImg, title: "Wings of Wonder", artist: "Elif", auth: true },
-  { img: autumnImg, title: "Easter egg hunt", artist: "Amani", auth: true },
-  { img: butterflyImg, title: "Birthday song", artist: "Amani", auth: true },
-];
 ---
 
 <BaseLayout seo={{ title: "Pocket-sized ownership" }}>
@@ -152,8 +148,8 @@ const phoneScreens = [
                   </div>
                   <div class="grid grid-cols-2 gap-2 px-3 pb-3">
                     {phoneScreens.slice(0, 4).map((s) => (
-                      <div class="relative aspect-square rounded-xl overflow-hidden">
-                        <SiteImage src={s.img} alt={s.title} class="w-full h-full object-cover" widths={[160, 240]} sizes="120px" loading="lazy" />
+                      <div class="relative aspect-square rounded-xl overflow-hidden flex items-center justify-center" style={`background: ${s.bg};`}>
+                        <img src={s.src} alt="" aria-hidden="true" class="w-[88%] h-[88%] object-contain" loading="lazy" decoding="async" />
                         <span class="absolute top-1 right-1 text-[8px] font-mono bg-mb-pink text-wall px-1.5 py-0.5 rounded-full">✓</span>
                       </div>
                     ))}
@@ -185,12 +181,12 @@ const phoneScreens = [
                   </div>
 
                   <!-- Hero memory -->
-                  <div class="mx-3 rounded-2xl overflow-hidden relative aspect-[4/5]">
-                    <SiteImage src={waterfallImg} alt="Two yellow raincoats" class="w-full h-full object-cover" widths={[260, 380]} sizes="220px" loading="lazy" />
+                  <div class="mx-3 rounded-2xl overflow-hidden relative aspect-[4/5] flex items-center justify-center" style="background: linear-gradient(155deg, #fde4ec 0%, #f3e6f1 100%);">
+                    <img src={heroOrb.src} alt="" aria-hidden="true" class="w-[80%] h-[80%] object-contain" loading="lazy" decoding="async" />
                     <span class="absolute top-3 left-3 sticker bg-wall border-wall text-ink text-[8px] px-2 py-1">PHOTO</span>
                     <span class="absolute top-3 right-3 mono-label text-[7px] bg-mb-pink text-wall px-1.5 py-0.5 rounded-full">auth ✓</span>
                     <div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/70 to-transparent">
-                      <p class="font-display text-sm text-wall leading-tight">Two yellow raincoats</p>
+                      <p class="font-display text-sm text-wall leading-tight">{heroOrb.title}</p>
                       <p class="text-[9px] text-wall/70 font-mono">Amani Soysa · just now</p>
                     </div>
                   </div>

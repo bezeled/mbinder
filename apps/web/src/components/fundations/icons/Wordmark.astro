@@ -24,7 +24,7 @@ const sizeMap = {
 const s = sizeMap[size];
 ---
 <span class={`logo-wordmark group/logo font-grotesk font-semibold tracking-tightest text-ink ${className}`}>
-  <BinderMark size={s.mark} variant={variant} ariaLabel="MemoryBinder" glow={false} />
+  <BinderMark size={s.mark} variant={variant} decorative={showWord} ariaLabel="MemoryBinder" glow={false} />
   {showWord && (
     <span class={`relative z-10 leading-none ${s.text}`}>
       {wordVariant === "duo" ? (

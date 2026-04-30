@@ -3,21 +3,14 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import SectionRule from "@/components/fundations/containers/SectionRule.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
-import SiteImage from "@/components/SiteImage.astro";
-import butterflyImg from "@/images/butterfly-flower.jpg";
-import pinkCamelliasImg from "@/images/pink-camellias.jpg";
-import autumnImg from "@/images/autumn-forest.jpg";
-import balletImg from "@/images/ballet-dancer.jpg";
-import waterfallImg from "@/images/waterfall-explorers.jpg";
-import lanternsImg from "@/images/hanging-lanterns.jpg";
 
 const wallMemories = [
-  { img: butterflyImg, title: "Birthday song for Natasha", who: "Amani · 12 Apr" },
-  { img: pinkCamelliasImg, title: "Vineyard Coffee Table Book", who: "Amani · 02 Mar" },
-  { img: autumnImg, title: "Easter egg hunt", who: "Amani · 28 Mar" },
-  { img: balletImg, title: "Wings of Wonder: a symphony", who: "Amani · 15 Feb" },
-  { img: waterfallImg, title: "Two yellow raincoats", who: "Amani · 04 Jan" },
-  { img: lanternsImg, title: "Lantern night, Hanoi", who: "Amani · 09 Nov" },
+  { img: "/assets/01.webp", title: "Poppy, the morning after rain", who: "Amani · 12 Apr" },
+  { img: "/assets/04.webp", title: "Mum's prize-winning rose", who: "Amani · 02 Mar" },
+  { img: "/assets/08.webp", title: "Kilimanjaro, treeline", who: "Hari · 28 Mar" },
+  { img: "/assets/07.webp", title: "Magpie, the one who sings back", who: "Tia · 15 Feb" },
+  { img: "/assets/03.webp", title: "Gerbera, market stall, Tuesday", who: "Amani · 04 Jan" },
+  { img: "/assets/06.webp", title: "River shard, Daintree", who: "Hari · 09 Nov" },
 ];
 
 const features = [
@@ -111,8 +104,8 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
                   <div class="grid grid-cols-2 gap-3 grow">
                     {wallMemories.slice(0, 4).map((m) => (
                       <div>
-                        <div class="memory-orb aspect-square">
-                          <SiteImage src={m.img} alt={m.title} class="memory-orb-img" widths={[180, 240]} sizes="180px" loading="lazy" />
+                        <div class="glass-orb">
+                          <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
                         </div>
                         <p class="text-[10px] font-grotesk text-ink mt-2 leading-tight">{m.title}</p>
                       </div>
@@ -232,11 +225,11 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
         </div>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-10">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 sm:gap-x-6 lg:gap-x-10 lg:gap-y-12">
         {wallMemories.map((m, i) => (
           <a href="/learn/memories" class={`group block ${i % 2 === 0 ? "float-slow" : "float-med"}`}>
-            <div class="memory-orb aspect-square">
-              <SiteImage src={m.img} alt={m.title} class="memory-orb-img" widths={[260, 320, 480]} sizes="(min-width: 1024px) 18vw, 40vw" loading="lazy" />
+            <div class="glass-orb">
+              <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
             </div>
             <p class="font-grotesk font-medium text-sm text-ink mt-4 group-hover:text-mb-pink transition-colors">{m.title}</p>
             <p class="mono-label text-ink-muted">{m.who}</p>

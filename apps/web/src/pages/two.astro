@@ -2,12 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
-import SiteImage from "@/components/SiteImage.astro";
-import butterflyImg from "@/images/butterfly-flower.jpg";
-import waterfallImg from "@/images/waterfall-explorers.jpg";
-import lanternsImg from "@/images/hanging-lanterns.jpg";
-import balletImg from "@/images/ballet-dancer.jpg";
-import autumnImg from "@/images/autumn-forest.jpg";
+
+const orbs = [
+  { src: "/assets/01.webp", alt: "Poppy specimen orb" },
+  { src: "/assets/03.webp", alt: "Gerbera specimen orb" },
+  { src: "/assets/07.webp", alt: "Magpie specimen orb" },
+  { src: "/assets/05.webp", alt: "Quartz specimen orb" },
+  { src: "/assets/08.webp", alt: "Kilimanjaro specimen orb" },
+];
 
 const yinPoints = [
   { k: "Without MemoryBinder", v: "Your photos train models nobody asked you about." },
@@ -143,22 +145,16 @@ const yangPoints = [
         </p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-8">
-        <div class="memory-orb aspect-square float-slow">
-          <SiteImage src={butterflyImg} alt="Butterfly" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
-        </div>
-        <div class="memory-orb aspect-square float-fast translate-y-8">
-          <SiteImage src={waterfallImg} alt="Waterfall" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
-        </div>
-        <div class="memory-orb aspect-square float-med">
-          <SiteImage src={balletImg} alt="Ballet" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
-        </div>
-        <div class="memory-orb aspect-square float-slow translate-y-12">
-          <SiteImage src={lanternsImg} alt="Lanterns" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
-        </div>
-        <div class="memory-orb aspect-square float-med">
-          <SiteImage src={autumnImg} alt="Autumn" class="memory-orb-img" widths={[240, 320]} sizes="240px" loading="lazy" />
-        </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-6 lg:gap-8">
+        {orbs.map((o, i) => {
+          const floatClass = i % 3 === 0 ? "float-slow" : i % 3 === 1 ? "float-med" : "float-fast";
+          const lift = i === 1 ? "lg:translate-y-8" : i === 3 ? "lg:translate-y-12" : "";
+          return (
+            <div class={`glass-orb ${floatClass} ${lift}`}>
+              <img src={o.src} alt={o.alt} loading="lazy" decoding="async" />
+            </div>
+          );
+        })}
       </div>
     </Wrapper>
   </section>

@@ -1,51 +1,31 @@
 ---
+/** Renders `public/icon.svg`; `variant` is accepted for backwards compatibility only. */
 interface Props {
   size?: number | string;
   variant?: "duo" | "ink" | "pink" | "teal" | "purple" | "duo-purple" | "duo-ink";
   class?: string;
+  decorative?: boolean;
   ariaLabel?: string;
   glow?: boolean;
 }
 const {
   size = 48,
-  variant = "duo",
+  variant: _variant = "duo",
   class: className = "",
+  decorative = false,
   ariaLabel = "MemoryBinder mark",
   glow = true,
 } = Astro.props;
+void _variant;
 const dim = typeof size === "number" ? `${size}px` : size;
-
-let left = "var(--color-mb-pink)";
-let right = "var(--color-mb-teal)";
-if (variant === "ink") { left = right = "var(--color-ink)"; }
-if (variant === "pink") { left = right = "var(--color-mb-pink)"; }
-if (variant === "teal") { left = right = "var(--color-mb-teal)"; }
-if (variant === "purple") { left = right = "var(--color-mb-purple)"; }
-if (variant === "duo-purple") { left = "var(--color-mb-pink)"; right = "var(--color-mb-purple)"; }
-if (variant === "duo-ink") { left = "var(--color-mb-pink)"; right = "var(--color-ink)"; }
-
-// Split infinity: two interlocking vertical loops, chain-link weave.
-// Tall ovals (ry > rx) so each loop reads as a real link, not a circle.
-// Right half of the left loop is redrawn over the right loop to create the weave.
 ---
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 72 48"
-  width={dim}
-  height="auto"
-  class={`${glow ? "binder-glow" : ""} ${className}`}
-  role="img"
-  aria-label={ariaLabel}
->
-  <g transform="rotate(-4 36 24)" fill="none" stroke-width="7.5" stroke-linejoin="round" stroke-linecap="round">
-    <!-- Left loop (pink) -->
-    <ellipse cx="24" cy="24" rx="16" ry="18.5" stroke={left} />
-    <!-- Right loop (teal) -->
-    <ellipse cx="48" cy="24" rx="16" ry="18.5" stroke={right} />
-    <!-- Weave: redraw the right half of the left loop on top of the right loop -->
-    <path
-      d="M 24 5.5 A 16 18.5 0 0 1 40 24 A 16 18.5 0 0 1 24 42.5"
-      stroke={left}
-    />
-  </g>
-</svg>
+<img
+  src="/icon.svg"
+  alt={decorative ? "" : ariaLabel}
+  decoding="async"
+  width={134}
+  height={74}
+  class={`${glow ? "binder-glow" : ""} h-auto max-w-none ${className}`.trim()}
+  style={`width: ${dim}; height: auto;`}
+  draggable="false"
+/>

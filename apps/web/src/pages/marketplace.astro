@@ -5,20 +5,9 @@ import SectionRule from "@/components/fundations/containers/SectionRule.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
 import SiteImage from "@/components/SiteImage.astro";
 
-import butterflyImg from "@/images/butterfly-flower.jpg";
-import pinkCamelliasImg from "@/images/pink-camellias.jpg";
-import autumnImg from "@/images/autumn-forest.jpg";
-import balletImg from "@/images/ballet-dancer.jpg";
-import waterfallImg from "@/images/waterfall-explorers.jpg";
-import lanternsImg from "@/images/hanging-lanterns.jpg";
 import cathedralImg from "@/images/cathedral-dome.jpg";
-import grandStaircaseImg from "@/images/grand-staircase.jpg";
 import streetFestivalImg from "@/images/street-festival.jpg";
 import canyonImg from "@/images/river-canyon.jpg";
-import fernCurlImg from "@/images/fern-curl.jpg";
-import wetLeafImg from "@/images/wet-leaf.jpg";
-import balconyImg from "@/images/white-balcony.jpg";
-import mistyTreeImg from "@/images/misty-tree.jpg";
 import storyImg from "@/images/storm-highway.jpg";
 
 const filters = [
@@ -31,87 +20,98 @@ const filters = [
   { id: "drops", label: "Limited drops" },
 ];
 
-// Wallet skins — rendered as CSS objects so they read like couture goods, not stock photos
+// Wallet skins — each one is a couture finish for a memory orb. The orb
+// imagery is the asset; the gradient is the wallet leather.
 const walletSkins = [
   {
     name: "Portrait",
     house: "MemoryBinder · Standard",
     price: "AUD$1.99",
     badge: "Free for Vault members",
-    palette: { from: "#0b0b0b", to: "#2a2a2a", accent: "#e91e63" },
+    palette: { from: "#0b0b0b", to: "#2a2a2a" },
     edition: "OPEN EDITION",
+    orb: "/assets/01.webp",
   },
   {
     name: "Vintage Leather",
     house: "MemoryBinder × Atelier Saché",
     price: "AUD$8.00",
     badge: "Most loved",
-    palette: { from: "#7a3b1f", to: "#3a1a0c", accent: "#f2c94c" },
+    palette: { from: "#7a3b1f", to: "#3a1a0c" },
     edition: "OPEN EDITION",
+    orb: "/assets/05.webp",
   },
   {
     name: "Evening Clutch",
     house: "MemoryBinder × Maison Verre",
     price: "AUD$25.00",
     badge: "New",
-    palette: { from: "#1f7a7e", to: "#0e3a3c", accent: "#fde4ec" },
+    palette: { from: "#1f7a7e", to: "#0e3a3c" },
     edition: "DROP 03 · 2026",
+    orb: "/assets/02.webp",
   },
   {
     name: "Couture Édition",
     house: "MemoryBinder × Indira",
     price: "AUD$100.00",
     badge: "Limited · 500 pieces",
-    palette: { from: "#6b4fec", to: "#3d27a8", accent: "#fde4ec" },
+    palette: { from: "#6b4fec", to: "#3d27a8" },
     edition: "NUMBERED · DROP 01",
+    orb: "/assets/04.webp",
   },
   {
     name: "Storm Patent",
     house: "MemoryBinder × Sable",
     price: "AUD$60.00",
     badge: "Members only",
-    palette: { from: "#b947d6", to: "#3d27a8", accent: "#f4eee0" },
+    palette: { from: "#b947d6", to: "#3d27a8" },
     edition: "DROP 02 · 2026",
+    orb: "/assets/07.webp",
   },
   {
     name: "Honey Croc",
     house: "MemoryBinder × Atelier Saché",
     price: "AUD$45.00",
     badge: "New",
-    palette: { from: "#f2c94c", to: "#a8801c", accent: "#0b0b0b" },
+    palette: { from: "#f2c94c", to: "#a8801c" },
     edition: "OPEN EDITION",
+    orb: "/assets/03.webp",
   },
 ];
 
 // Editorial drops — big-tile featured items
 const drops = [
   {
-    img: pinkCamelliasImg,
+    img: "/assets/04.webp",
     eyebrow: "DROP 01 · IN BLOOM",
-    title: "Vineyard, a Coffee Table Book",
+    title: "Mum's prize-winning rose, preserved",
     artist: "Amani Soysa",
     license: "Print + Digital",
     price: "AUD$120",
+    bg: "linear-gradient(150deg, #6b4fec 0%, #3d27a8 100%)",
   },
   {
-    img: balletImg,
+    img: "/assets/07.webp",
     eyebrow: "AUDIOVISUAL · LIMITED",
-    title: "Wings of Wonder — a symphony in three movements",
+    title: "The magpie who sings back — three movements",
     artist: "Elif Özkan",
     license: "Streaming licence",
     price: "AUD$15",
+    bg: "linear-gradient(150deg, #1f7a7e 0%, #0e3a3c 100%)",
   },
   {
-    img: lanternsImg,
+    img: "/assets/06.webp",
     eyebrow: "PHOTO · OPEN",
-    title: "Lantern night, Hanoi",
+    title: "River shard, Daintree",
     artist: "Phuc Nguyen",
     license: "Print rights",
     price: "AUD$8",
+    bg: "linear-gradient(150deg, #faf8f2 0%, #ece7ff 100%)",
   },
 ];
 
-// Curated collections — magazine-style cards
+// Curated collections — magazine-style cards. Travel/place wallets keep
+// landscape photography (the locations *are* the asset).
 const collections = [
   {
     img: cathedralImg,
@@ -143,20 +143,20 @@ const collections = [
   },
 ];
 
-// All memories for the gallery
+// All memories for the gallery — preserved orb specimens.
 const memories = [
-  { img: butterflyImg, title: "Birthday song for Natasha", artist: "Amani Soysa", tag: "AUDIO", price: "Gifted" },
-  { img: autumnImg, title: "Easter egg hunt", artist: "Amani Soysa", tag: "PHOTO", price: "AUD$12" },
-  { img: cathedralImg, title: "Sant'Agnese, dome study", artist: "Marco Bellini", tag: "PHOTO", price: "AUD$25" },
-  { img: grandStaircaseImg, title: "Vatican staircase", artist: "Marco Bellini", tag: "PHOTO", price: "Licensed" },
-  { img: streetFestivalImg, title: "Harajuku street style", artist: "Yumi Saito", tag: "PHOTO", price: "AUD$25" },
-  { img: canyonImg, title: "River canyon, NSW", artist: "Hari Patel", tag: "PHOTO", price: "Owned" },
-  { img: fernCurlImg, title: "Fern, unfurling", artist: "Tia Whetu", tag: "MACRO", price: "AUD$5" },
-  { img: wetLeafImg, title: "Wet leaf, after rain", artist: "Tia Whetu", tag: "PHOTO", price: "Owned" },
-  { img: balconyImg, title: "Balcony chess set", artist: "Lina Valdez", tag: "PHOTO", price: "AUD$10" },
-  { img: mistyTreeImg, title: "First fog of autumn", artist: "Hari Patel", tag: "PHOTO", price: "AUD$6" },
-  { img: storyImg, title: "Driving home, 1996", artist: "Anouk Mercier", tag: "STORY", price: "AUD$3" },
-  { img: waterfallImg, title: "Two yellow raincoats", artist: "Amani Soysa", tag: "PHOTO", price: "Owned" },
+  { img: "/assets/01.webp", title: "Poppy, the morning after rain", artist: "Amani Soysa", tag: "PHOTO", price: "Gifted", bg: "#fde4ec" },
+  { img: "/assets/02.webp", title: "White rose, last Thursday", artist: "Lina Valdez", tag: "PHOTO", price: "AUD$12", bg: "#faf8f2" },
+  { img: "/assets/03.webp", title: "Gerbera, market stall", artist: "Marco Bellini", tag: "PHOTO", price: "AUD$25", bg: "#fff6e0" },
+  { img: "/assets/04.webp", title: "Mum's prize rose", artist: "Amani Soysa", tag: "PHOTO", price: "Licensed", bg: "#f3e6f1" },
+  { img: "/assets/05.webp", title: "Stone from the Daintree", artist: "Hari Patel", tag: "OBJECT", price: "AUD$25", bg: "#efe9d8" },
+  { img: "/assets/06.webp", title: "Ancestor shard, found object", artist: "Tia Whetu", tag: "OBJECT", price: "Owned", bg: "#e9eaea" },
+  { img: "/assets/07.webp", title: "Magpie, the one who sings back", artist: "Elif Özkan", tag: "AUDIO", price: "AUD$5", bg: "#e6e7eb" },
+  { img: "/assets/08.webp", title: "Kilimanjaro, treeline", artist: "Anouk Mercier", tag: "PHOTO", price: "Owned", bg: "#dbe2db" },
+  { img: "/assets/02.webp", title: "Mother's rose, archived", artist: "Lina Valdez", tag: "STORY", price: "AUD$10", bg: "#f6f1ee" },
+  { img: "/assets/03.webp", title: "First market, Tuesday", artist: "Hari Patel", tag: "PHOTO", price: "AUD$6", bg: "#fff1cf" },
+  { img: "/assets/06.webp", title: "Driving home, 1996", artist: "Anouk Mercier", tag: "STORY", price: "AUD$3", bg: "#eaeae6" },
+  { img: "/assets/01.webp", title: "Two yellow raincoats", artist: "Amani Soysa", tag: "PHOTO", price: "Owned", bg: "#fde4ec" },
 ];
 
 const tones = {
@@ -255,17 +255,19 @@ const tones = {
         {walletSkins.map((s, i) => (
           <article class="group relative">
             <div
-              class="wallet-card aspect-[4/5] relative overflow-hidden rounded-[28px] p-7 flex flex-col justify-between"
+              class="wallet-card aspect-[4/5] relative overflow-hidden rounded-[28px] p-6 sm:p-7 flex flex-col justify-between"
               style={`background: linear-gradient(150deg, ${s.palette.from} 0%, ${s.palette.to} 100%);`}
             >
-              <!-- Wallet body — pure CSS rendering -->
+              <!-- Orb specimen — the asset the skin frames -->
               <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  class="wallet-shape relative"
-                  style={`--accent: ${s.palette.accent};`}
-                >
-                  <div class="wallet-clasp"></div>
-                </div>
+                <img
+                  src={s.orb}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  class="wallet-orb"
+                />
               </div>
 
               <!-- Top row -->
@@ -276,18 +278,18 @@ const tones = {
 
               <!-- Bottom info -->
               <div class="relative flex items-end justify-between gap-4">
-                <div>
-                  <p class="mono-label text-white/70 mb-1">{s.house}</p>
-                  <p class="font-display text-2xl text-white leading-tight">{s.name}</p>
+                <div class="min-w-0">
+                  <p class="mono-label text-white/70 mb-1 truncate">{s.house}</p>
+                  <p class="font-display text-xl sm:text-2xl text-white leading-tight">{s.name}</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right shrink-0">
                   <p class="mono-label text-white/70 mb-1">From</p>
-                  <p class="font-display text-xl text-white">{s.price}</p>
+                  <p class="font-display text-lg sm:text-xl text-white">{s.price}</p>
                 </div>
               </div>
             </div>
 
-            <div class="mt-4 flex items-center justify-between gap-4">
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-3">
               <span class={`sticker ${i % 3 === 0 ? "border-mb-pink text-mb-pink" : i % 3 === 1 ? "border-mb-teal text-mb-teal" : "border-mb-purple text-mb-purple"}`}>
                 {s.badge}
               </span>
@@ -321,24 +323,26 @@ const tones = {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         <!-- Hero drop -->
         <article class="lg:col-span-7 group">
-          <div class="relative overflow-hidden rounded-[28px] aspect-[4/5] lg:aspect-[5/6] bg-ink">
-            <SiteImage
+          <div
+            class="relative overflow-hidden rounded-[28px] aspect-[4/5] lg:aspect-[5/6] flex items-center justify-center"
+            style={`background: ${drops[0].bg};`}
+          >
+            <img
               src={drops[0].img}
               alt={drops[0].title}
-              class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.015]"
-              widths={[640, 960, 1280]}
-              sizes="(min-width: 1024px) 60vw, 100vw"
               loading="lazy"
+              decoding="async"
+              class="w-[78%] h-[78%] object-contain transition-transform duration-[1100ms] ease-out group-hover:scale-[1.02]"
             />
             <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/55 via-black/0 to-black/0"></div>
-            <div class="absolute top-6 left-6 flex items-center gap-2">
+            <div class="absolute top-5 left-5 sm:top-6 sm:left-6 flex flex-wrap items-center gap-2">
               <span class="sticker bg-wall border-wall text-ink">{drops[0].eyebrow}</span>
               <span class="sticker bg-mb-pink border-mb-pink text-wall">Live</span>
             </div>
-            <div class="absolute bottom-8 left-8 right-8 text-wall">
+            <div class="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 text-wall">
               <p class="mono-label text-wall/70 mb-2">{drops[0].artist}</p>
               <h3 class="couture text-[clamp(1.6rem,3.5vw,2.6rem)] leading-[1.05] mb-4">{drops[0].title}</h3>
-              <div class="flex items-end justify-between">
+              <div class="flex flex-wrap items-end justify-between gap-3">
                 <p class="mono-label">{drops[0].license}</p>
                 <p class="font-display text-2xl">{drops[0].price}</p>
               </div>
@@ -346,13 +350,22 @@ const tones = {
           </div>
         </article>
 
-        <div class="lg:col-span-5 flex flex-col gap-8 lg:gap-10">
+        <div class="lg:col-span-5 flex flex-col gap-6 sm:gap-8 lg:gap-10">
           {drops.slice(1).map((d) => (
             <article class="group flex gap-5 items-stretch">
-              <div class="relative overflow-hidden rounded-[20px] aspect-[3/4] w-[42%] shrink-0 bg-ink">
-                <SiteImage src={d.img} alt={d.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.02]" widths={[280, 400]} sizes="220px" loading="lazy" />
+              <div
+                class="relative overflow-hidden rounded-[20px] aspect-[3/4] w-[42%] shrink-0 flex items-center justify-center"
+                style={`background: ${d.bg};`}
+              >
+                <img
+                  src={d.img}
+                  alt={d.title}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-[82%] h-[82%] object-contain transition-transform duration-[1100ms] ease-out group-hover:scale-[1.04]"
+                />
               </div>
-              <div class="flex flex-col justify-between py-1">
+              <div class="flex flex-col justify-between py-1 min-w-0">
                 <div>
                   <p class="mono-label text-mb-pink mb-2">{d.eyebrow}</p>
                   <h3 class="couture text-xl lg:text-2xl text-ink leading-tight group-hover:text-mb-pink transition-colors">{d.title}</h3>
@@ -419,11 +432,20 @@ const tones = {
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-7">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-7">
         {memories.map((m, i) => (
           <article class={`group ${i % 4 === 1 ? "lg:translate-y-8" : i % 4 === 3 ? "lg:translate-y-4" : ""}`}>
-            <div class="relative overflow-hidden rounded-[18px] aspect-[4/5] bg-wall/5">
-              <SiteImage src={m.img} alt={m.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.02]" widths={[260, 380, 520]} sizes="(min-width: 1024px) 22vw, 45vw" loading="lazy" />
+            <div
+              class="relative overflow-hidden rounded-[18px] aspect-[4/5] flex items-center justify-center"
+              style={`background: ${m.bg};`}
+            >
+              <img
+                src={m.img}
+                alt={m.title}
+                loading="lazy"
+                decoding="async"
+                class="w-[88%] h-[88%] object-contain transition-transform duration-[1100ms] ease-out group-hover:scale-[1.04]"
+              />
               <span class="absolute top-3 left-3 sticker bg-wall/95 border-wall/40 text-ink">{m.tag}</span>
               <span class="absolute top-3 right-3 mono-label text-wall/90 bg-black/30 backdrop-blur px-2 py-1 rounded-full">auth ✓</span>
             </div>
@@ -504,53 +526,24 @@ const tones = {
 </BaseLayout>
 
 <style>
-  /* Pure-CSS wallet rendered inside each card. Keeps the lookbook lush
-     even before we have product photography. */
-  .wallet-shape {
-    width: 64%;
-    aspect-ratio: 7 / 5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.18));
-    border-radius: 14px;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.22),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.35),
-      0 22px 38px -12px rgba(0, 0, 0, 0.55);
-    position: relative;
-  }
-  .wallet-shape::before {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    top: 38%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.22);
-  }
-  .wallet-shape::after {
-    content: "";
-    position: absolute;
-    inset: 6%;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 9px;
-    pointer-events: none;
-  }
-  .wallet-clasp {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 36%;
-    height: 22%;
-    border-radius: 999px;
-    background: var(--accent);
-    box-shadow:
-      inset 0 0 0 2px rgba(0, 0, 0, 0.25),
-      0 6px 14px rgba(0, 0, 0, 0.35);
+  /* The orb is the asset; the card is the wallet that holds it. We
+     scale the specimen to fill ~70% of the card so the gradient still
+     reads as the "leather". */
+  .wallet-orb {
+    width: 86%;
+    height: 86%;
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .wallet-card {
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .wallet-card:hover {
     transform: translateY(-4px);
+  }
+  .wallet-card:hover .wallet-orb {
+    transform: scale(1.05);
   }
 </style>

@@ -1,12 +1,13 @@
 import { createRequire } from "node:module";
-const require = createRequire(import.meta.url);
-const sharp = require("/Users/tyhaberland/Documents/GitHub/memorybinder/apps/web/node_modules/sharp");
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const webPackageJson = resolve(__dirname, "../apps/web/package.json");
+const require = createRequire(webPackageJson);
+const sharp = require("sharp");
 const publicDir = resolve(__dirname, "../apps/web/public");
 
 const svg = readFileSync(resolve(publicDir, "icon.svg"));

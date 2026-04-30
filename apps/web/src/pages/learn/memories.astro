@@ -3,10 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import SectionRule from "@/components/fundations/containers/SectionRule.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
-import SiteImage from "@/components/SiteImage.astro";
-import butterflyImg from "@/images/butterfly-flower.jpg";
-import balletImg from "@/images/ballet-dancer.jpg";
-import lanternsImg from "@/images/hanging-lanterns.jpg";
+
+const editorialOrbs = [
+  { src: "/assets/02.webp", alt: "White rose preserved in glass" },
+  { src: "/assets/06.webp", alt: "River shard preserved in glass" },
+  { src: "/assets/03.webp", alt: "Gerbera preserved in glass" },
+];
 
 const lifecycle = [
   {
@@ -56,15 +58,15 @@ const lifecycle = [
   <!-- Editorial -->
   <section>
     <Wrapper variant="standard" class="pb-12">
-      <div class="grid grid-cols-3 gap-6">
-        <div class="memory-orb aspect-square float-slow">
-          <SiteImage src={butterflyImg} alt="Butterfly" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+      <div class="grid grid-cols-3 gap-3 sm:gap-6">
+        <div class="glass-orb float-slow">
+          <img src={editorialOrbs[0].src} alt={editorialOrbs[0].alt} loading="lazy" decoding="async" />
         </div>
-        <div class="memory-orb aspect-square float-med translate-y-12">
-          <SiteImage src={balletImg} alt="Ballet" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+        <div class="glass-orb float-med translate-y-6 sm:translate-y-12">
+          <img src={editorialOrbs[1].src} alt={editorialOrbs[1].alt} loading="lazy" decoding="async" />
         </div>
-        <div class="memory-orb aspect-square float-fast">
-          <SiteImage src={lanternsImg} alt="Lanterns" class="memory-orb-img" widths={[320, 480]} sizes="33vw" loading="lazy" />
+        <div class="glass-orb float-fast">
+          <img src={editorialOrbs[2].src} alt={editorialOrbs[2].alt} loading="lazy" decoding="async" />
         </div>
       </div>
     </Wrapper>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MemoryBinder — full site copy audit (static export)</title>
+  <style>
+    body { font-family: Georgia, "Times New Roman", serif; max-width: 48rem; margin: 2rem auto; padding: 0 1.25rem; line-height: 1.55; color: #111; }
+    h1 { font-size: 1.75rem; margin-top: 2.5rem; border-bottom: 2px solid #333; padding-bottom: 0.35rem; }
+    h2 { font-size: 1.25rem; margin-top: 1.75rem; color: #222; }
+    h3 { font-size: 1.05rem; margin-top: 1.25rem; }
+    .path { font-family: ui-monospace, monospace; font-size: 0.85rem; color: #555; margin-bottom: 0.5rem; }
+    .note { background: #f6f3ea; border-left: 4px solid #c9a227; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.95rem; }
+    ul.tight li { margin: 0.35rem 0; }
+    blockquote { margin: 1rem 0 1rem 1rem; color: #333; }
+    .small { font-size: 0.9rem; color: #444; }
+    hr { border: 0; border-top: 1px solid #ccc; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+
+<p><strong>MemoryBinder marketing site — copy inventory</strong></p>
+<p class="small">Generated from the <code>apps/web</code> Astro codebase (April 2026). Paste into Word via File → Open, or select all and copy from the browser.</p>
+
+<div class="note">
+  <strong>CMS-driven pages:</strong> Individual blog posts (<code>/blog/[slug]</code>) and announcements (<code>/announcements/[slug]</code>) load headline, subheadline/excerpt, dates, hero images, and body from Sanity when configured. Those articles are not listed here verbatim — export them from Sanity or crawl the live site. Empty states: “Blog essays will appear here.” / “Announcements will appear here as they are published.”
+</div>
+
+<div class="note">
+  <strong>Editorial note for reviewers:</strong> Launch timing differs between pages — e.g. home and many sections say iOS Q3 2026; the waitlist page body says Q3 2027 and a roadmap with Q3 2027 iOS launch. Align intentionally.
+</div>
+
+<hr />
+
+<h2>Global — default SEO tagline (fallback)</h2>
+<p class="path">Seo.astro</p>
+<p>Your story. Your asset. Legally. The legal property infrastructure for personal data, memories, and consumer AI agents.</p>
+
+<h2>Global navigation (desktop &amp; mobile labels)</h2>
+<p class="path">Navigation.astro</p>
+<ul class="tight">
+  <li>Design directions dropdown: Main (Canonical home) · Yin yang (Side A · Side B) · Main app (App-launch direction)</li>
+  <li>Marketplace · Vision · Products · Learn (Memories · Wallets &amp; Walls · All concepts) · Trust · Blog</li>
+  <li>CTA: Try MemoryBinder</li>
+  <li>Mobile: Learn subsection Memories · Wallets &amp; Walls; Designs: Main · Yin yang · Main app</li>
+</ul>
+
+<h2>Global footer</h2>
+<p class="path">Footer.astro</p>
+<p><strong>Tagline:</strong> Your story. Your asset. Legally.</p>
+<p><strong>Extended (desktop):</strong> The legal property infrastructure for personal data, memories, and consumer AI agents.</p>
+<p><strong>Columns:</strong> Product — Marketplace, Products, Try MemoryBinder. Story — Vision, Trust, Blog, Announcements. Learn — Memories, Wallets &amp; Walls, Registry. Designs — Main, Yin yang, Main app, All alts. Legal — Privacy, Terms, Contact.</p>
+<p><strong>Footer strip:</strong> © [year] MemoryBinder Pty Ltd. All rights reserved. · Made with care in Sydney.</p>
+
+<hr />
+
+<h1>Home (canonical)</h1>
+<p class="path">/</p>
+<p><strong>SEO title:</strong> Don’t lose your marbles</p>
+<p><strong>Eyebrow:</strong> The legal property layer for personal data · iOS · Q3 2026</p>
+<p><strong>H1 (animated):</strong> Don’t lose / your marbles.</p>
+<p><strong>Lead:</strong> MemoryBinder is the legal property layer for your digital life. Photos, stories, audio, the moments that make a life — owned by you, recorded in law, portable everywhere they go.</p>
+<p><strong>CTAs:</strong> Try MemoryBinder · Read the vision</p>
+<p><strong>Phone mock UI labels:</strong> Amani’s Personal Wall · 12 memories · private · create · wallet · market · more · App Store</p>
+
+<h3>Manifesto block</h3>
+<p><strong>H2:</strong> When rights are clear, everyone wins.</p>
+<p>The personal data economy is broken. Not because the supply does not exist. Because there is no legal infrastructure underneath it.</p>
+<p>Three and a half billion people generating unowned digital wealth every day. MemoryBinder builds the property rights underneath what they already do.</p>
+<p><strong>Not another pay-for-data platform.</strong> Payment without ownership is still extraction. We start earlier. Before the transaction. At the property right itself.</p>
+<p><strong>Link:</strong> Read the full vision</p>
+
+<h3>Editorial wall</h3>
+<p><strong>H2:</strong> Photos. Stories. Audio. Moments that make a life.</p>
+<p><strong>CTA:</strong> See the marketplace</p>
+<p><strong>Sample memory captions:</strong> Poppy, the morning after rain — Amani · 12 Apr · Mum’s prize-winning rose — Amani · 02 Mar · Kilimanjaro, treeline — Hari · 28 Mar · Magpie, the one who sings back — Tia · 15 Feb · Gerbera, market stall, Tuesday — Amani · 04 Jan · River shard, Daintree — Hari · 09 Nov</p>
+
+<h3>Four layers</h3>
+<p><strong>H2:</strong> Four layers. One property system.</p>
+<p>Each layer makes the next more valuable. Together, they put consumer personal data on the legal footing it has never had.</p>
+<ol>
+  <li><strong>Memories:</strong> Every photo, audio note, and story you upload becomes legally authenticated property. Provenance recorded. Ownership established.</li>
+  <li><strong>Wallets:</strong> Group memories into wallets. Share, gift, license. The legal record travels with the asset — everywhere it goes.</li>
+  <li><strong>Marketplace:</strong> An authenticated marketplace where personal property finds its value. Licensed. Traded. Gifted. Always with clear title.</li>
+  <li><strong>Registry:</strong> An independent legal registry for consumer data and consumer agents. Real-time. Machine-readable. Operative across borders.</li>
+</ol>
+
+<h3>Pull quote</h3>
+<blockquote>People keep doing what they love. Sharing memories. Gifting content. Telling their story. MemoryBinder makes sure that story and the responsibility is legally theirs.</blockquote>
+
+<h3>Bottom CTA</h3>
+<p><strong>H2:</strong> Be one of the first million to legally own what they create.</p>
+<p>500+ sign-ups across 23 countries. iOS launch Q3 2026. Get notified the moment we hit the App Store.</p>
+<p><strong>CTA:</strong> Try MemoryBinder</p>
+
+<hr />
+
+<h1>Home alt — Yin yang</h1>
+<p class="path">/two</p>
+<p><strong>SEO title:</strong> Two halves of one story</p>
+<p><strong>Side A eyebrow:</strong> Side A · The problem</p>
+<p><strong>Side A H1:</strong> We lost control of our own stories.</p>
+<p><strong>Side A:</strong> We became the supply chain for someone else’s balance sheet. And we are just waking up.</p>
+<p><strong>Side B eyebrow:</strong> Side B · The fix</p>
+<p><strong>Side B H1:</strong> Your story. Your asset. Legally.</p>
+<p><strong>Side B:</strong> MemoryBinder builds the legal property layer underneath what you already do. Photos. Stories. Audio. Owned.</p>
+<p><strong>CTA bar:</strong> Q3 2026 · iOS launch · Try MemoryBinder · Read the vision</p>
+
+<h3>Contrast lists</h3>
+<p><strong>Without MemoryBinder:</strong> Your photos train models nobody asked you about. · Your memories live on someone else’s balance sheet. · Your story has no legal title. So it has no value. · When you leave the platform, the asset stays behind.</p>
+<p><strong>With MemoryBinder:</strong> Every memory authenticated. Provenance recorded. · Ownership established. Title is yours. · The right travels with the asset, everywhere it goes. · Share. Gift. License. Legally documented every time.</p>
+
+<h3>Product section</h3>
+<p><strong>Kicker:</strong> THE PRODUCT</p>
+<p><strong>H2:</strong> Same behaviour. Radically different outcome.</p>
+<p>MemoryBinder looks and feels like the sharing apps people already use. People share photos. They gift content. They build collections. Nothing about the behaviour changes. What changes is what happens underneath.</p>
+
+<h3>Final CTA</h3>
+<p><strong>H2:</strong> Don’t lose your marbles.</p>
+<p>iOS app launches Q3 2026. Scan, sign up, or join the waitlist — we’ll let you know the moment it hits the App Store.</p>
+<p><strong>Buttons:</strong> Try MemoryBinder · See the marketplace</p>
+
+<hr />
+
+<h1>Home alt — Main app / pocket ownership</h1>
+<p class="path">/three</p>
+<p><strong>SEO title:</strong> Pocket-sized ownership</p>
+<p><strong>Top bar:</strong> MEMORYBINDER · iOS · Coming Q3 2026</p>
+<p><strong>Eyebrow:</strong> Pocket-sized ownership</p>
+<p><strong>H1:</strong> It looks like an app. It is the law.</p>
+<p><strong>Lead:</strong> MemoryBinder is the first iOS app that turns the things you share into legal property — automatically, in the background, every time you tap upload.</p>
+<p><strong>Badge:</strong> Notify me on / App Store</p>
+<p><strong>QR helper:</strong> Scan from your phone to join the waitlist</p>
+<p><strong>Foot tags:</strong> iOS first · Android · 2027 · Free tier · Always</p>
+<p><strong>Sticker:</strong> real receipts. legal title. · Q3 2026 · iOS</p>
+<p><strong>Mock UI snippets:</strong> Wallet · Amani’s Travel Wallet · Create · ●Wallet · Market · More · PHOTO · auth ✓ · Poppy, the morning after · Authenticated · Title issued · MB-AST-3819 · ●Feed</p>
+
+<h3>Typographic line</h3>
+<p>It looks like everything else you tap. It is the first thing that actually keeps a record.</p>
+
+<h3>How it works</h3>
+<p><strong>Kicker:</strong> HOW IT WORKS</p>
+<p><strong>H2:</strong> Three taps from a memory to title.</p>
+<p>Same gestures you already make a hundred times a day. The legal infrastructure runs underneath, automatically, with nothing for you to set up or sign.</p>
+<ol>
+  <li><strong>CAPTURE — Take it. Or upload it.</strong> A photo. An audio note for a grandchild. A story you’ve been meaning to write down. Anything you make, anything you keep.</li>
+  <li><strong>AUTHENTICATE — MemoryBinder signs it for you.</strong> Provenance recorded. Title established. The legal property right travels with the asset, automatically.</li>
+  <li><strong>OWN IT — It’s yours. Wherever it goes.</strong> Keep it. Gift it. License it. Trade it. Your story, your asset — legally — on or off MemoryBinder.</li>
+</ol>
+
+<h3>Inside the app</h3>
+<p><strong>Kicker:</strong> INSIDE THE APP</p>
+<p><strong>H2:</strong> Four tabs. One complete property system.</p>
+<p><strong>Link:</strong> Learn the concepts →</p>
+<ul>
+  <li><strong>WALLETS — Hold collections like couture.</strong> Group your memories into wallets — public, private, gifted, for sale. Skin them in leather, velvet, or the latest drop.</li>
+  <li><strong>AGENTS — Wrapped in legal identity.</strong> Build personal agents that any compliant platform can let in. Identity, accountability, governance — out of the box.</li>
+  <li><strong>REGISTRY — On the public record.</strong> Every authentication, every transfer, every licence — recorded in the MemoryBinder Registry. Anyone can read it.</li>
+  <li><strong>MARKETPLACE — A house for authenticated things.</strong> Browse drops, wallets, and editions from creators who actually own what they sell.</li>
+</ul>
+
+<h3>Marquee</h3>
+<p>Don’t lose your marbles. · Your story. · Your asset. · Legally. · In your pocket. · Q3 2026. (repeated)</p>
+
+<h3>Proof row</h3>
+<p><strong>Kicker:</strong> PROOF · LIVE</p>
+<p><strong>H2:</strong> The first authenticated consumer property estate in your pocket.</p>
+<p>Built by lawyers and technologists who spent years building authenticated data frameworks for enterprise. That same infrastructure, in your hand.</p>
+<p><strong>Stats labels:</strong> 3.5B potential users · 0 competitors at this layer · Q3 26 iOS launch · AUD$0 free forever, base tier · 100% your title travels with you · 23 countries on the waitlist</p>
+
+<h3>Final CTA</h3>
+<p><strong>H2:</strong> Be one of the first million.</p>
+<p>We’re putting legal ownership in the hands of one million people for the first time. Your iOS invite is one tap away.</p>
+<p><strong>Buttons:</strong> Join the waitlist · Walk the marketplace</p>
+
+<hr />
+
+<h1>Marketplace</h1>
+<p class="path">/marketplace</p>
+<p><strong>Eyebrow:</strong> The Marketplace</p>
+<p><strong>H1:</strong> A house for authenticated things.</p>
+<p>Wallets. Memories. Drops. Every piece arrives with verifiable title — licensed, traded, gifted, with provenance you can read.</p>
+<p><strong>Buttons:</strong> Browse wallets · See the floor</p>
+<p><strong>Search placeholder:</strong> Search the house — wallets, drops, artists…</p>
+<p><strong>Filters:</strong> Everything · Wallets · Memories · Audio · Video · Stories · Limited drops</p>
+<p><strong>Sort:</strong> Newest · Price ↑ · Most authenticated</p>
+
+<h3>Wallet skins section</h3>
+<p><strong>Kicker:</strong> SKINS &amp; WALLETS · DROP 03</p>
+<p><strong>H2:</strong> Couture for your digital estate.</p>
+<p>Wallets are how you hold memories together. Skins are how you wear them. Each one is a verified digital good, released in partnership with fashion houses on a shared profit model.</p>
+<p><strong>Pagination hint:</strong> 06 of 14</p>
+<p><strong>Cards (name — house — price — badge — edition):</strong></p>
+<ul class="tight">
+  <li>Portrait — MemoryBinder · Standard — AUD$1.99 — Free for Vault members — OPEN EDITION</li>
+  <li>Vintage Leather — MemoryBinder × Atelier Saché — AUD$8.00 — Most loved — OPEN EDITION</li>
+  <li>Evening Clutch — MemoryBinder × Maison Verre — AUD$25.00 — New — DROP 03 · 2026</li>
+  <li>Couture Édition — MemoryBinder × Indira — AUD$100.00 — Limited · 500 pieces — NUMBERED · DROP 01</li>
+  <li>Storm Patent — MemoryBinder × Sable — AUD$60.00 — Members only — DROP 02 · 2026</li>
+  <li>Honey Croc — MemoryBinder × Atelier Saché — AUD$45.00 — New — OPEN EDITION</li>
+</ul>
+<p><strong>Link:</strong> See all skins &amp; pricing · View · open ↗</p>
+
+<h3>Drops</h3>
+<p><strong>Kicker:</strong> DROPS · THIS WEEK</p>
+<p><strong>H2:</strong> Limited &amp; authenticated.</p>
+<p><strong>Hero:</strong> DROP 01 · IN BLOOM · Live — Mum’s prize-winning rose, preserved — Amani Soysa — Print + Digital — AUD$120</p>
+<p><strong>Side cards:</strong> AUDIOVISUAL · LIMITED — The magpie who sings back — three movements — Elif Özkan — Streaming licence — AUD$15 · PHOTO · OPEN — River shard, Daintree — Phuc Nguyen — Print rights — AUD$8</p>
+
+<h3>Curated wallets</h3>
+<p><strong>Kicker:</strong> CURATED · WALLETS</p>
+<p><strong>H2:</strong> Wallets, by the people keeping the record.</p>
+<p><strong>Link:</strong> What is a wallet? →</p>
+<p>Roma, in the off-season — Marco Bellini · 28 · Harajuku, after dark — Yumi Saito · 41 · Edges of Aotearoa — Tia Whetu · 64 · Driving home, 1996— — Anouk Mercier · 12</p>
+
+<h3>The floor</h3>
+<p><strong>Kicker:</strong> THE FLOOR · LIVE</p>
+<p><strong>H2:</strong> Every memory, authenticated.</p>
+<p><strong>Microcopy:</strong> [count] on the floor right now · auth ✓ · ↗ share · ✎ note · ♡ keep · Load 24 more</p>
+<p><strong>Gallery examples (title — artist — tag — price):</strong> Poppy, the morning after rain — Amani Soysa — PHOTO — Gifted; White rose, last Thursday — Lina Valdez — PHOTO — AUD$12; Gerbera, market stall — Marco Bellini — PHOTO — AUD$25; Mum’s prize rose — Amani Soysa — PHOTO — Licensed; Stone from the Daintree — Hari Patel — OBJECT — AUD$25; Ancestor shard, found object — Tia Whetu — OBJECT — Owned; Magpie, the one who sings back — Elif Özkan — AUDIO — AUD$5; Kilimanjaro, treeline — Anouk Mercier — PHOTO — Owned; (+ repeats/variations as in source)</p>
+
+<h3>Provenance strip</h3>
+<p><strong>Kicker:</strong> PROVENANCE LOG · LIVE</p>
+<p><strong>H2:</strong> Every transaction recorded.</p>
+<p>Anyone can read the registry. Nothing on the floor moves without being signed for, on the public record.</p>
+<p><strong>Link:</strong> Open the registry →</p>
+<p><strong>Sample log lines:</strong> ASSET LICENCED — Marco Bellini → Studio Verde — MB-VAT-0418-1F · WALLET PUBLISHED — Yumi Saito · Harajuku — MB-WLT-0029 · AGENT WRAPPED — Hari Patel · personal agent — MB-AGT-0014 · GIFT TRANSFERRED — Amani Soysa → Natasha — MB-GFT-2811 · DROP MINTED — Atelier Saché · Honey Croc · 240/500 — MB-DRP-0312</p>
+
+<h3>CTA</h3>
+<p><strong>H2:</strong> Bring your memories. Walk out with title.</p>
+<p><strong>Buttons:</strong> Try MemoryBinder · See pricing</p>
+
+<hr />
+
+<h1>Products</h1>
+<p class="path">/products</p>
+<p><strong>Eyebrow:</strong> Products &amp; plans</p>
+<p><strong>H1:</strong> Three layers. Each makes the others more valuable.</p>
+<p>MemoryBinder is free to start, fair to scale. Pay only when you outgrow the free tier. Your property travels with you, regardless of plan.</p>
+
+<h3>Tiers</h3>
+<p><strong>Free — FOR EVERYONE — $0 always free.</strong> Get on the property ladder. Every user gets a wallet and ten asset uploads per month, up to 2GB. Features: 1 wallet, ten asset uploads / month · Up to 2 GB of authenticated storage · Read-only access to wallets shared by paying users — always free · No credit card. No time limit. · Join the waitlist</p>
+<p><strong>Vault — FOR ACTIVE CUSTODIANS — AUD$3.99 / month</strong> (Most popular). Unlimited authenticated uploads up to 500GB, agents, sharing, and gifting. Features: Unlimited uploads (up to 500 GB) · Authenticated assets, agents, sharing &amp; gifting · Move from Free → Vault automatically when you hit 10 uploads in a month · Audio memories. Video. Photos. Stories.</p>
+<p><strong>Vault+ — FOR THE FAMILY ARCHIVE — AUD$8.99 / month.</strong> Unlimited uploads up to 1TB, plus the legal tooling to license, transfer, and trade. Features: Everything in Vault, up to 1 TB · Shared authenticated collections · Estate &amp; transfer tooling — gift it, pass it on · Access to the Smart Legal Contract layer.</p>
+
+<h3>Premium skins</h3>
+<p><strong>Kicker:</strong> PREMIUM SKINS &amp; WALLETS</p>
+<p><strong>H2:</strong> Couture for your digital estate.</p>
+<p>We partner with fashion houses to release digital models of premium bags and wallets on a shared profit model. Limited edition drops for holidays and events.</p>
+<p><strong>Skins:</strong> PORTRAIT WALLET AUD$1.99 · VINTAGE LEATHER AUD$8 · EVENING CLUTCH AUD$25 · COUTURE EDITION AUD$100</p>
+
+<h3>Enterprise</h3>
+<p><strong>Kicker:</strong> ENTERPRISE &amp; GOVERNMENT</p>
+<p><strong>H2:</strong> The supply the compliant economy has been waiting for.</p>
+<ul>
+  <li><strong>API access:</strong> Verified, provenance-clear, consent-documented consumer data. Priced per query or per verified record.</li>
+  <li><strong>Agent governance:</strong> Licensing for organisations that need to allow legally wrapped consumer agents into their platforms.</li>
+  <li><strong>Bulk authentication:</strong> Contracts for regulated industries authenticating existing data estates against MemoryBinder’s legal infrastructure.</li>
+  <li><strong>Marketplace fees:</strong> Transaction fees on licensed, traded, and gifted assets moving through the authenticated marketplace.</li>
+</ul>
+
+<h3>CTA</h3>
+<p><strong>H2:</strong> Free to start. Yours forever.</p>
+<p><strong>Buttons:</strong> Join the waitlist · Talk to enterprise</p>
+
+<hr />
+
+<h1>Vision</h1>
+<p class="path">/vision</p>
+<p><strong>Eyebrow:</strong> Vision · Manifesto</p>
+<p><strong>H1:</strong> Everyone has a story.</p>
+<p>The legal property infrastructure for personal data, memories, and consumer AI agents. Read where MemoryBinder came from — and why it is the moment to build it.</p>
+<p><strong>Aside:</strong> “Everyone has a story…”</p>
+<p><strong>Image alt:</strong> A waterfall, two people in yellow raincoats.</p>
+
+<h3>Chapters (full body text)</h3>
+
+<h4>EXECUTIVE SUMMARY — The personal data economy is broken.</h4>
+<p>Not because the supply does not exist. Not because the demand does not exist. Because there is no legal infrastructure underneath it.</p>
+<p>Three and a half billion people generating unowned digital wealth every day. Every corporation, government agency, and regulated industry hungry for authenticated consumer data and legal consumer agents. Neither side can reach the other.</p>
+<p>MemoryBinder builds the infrastructure that connects them.</p>
+<p>Not another pay-for-data platform. Every attempt to pay consumers for their data has failed. Payment without ownership is still extraction. The consumer has no legal standing and the market has no foundation.</p>
+<p>MemoryBinder starts earlier. Before the transaction. At the property right itself.</p>
+<p>Built by lawyers and technologists with years of experience building authenticated data and AI frameworks for enterprise. That same infrastructure applied at the consumer level for the first time.</p>
+<p>People keep doing what they love. Sharing memories. Gifting content. Telling their story. MemoryBinder makes sure that story and the responsibility is legally theirs.</p>
+
+<h4>THE PROBLEM — We lost control of our own stories.</h4>
+<p>People have always kept memories. Photos in boxes. Letters in drawers. Things to hold. Things to pass on.</p>
+<p>Then came social media. And we handed all of it over.</p>
+<p>Now the trust is gone. The ads that know too much. The feed designed to hold attention, not serve it. The slow realisation that every photo shared, every moment posted, every connection made is being fed into AI systems nobody really consented to train.</p>
+<p>The instinct to leave is real. But leaving means losing something. Twenty years of memories. Family history. A life's worth of moments, held on someone else's infrastructure, under someone else's terms.</p>
+<p>So people stay. Uncomfortable. Aware. Trapped.</p>
+<p>And it is about to get harder. Agents are coming. Personal data is no longer sitting still. It is being acted on. Transacted with. Decisions are being made with it, by systems that have no legal accountability to the person it belongs to.</p>
+<p>The rights have always existed. They just do not travel with the asset.</p>
+<p>Digital property needs digital legal infrastructure. Legal rights and responsibilities that move at the same pace, the same scale, and stay connected to the content they protect. Everywhere it goes.</p>
+
+<h4>WHY NOW? — The asset is appreciating. The risk is compounding. The gap is widening.</h4>
+<p>AI models are being trained on personal content. Agents are acting on personal data. The digital estate people have built over twenty years is no longer passive. It is active. Valuable. Being used in ways that were unimaginable when the first photo was posted.</p>
+<p>And the legal attribution gap is growing with it. As agents proliferate, the question of who owns what, who is responsible for what an agent does with whose data, has no answer. Not because the law is silent. Because the infrastructure to connect legal rights to digital assets at speed and scale does not exist at the consumer level.</p>
+<p>The asset is getting more complex. More valuable. More dangerous.</p>
+<p>The moment to build the infrastructure is now. Before the gap becomes permanent.</p>
+
+<h4>THE INSIGHT — When rights are clear, everyone wins.</h4>
+<p>This is not a privacy problem. It is an ownership problem.</p>
+<p>Privacy tools exist. They slow extraction. They do not create ownership.</p>
+<p>The answer is property rights. When rights are clear, markets function. When a seller knows what they own and a buyer knows what they are acquiring, value flows cleanly to the right places.</p>
+<p>Property law did not exist to make landowners rich. It existed to make land transactions possible. Clear title is what creates a market. Everything else follows.</p>
+<p>When rights are clear, everyone wins. Not just as a market mechanic. As the right thing to do. And for once, those two things are exactly the same thing.</p>
+
+<h4>THE PRODUCT — Everything people already love doing. With ownership built in underneath.</h4>
+<p>MemoryBinder looks and feels like the sharing and gifting applications people already use. That is intentional. People share photos, stories, milestones, moments. They gift content to family. They build collections. Nothing about the behaviour changes.</p>
+<p>What changes is what happens underneath.</p>
+<p>Every piece of content is legally authenticated. Provenance recorded. Ownership established. A legal property right that travels with the asset. Not a platform promise. A right that holds.</p>
+<p>Every AI agent carries a legal wrapper. Legal identity. Accountability. The governance structure that means any organisation with a responsible AI policy can allow them in. Nobody needs to understand any of this. They share. They gift. They collect. They tell their story.</p>
+<p>What they build, organically, is a legal property portfolio. Not crypto. Not tokens. Real digital property. And because every right travels with every asset, those assets can move. Licensed. Traded. Gifted. Into a marketplace where authenticated personal property finds its value.</p>
+<p>For the first time, the people who created the value participate in it.</p>
+
+<h4>HOW IT WORKS — Same behaviour. Radically different outcome.</h4>
+<p>A user shares a photo. MemoryBinder authenticates it as their legal property. Provenance recorded. Ownership established. The right travels with the asset.</p>
+<p>A user gifts audio memories to a family member. The transfer is legally documented. The recipient owns it. The giver chose to give it.</p>
+<p>A user creates an AI agent. MemoryBinder wraps it with legal identity. It now has the governance structure that enterprise and government platforms require to allow it in.</p>
+<p>And the portfolio grows.</p>
+<p>Every asset added increases the value of what came before. But MemoryBinder does not just store what people create. It connects their digital property to the legal events and transactions that define a life.</p>
+<p>Birth records. Death records. Marriage certificates. Travel. Contracts. Licences. Via Smart Legal Contracts and verified API connections, real world legal events attach to the digital estate. The asset record deepens over time. Authenticated. Legally connected. Portable.</p>
+<p>When a user chooses to license content, the terms travel with it. When they trade an asset, the transaction is recorded. When life changes, the legal record reflects it. A property portfolio that grows with a life. That can be added to, curated, and passed on.</p>
+
+<h4>WHO IT'S FOR — Two markets. Both massive. Both completely underserved.</h4>
+<p>Creators. They know their work has value. What they have never had is legal architecture to own it at the infrastructure level, without a label, an agent, or a corporate entity behind them. MemoryBinder gives individual creators the legal standing a studio has always had.</p>
+<p>Custodians. The larger market. The billions of people who are not professional creators but who are the keepers of family history, community memory, cultural record. Grandparents with sixty years of photographs. Parents documenting their children growing up. Community leaders preserving local stories. Enormous digital wealth. No mechanism to own, protect, or pass it on.</p>
+<p>Both markets share one thing. They have been generating value for platforms for two decades and received reach in return.</p>
+<p>MemoryBinder offers them clear title.</p>
+
+<h4>COMPETITIVE ADVANTAGE — Behaviour is easy to copy. Legal infrastructure is not.</h4>
+<p>Social platforms extract value from consumers. Privacy tools block extraction but create no ownership. Web3 attempted tokenisation but required consumers to think like traders. Pay-for-data platforms added a revenue layer on top of a broken ownership structure.</p>
+<p>None of them built the legal infrastructure that makes ownership real. MemoryBinder sits in a different category. Not because of features. Because of foundation.</p>
+<p>Built by lawyers and technologists who have spent years building authenticated data frameworks for enterprise. That same infrastructure applied at the consumer level for the first time.</p>
+<p>No competitor currently operates at this architectural layer. Sharing apps can be replicated in months. Legal infrastructure cannot. The frameworks, the authentication protocols, the Smart Legal Contract layer, the agent governance structures. These take years to build and require deep legal and technical expertise to build correctly.</p>
+<p>Every authenticated user strengthens the network. Every piece of legally verified content adds to the provenance record. Every enterprise and government relationship built on clean, registered and authenticated consumer data deepens the moat.</p>
+<p>Legal infrastructure networks compound differently than social networks. Social networks grow by adding users. Legal infrastructure networks grow by adding authenticated provenance. Every record makes every other record more credible. The network becomes more valuable as it grows and harder to displace as it scales.</p>
+<p>First mover in legal infrastructure is the deepest moat in technology. MemoryBinder is building it at the consumer level. Where no one has been before.</p>
+
+<h4>THE ASK — Build the supply the compliant economy cannot function without.</h4>
+<p>The supply side is 3.5 billion people generating unowned digital wealth every day.</p>
+<p>The demand side is every organisation in the compliant economy that needs authenticated consumer data and legal consumer agents to operate responsibly.</p>
+<p>The timing is the convergence of consumer awareness, a rapidly appreciating personal data estate, and enterprise and government demand that has no legitimate supply.</p>
+<p>We are raising US$5m to place legally authenticated data ownership in the hands of one million people for the first time. To put legal ownership in the hands of the first market that has never had it. To build the supply the compliant economy cannot function without. To become the infrastructure layer for the personal data economy. MemoryBinder.</p>
+<p>Your story. Your asset. Legally.</p>
+
+<h3>CTA</h3>
+<p><strong>Kicker:</strong> YOUR STORY · YOUR ASSET · LEGALLY</p>
+<p><strong>H2:</strong> Be one of the first million.</p>
+<p><strong>Buttons:</strong> Try MemoryBinder · See pricing</p>
+
+<hr />
+
+<h1>Trust</h1>
+<p class="path">/trust</p>
+<p><strong>Eyebrow:</strong> The Trust</p>
+<p><strong>H1:</strong> A data trust, in writing.</p>
+<p>What we promise to do — and refuse to do — with the property people place in our care. Read these as binding terms, not marketing copy.</p>
+
+<h3>Six promises</h3>
+<ol>
+  <li><strong>Title before transaction.</strong> We do not pay people for their data. We give them legal title to it. Payment without ownership is still extraction.</li>
+  <li><strong>The right travels with the asset.</strong> If a memory leaves MemoryBinder — gifted, exported, transferred — its legal record goes with it. Nothing locked behind our walls.</li>
+  <li><strong>No model trains on you without consent.</strong> Your memories will never be silently fed into AI training pipelines. Consent is opt-in, granular, revocable, and recorded.</li>
+  <li><strong>Provenance is permanent.</strong> Every authentication, every transfer, every license is recorded. The legal record is append-only. The truth doesn’t get rewritten.</li>
+  <li><strong>Independent registry.</strong> MemoryBinder operates a registry that any other organisation can verify against. Not a walled garden. A piece of legal infrastructure.</li>
+  <li><strong>We are accountable to the law.</strong> Built by lawyers and technologists. Smart Legal Contracts that hold up in court. Legal liability that lands on the entity acting, not the consumer they acted on.</li>
+</ol>
+
+<h3>Data trust</h3>
+<p><strong>Kicker:</strong> THE DATA TRUST</p>
+<p><strong>H2:</strong> The registry is held in trust. Not by us.</p>
+<p>MemoryBinder runs the platform. The Data Trust holds the registry. That separation is the difference between a service we sell and infrastructure we steward.</p>
+<ul>
+  <li><strong>Independent Trustee:</strong> Our Data Trust holds custodianship rights over the registry, separate from MemoryBinder’s commercial entity.</li>
+  <li><strong>Public Charter:</strong> The Trust’s charter is public. Any change requires consultation with users and trustees.</li>
+  <li><strong>Annual Report:</strong> Each year we publish what we did with the registry — and what we refused to do.</li>
+</ul>
+
+<h3>Quote</h3>
+<blockquote>When rights are clear, everyone wins. Not just as a moral proposition. As a market mechanic. — The insight</blockquote>
+
+<h3>CTA</h3>
+<p><strong>H2:</strong> Read the legals. Hold us to them.</p>
+<p><strong>Buttons:</strong> Terms · Privacy</p>
+
+<hr />
+
+<h1>Blog index</h1>
+<p class="path">/blog and /blog/page/[n]</p>
+<p><strong>Eyebrow:</strong> Blog</p>
+<p><strong>H1:</strong> Notes from the bench</p>
+<p><strong>Intro (page 1):</strong> Notes on legal property infrastructure, personal data, consumer AI agents, and the practice of building MemoryBinder.</p>
+<p><strong>Intro (page 2+):</strong> Notes on AI agents, legal infrastructure, data rights, and the governance questions that decide whether deployment can scale safely.</p>
+<p><strong>Empty state:</strong> Blog essays will appear here.</p>
+<p><strong>List label:</strong> BLOG</p>
+<p><strong>Pagination:</strong> Page X of Y · Previous · Next · numbered pages</p>
+
+<hr />
+
+<h1>Blog post (template chrome)</h1>
+<p class="path">/blog/[slug]</p>
+<p>Back to blog · BLOG · [date] · [headline from CMS] · [subheadline from CMS] · article body from CMS (Portable Text)</p>
+
+<hr />
+
+<h1>Learn hub</h1>
+<p class="path">/learn</p>
+<p><strong>Eyebrow:</strong> Learn</p>
+<p><strong>H1:</strong> The MemoryBinder primer.</p>
+<p>Four concepts. The vocabulary that makes everything else click.</p>
+<ul>
+  <li><strong>MEMORIES — Authenticated content with title.</strong> A memory is any digital artefact — photo, audio, story, video — wrapped in a legal property right that travels with it.</li>
+  <li><strong>WALLETS &amp; WALLS — Where memories live.</strong> Wallets group memories by collection. Walls are the public face of a wallet — the part you choose to share with the world.</li>
+  <li><strong>MARKETPLACE — Where memories find value.</strong> An authenticated marketplace for personal property. Licensed, traded, gifted — every transaction recorded.</li>
+  <li><strong>REGISTRY — The independent legal layer.</strong> Real-time, machine-readable, legally operative across borders. The connective tissue beneath the app.</li>
+</ul>
+<p><strong>Link:</strong> Read on</p>
+
+<hr />
+
+<h1>Learn — Memories</h1>
+<p class="path">/learn/memories</p>
+<p><strong>H1:</strong> A memory is a property right.</p>
+<p>Photos, audio, video, stories — the moments that make a life. On MemoryBinder, every one is wrapped with a legal title that travels with it.</p>
+<p><strong>Kicker:</strong> THE LIFECYCLE OF A MEMORY</p>
+<ol>
+  <li><strong>CAPTURE:</strong> You upload a photo, an audio note, a story. The same way you’ve always done.</li>
+  <li><strong>AUTHENTICATE:</strong> MemoryBinder registers it on the legal infrastructure. Provenance is recorded. Title is established.</li>
+  <li><strong>TRAVEL:</strong> The right travels with the asset. Share it, gift it, license it — the legal record goes where the memory goes.</li>
+  <li><strong>ATTACH:</strong> Real-world legal events — birth, marriage, travel, contracts — attach to the memory through Smart Legal Contracts and verified APIs.</li>
+</ol>
+<blockquote>A user shares a photo. MemoryBinder authenticates it as their legal property. Provenance recorded. Ownership established. The right travels with the asset. — How it works</blockquote>
+<p><strong>CTA H2:</strong> Start collecting. Start owning.</p>
+<p><strong>Buttons:</strong> Try MemoryBinder · Learn about wallets</p>
+
+<hr />
+
+<h1>Learn — Wallets &amp; Walls</h1>
+<p class="path">/learn/wallets</p>
+<p><strong>H1:</strong> Where your memories live.</p>
+<p>Wallets group memories by collection. Walls are the public face of a wallet. You decide what goes private, what goes public, what goes on the market.</p>
+<p><strong>Diagram copy:</strong> A MEMORY — A photo, audio, story. — The atomic unit. Authenticated, with title. · GROUPED INTO — A wallet. — A private collection. Yours by default. · EXPRESSED AS — A wall. — The face you choose to share with the world.</p>
+<p><strong>Kicker:</strong> SHAPES OF WALLETS</p>
+<ul>
+  <li><strong>PERSONAL WALLET:</strong> A private space for the memories that matter to you. Permissioned, encrypted, ready to be shared on your terms.</li>
+  <li><strong>FAMILY WALLET:</strong> Shared between custodians. Pass it on, generation to generation. The legal record reflects every change of hands.</li>
+  <li><strong>TRAVEL WALLET:</strong> A trip, a project, a season. Group memories by the chapter of life they belong to.</li>
+  <li><strong>PUBLIC WALL:</strong> The face you choose to put outward. Make a wall public; everything else stays private.</li>
+  <li><strong>MARKETPLACE WALLET:</strong> Items for sale, items licensed, items gifted. Title and terms travel with each one.</li>
+  <li><strong>AGENT WALLET:</strong> AI agents acting on your behalf — wrapped with legal identity. Accountable. Allowed in.</li>
+</ul>
+<p><strong>CTA H2:</strong> Build a wallet. Pass it on.</p>
+<p><strong>Buttons:</strong> Try MemoryBinder · See the marketplace</p>
+
+<hr />
+
+<h1>Registry</h1>
+<p class="path">/registry</p>
+<p><strong>Eyebrow:</strong> The Registry</p>
+<p><strong>H1:</strong> The independent legal layer underneath the app.</p>
+<p>The MemoryBinder Registry is the world’s first independent legal registry for personal data and consumer AI agents. Real-time. Machine-readable. Operative across organisational and national boundaries.</p>
+<p><strong>Aside:</strong> Live registry events · sample</p>
+
+<h3>Core capabilities</h3>
+<ul>
+  <li><strong>AUTHENTICATE:</strong> Register a memory, wallet, or agent and produce a legally operative record of provenance and ownership.</li>
+  <li><strong>VERIFY:</strong> Any organisation can verify the registry against a given asset. Real-time, machine-readable, court-recognised.</li>
+  <li><strong>TRANSFER:</strong> Move title with the asset. Gifts, sales, licences — every change of hands recorded automatically.</li>
+  <li><strong>ATTACH:</strong> Link real-world legal events — contracts, certificates, agreements — to the digital record via Smart Legal Contracts.</li>
+</ul>
+
+<h3>Architecture</h3>
+<p><strong>H2:</strong> Four layers. One legal truth.</p>
+<ul>
+  <li><strong>Identity layer:</strong> Cryptographic identity for every consumer, every agent, every authenticated asset.</li>
+  <li><strong>Provenance layer:</strong> Append-only legal record. Authentications, transfers, licences, agent actions.</li>
+  <li><strong>Smart Legal Contract layer:</strong> Programmable legal agreements that perform their own obligations.</li>
+  <li><strong>Verification API:</strong> An open endpoint for enterprise and government compliance to query the legal record.</li>
+</ul>
+
+<h3>Principles</h3>
+<ol>
+  <li><strong>Independence:</strong> The registry is held by an independent Data Trust. Not the commercial entity.</li>
+  <li><strong>Interoperability:</strong> Built on open legal protocols. Other organisations can build directly against the registry.</li>
+  <li><strong>Append-only truth:</strong> Records are not edited. Updates are appended. The history of any asset is permanent.</li>
+  <li><strong>Consumer first:</strong> Every record names a person — not a platform — as the rights holder.</li>
+</ol>
+
+<h3>CTA</h3>
+<p><strong>H2:</strong> Build against the registry. Or just live above it.</p>
+<p><strong>Buttons:</strong> Talk to us · Read the Trust</p>
+
+<hr />
+
+<h1>Contact</h1>
+<p class="path">/contact</p>
+<p><strong>Eyebrow:</strong> Get in touch</p>
+<p><strong>H1:</strong> Say hello.</p>
+<p>Three doors. Pick the one that fits. We answer everything that comes in within a working week.</p>
+<ul>
+  <li><strong>GENERAL:</strong> hello@memorybinder.io</li>
+  <li><strong>ENTERPRISE &amp; GOVERNMENT:</strong> enterprise@memorybinder.io</li>
+  <li><strong>PRESS:</strong> press@memorybinder.io</li>
+</ul>
+<p><strong>Form labels:</strong> NAME · EMAIL · COMPANY (OPTIONAL) · MESSAGE · Send message</p>
+
+<hr />
+
+<h1>Waitlist</h1>
+<p class="path">/waitlist</p>
+<p><strong>Eyebrow:</strong> Join the waitlist</p>
+<p><strong>H1:</strong> Be one of the first million to legally own what you create.</p>
+<p>500+ sign-ups across 23 countries and counting. The MemoryBinder iOS app launches Q3 2027. Get notified the moment it hits the App Store, plus early-access invites and product updates.</p>
+<p><strong>Fields:</strong> Your name · you@email.com · Country · Add me to the list</p>
+<p><strong>Fine print:</strong> By signing up you accept our privacy policy. You can leave any time.</p>
+<p><strong>Card:</strong> iOS · App Store — Scan to be redirected to the App Store the moment we launch. · QR points to the waitlist for now.</p>
+<p><strong>ROADMAP:</strong> Q2 2026 — Development kickoff · Q4 2026 — Q2 2027 — App development &amp; testing · Q3 2027 — iOS launch on the App Store</p>
+
+<hr />
+
+<h1>Contact success</h1>
+<p class="path">/contact/success</p>
+<p><strong>Eyebrow:</strong> Message sent</p>
+<p><strong>H1:</strong> Thanks. We’ll be in touch.</p>
+<p>Expect a reply within a working week. In the meantime, the marketplace and the vision are good places to wander.</p>
+<p><strong>Buttons:</strong> Back home · See the marketplace</p>
+
+<hr />
+
+<h1>Announcements index</h1>
+<p class="path">/announcements</p>
+<p><strong>Eyebrow:</strong> News</p>
+<p><strong>H1:</strong> Announcements</p>
+<p>Product launches, partnerships, milestones and infrastructure updates from MemoryBinder.</p>
+<p><strong>Empty state:</strong> Announcements will appear here as they are published.</p>
+<p>List rows show CATEGORY · title · excerpt · date (from Sanity).</p>
+
+<hr />
+
+<h1>Announcement post (template chrome)</h1>
+<p class="path">/announcements/[slug]</p>
+<p>Back to announcements · [category] · [date] · [title] · [intro/excerpt] · body from CMS · <strong>More from MemoryBinder</strong> (related list)</p>
+
+<hr />
+
+<h1>Alt designs index</h1>
+<p class="path">/alt-designs</p>
+<p><strong>Eyebrow:</strong> Alt designs</p>
+<p><strong>H1:</strong> Two other ways of telling it.</p>
+<p>The main site at / is the canonical home. These are two other directions we drafted for the same brief — kept around as study material and to share when picking direction.</p>
+<p><strong>Card 02 Yin Yang:</strong> A split-screen manifesto… Designed to be read like a confession card. Notes: Hero half-and-half; paired statements; zine-like.</p>
+<p><strong>Card 03 Pocket-sized ownership:</strong> App-launch page… Notes: Stacked phones; three-tap explainer; saturated launch aesthetic.</p>
+<p><strong>Link:</strong> ← Back to the canonical home</p>
+
+<hr />
+
+<h1>404</h1>
+<p class="path">/404</p>
+<p><strong>SEO title:</strong> Lost your marbles</p>
+<p><strong>H1:</strong> Lost your marbles?</p>
+<p>404 · PAGE NOT FOUND</p>
+<p><strong>Button:</strong> Go back home</p>
+
+<hr />
+
+<h1>Legal — Privacy Policy</h1>
+<p class="path">/legal/privacy</p>
+<p><strong>Layout chrome:</strong> LEGAL · Privacy Policy · MemoryBinder | Effective: 28 April 2026 | Version 0.1 (draft)</p>
+<p><strong>Draft banner:</strong> Draft. This is a working draft… reviewed by independent legal counsel before launch… intent, not a binding contract.</p>
+<p><strong>Sections:</strong> 1. About this policy — 2. What we collect — 3. How we use what we collect — 4. The Data Trust — 5. Sharing — 6. Your rights — 7. Security — 8. Changes — 9. Contact (privacy@memorybinder.io)</p>
+
+<h3>Full text — Privacy Policy</h3>
+<p><strong>Draft.</strong> This is a working draft of the MemoryBinder Privacy Policy. The final version will be reviewed by independent legal counsel before launch. Treat the contents below as our intent, not a binding contract.</p>
+
+<h4>1. About this policy</h4>
+<p>MemoryBinder Pty Ltd ("MemoryBinder", "we", "us", "our") is the company behind the MemoryBinder app and the MemoryBinder Registry. We build legal property infrastructure for personal data, memories, and consumer AI agents.</p>
+<p>This Privacy Policy explains how we collect, use, disclose and protect personal information across the MemoryBinder ecosystem. It is written to be readable. Where it falls short of what the law requires, we apply the higher standard. This Policy should be read in conjunction with our Terms of Use (/legal/terms).</p>
+<p>Questions can be directed to our Privacy Officer at <strong>privacy@memorybinder.io</strong>.</p>
+
+<h4>2. What we collect</h4>
+<p>We collect only what we need to deliver MemoryBinder and to keep the legal record honest.</p>
+<ul class="tight">
+  <li><strong>Identity information</strong> — your name, contact details, and any government-issued identification you choose to provide for verified authentication.</li>
+  <li><strong>Account credentials</strong> — your username, password hash, and basic profile details.</li>
+  <li><strong>Content you upload</strong> — photos, audio, video, stories, and any other memory you place in your wallets. This content is your property. We do not own it. We register the legal record around it.</li>
+  <li><strong>Provenance metadata</strong> — the legal record we generate when you authenticate, transfer, license or share an asset. This is the public registry layer.</li>
+  <li><strong>Usage data</strong> — how you interact with the app, in aggregate, to make it better.</li>
+</ul>
+
+<h4>3. How we use what we collect</h4>
+<ul class="tight">
+  <li>To operate MemoryBinder and the Registry.</li>
+  <li>To authenticate, verify, transfer and license assets you place under our care.</li>
+  <li>To meet our legal obligations.</li>
+  <li>To improve the product, with anonymised analytics. <strong>Never</strong> by feeding your content into model training without your explicit, granular, revocable consent.</li>
+</ul>
+
+<h4>4. The Data Trust</h4>
+<p>The MemoryBinder Registry is held in trust by an independent Data Trust, separate from the MemoryBinder commercial entity. The Trust's charter is public. The Trust has the authority to refuse uses of the Registry that contravene the Trust's charter — including by us.</p>
+
+<h4>5. Sharing</h4>
+<p>We do not sell personal data. We do not feed your memories into AI training. The only situations in which information leaves your control are:</p>
+<ul class="tight">
+  <li>You choose to share, gift, license, or sell an asset.</li>
+  <li>We are legally compelled by a court of competent jurisdiction.</li>
+  <li>A vendor we use to deliver the service (payment processor, cloud host) processes data on our behalf, under a written agreement that binds them to this Policy.</li>
+</ul>
+
+<h4>6. Your rights</h4>
+<p>You can access, correct, export, and delete personal information at any time. The provenance record is append-only — but you can revoke access, withdraw assets from circulation, and remove your account.</p>
+
+<h4>7. Security</h4>
+<p>We follow industry standard practice. We encrypt data in transit and at rest. We log access to the Registry. We will tell you, promptly, if a breach affects you.</p>
+
+<h4>8. Changes to this policy</h4>
+<p>We will tell you, in advance, before we change this Policy in any material way. The current version always lives at memorybinder.io/legal/privacy.</p>
+
+<h4>9. Contact</h4>
+<p>privacy@memorybinder.io</p>
+
+<hr />
+
+<h1>Legal — Terms of Use</h1>
+<p class="path">/legal/terms</p>
+<p><strong>Layout chrome:</strong> LEGAL · Terms of Use · MemoryBinder | Effective: 28 April 2026 | Version 0.1 (draft)</p>
+<p><strong>Draft banner:</strong> Same pattern as privacy.</p>
+<p><strong>Sections:</strong> 1. About these terms — 2. The Services — 3. Your content. Your title. — 4. The Registry record — 5. Acceptable use — 6. Fees — 7. Termination and portability — 8. Liability — 9. Governing law (Victoria, Australia) — 10. Contact (legal@memorybinder.io)</p>
+
+<h3>Full text — Terms of Use</h3>
+<p><strong>Draft.</strong> This is a working draft of the MemoryBinder Terms of Use. The final version will be reviewed by independent legal counsel before launch. Treat the contents below as our intent, not a binding contract.</p>
+
+<h4>1. About these terms</h4>
+<p>MemoryBinder Pty Ltd ("MemoryBinder", "we", "us", "our") owns and operates memorybinder.io, the MemoryBinder app, and the MemoryBinder Registry (together, the "Services").</p>
+<p>By accessing or using any part of the Services you agree to be bound by these Terms of Use ("Terms"). If you do not agree, please do not use the Services.</p>
+<p>These Terms should be read together with our Privacy Policy (/legal/privacy).</p>
+
+<h4>2. The Services</h4>
+<p>The Services let you authenticate digital memories — photos, audio, video, stories — under a legal property framework. You can group them into wallets, share them on walls, and license, gift, or sell them on the marketplace. Each transaction is recorded against the MemoryBinder Registry.</p>
+<p>The Registry is held in trust by an independent Data Trust.</p>
+
+<h4>3. Your content. Your title.</h4>
+<p>Anything you upload remains your property. MemoryBinder does not claim ownership of your content. We claim only the limited licence required to host, authenticate, register and serve it back to you and to recipients you authorise.</p>
+<p>You are responsible for ensuring you have the right to upload, share, gift, license, or sell anything you place on MemoryBinder.</p>
+
+<h4>4. The Registry record</h4>
+<p>The legal record we maintain in the Registry is append-only. Once an event has been authenticated, it cannot be silently rewritten. Errors can be corrected by appending a correction record. The full history remains visible to anyone with the right to read it.</p>
+
+<h4>5. Acceptable use</h4>
+<p>You agree not to:</p>
+<ul class="tight">
+  <li>Upload content you do not have the right to upload.</li>
+  <li>Use the Services to harass, defame, or harm any person.</li>
+  <li>Attempt to falsify provenance, ownership or transfer records.</li>
+  <li>Interfere with the Registry, the Trust, or the operation of the Services.</li>
+</ul>
+<p>We reserve the right to suspend accounts that breach these Terms, subject to fair notice except where the breach is serious.</p>
+
+<h4>6. Fees</h4>
+<p>The Free tier is, and will remain, free. Vault and Vault+ are paid plans, billed monthly in the currency shown at sign-up. Skin and wallet purchases are one-off. Marketplace transactions carry a transaction fee disclosed at the point of sale.</p>
+
+<h4>7. Termination and portability</h4>
+<p>You can terminate your account at any time. On termination, you can export your wallets, your memories, and the legal record we hold in respect of them. The right travels with the asset.</p>
+
+<h4>8. Liability</h4>
+<p>To the extent permitted by law, MemoryBinder is not liable for consequential or indirect loss arising from use of the Services. Where the law implies non-excludable warranties, our liability is limited to re-supply of the Service.</p>
+
+<h4>9. Governing law</h4>
+<p>These Terms are governed by the laws of Victoria, Australia.</p>
+
+<h4>10. Contact</h4>
+<p>legal@memorybinder.io</p>
+
+<hr />
+
+<p class="small"><strong>End of export.</strong> Hidden legal slugs in repo (not linked from footer): data-policy, dpa — excluded from static paths filter.</p>
+
+</body>
+</html>
