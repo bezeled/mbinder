@@ -186,9 +186,10 @@ body {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
   font-weight: 350;
-  font-size: clamp(3.5rem, 11.5vw, 8rem);
-  letter-spacing: -0.03em;
-  line-height: 0.92;
+  /* Readable headline scale (~36–62px cap), not billboard-sized */
+  font-size: clamp(2.125rem, 4.2vw + 1rem, 3.875rem);
+  letter-spacing: -0.028em;
+  line-height: 1.14;
   text-wrap: balance;
 }
 
@@ -197,9 +198,9 @@ body {
   font-family: var(--font-display);
   font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 0;
   font-weight: 350;
-  font-size: clamp(2.4rem, 5.6vw, 3.6rem);
-  letter-spacing: -0.025em;
-  line-height: 0.98;
+  font-size: clamp(2rem, 3.8vw + 0.85rem, 3.15rem);
+  letter-spacing: -0.024em;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -324,6 +325,8 @@ body {
 /* ----------------------------------------- Memory orbs (chrome bubble look) */
 .memory-orb {
   position: relative;
+  width: 100%;
+  aspect-ratio: 1;
   border-radius: 9999px;
   overflow: hidden;
   isolation: isolate;

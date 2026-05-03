@@ -81,7 +81,7 @@ const navColumns = [
 
     <!-- Desktop -->
     <div class="hidden md:block">
-      <div class="grid grid-cols-12 gap-x-10 gap-y-12">
+      <div class="grid grid-cols-12 gap-x-10 gap-y-10 lg:gap-y-12">
         <div class="col-span-12 lg:col-span-4 flex flex-col gap-5">
           <a href="/" class="inline-flex">
             <Wordmark size="md" variant="duo" />
@@ -116,12 +116,11 @@ const navColumns = [
         </div>
       </div>
 
-      <hr class="section-rule mt-16 lg:mt-20 mb-6" />
+      <hr class="section-rule mt-12 lg:mt-14 mb-8 lg:mb-10" />
 
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-ink-muted">
-        <p>&copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.</p>
-        <p>Made with care in Sydney.</p>
-      </div>
+      <p class="text-xs text-ink-muted">
+        &copy; {new Date().getFullYear()} MemoryBinder Pty Ltd. All rights reserved.
+      </p>
     </div>
   </Wrapper>
 </footer>

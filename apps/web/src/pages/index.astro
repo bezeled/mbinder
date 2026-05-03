@@ -41,17 +41,17 @@ const heroCollage = [
   {
     img: "/assets/pexels-mart-production-7330707.jpg",
     alt: "Cherished photographs arranged with care",
-    span: "row-span-2 min-h-[240px] sm:min-h-[280px]",
+    span: "row-span-2 row-start-1 col-start-1 h-full min-h-0",
   },
   {
     img: "/assets/pexels-mikhail-nilov-6957431.jpg",
     alt: "Reviewing albums and handwritten notes",
-    span: "min-h-[120px] sm:min-h-[136px]",
+    span: "row-start-1 col-start-2 h-full min-h-0",
   },
   {
     img: "/assets/pexels-pavel-danilyuk-5789585.jpg",
     alt: "Family gathered with documents nearby",
-    span: "min-h-[120px] sm:min-h-[136px]",
+    span: "row-start-2 col-start-2 h-full min-h-0",
   },
 ];
 
@@ -93,9 +93,9 @@ const features = [
   <!-- Hero -->
   <section class="relative">
     <Wrapper variant="standard" class="pt-14 pb-16 lg:pt-20 lg:pb-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-        <div class="lg:col-span-5 relative z-10">
-          <div class="eyebrow mb-7">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-12 lg:gap-y-10 items-start">
+        <div class="lg:col-span-5 min-w-0">
+          <div class="eyebrow mb-5 lg:mb-6">
             <BinderMark size={30} variant="duo" glow={false} />
             <span>Legal property for personal memories</span>
             <span class="eyebrow-dot"></span>
@@ -103,9 +103,9 @@ const features = [
           </div>
           <h1 class="page-hero-title text-ink kerning-display text-balance">
             <span class="block">MemoryBinder is the legal property layer</span>
-            <span class="block text-mb-teal mt-1 lg:mt-2">for your digital life.</span>
+            <span class="block text-mb-teal mt-2">for your digital life.</span>
           </h1>
-          <p class="mt-8 max-w-xl text-lg lg:text-[1.125rem] leading-[1.65] text-ink-soft font-grotesk font-normal">
+          <p class="mt-6 lg:mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-ink-soft font-grotesk font-normal">
             Photos, stories, audio, the moments that make a life — owned by you, recorded
             in law, portable everywhere they go.
           </p>
@@ -120,8 +120,8 @@ const features = [
           </div>
         </div>
 
-        <div class="lg:col-span-7 lg:pt-8">
-          <div class="grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4 lg:gap-5">
+        <div class="lg:col-span-7 min-w-0 relative z-[1] lg:pt-2">
+          <div class="grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4 lg:gap-5 h-[min(58vw,420px)] sm:h-[340px] lg:h-[min(380px,36vw)] xl:h-[420px]">
             {heroCollage.map((c, i) => (
               <div
                 class={`relative overflow-hidden rounded-2xl sm:rounded-[1.35rem] ${c.span} shadow-couture border border-divider-soft bg-wall-warm`}
