@@ -179,24 +179,29 @@ const features = [
 
   <!-- Editorial — real photography -->
   <section class="relative bg-wall-warm border-y border-divider">
-    <Wrapper variant="standard" class="py-24 lg:py-32">
-      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-8 items-end mb-14 lg:mb-16">
-        <h2 class="col-span-12 lg:col-span-8 section-title text-ink">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-end lg:justify-between mb-9 lg:mb-10">
+        <h2 class="section-title text-ink max-w-[42rem] lg:max-w-none">
           Photos. Stories. Audio.<span class="block mt-1 text-mb-teal font-display italic tracking-tight">Moments that make a life.</span>
         </h2>
-        <div class="col-span-12 lg:col-span-3 lg:col-start-10 lg:flex lg:justify-end">
-          <a href="/marketplace" class="btn-ghost">See the marketplace</a>
-        </div>
+        <a href="/marketplace" class="btn-ghost shrink-0 self-start lg:self-auto">See the marketplace</a>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 sm:gap-x-6 lg:gap-x-8 lg:gap-y-12">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 sm:gap-x-5 sm:gap-y-11 lg:gap-x-6 lg:gap-y-12 justify-items-center">
         {wallMemories.map((m, i) => (
-          <a href="/learn/memories" class={`group block ${i % 2 === 0 ? "float-slow" : "float-med"}`}>
-            <div class="memory-orb">
+          <a
+            href="/learn/memories"
+            class={`group flex w-full max-w-[11.25rem] flex-col items-center text-center ${i % 2 === 0 ? "float-slow" : "float-med"}`}
+          >
+            <div class="memory-orb w-full">
               <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
             </div>
-            <p class="font-grotesk font-semibold text-sm text-ink mt-4 group-hover:text-mb-teal transition-colors">{m.title}</p>
-            <p class="mono-label text-ink-muted">{m.who}</p>
+            <p class="font-grotesk font-semibold text-sm text-ink mt-4 group-hover:text-mb-teal transition-colors leading-snug px-0.5">
+              {m.title}
+            </p>
+            <p class="mt-1.5 font-mono text-[0.65rem] leading-relaxed tracking-wide text-ink-muted">
+              {m.who}
+            </p>
           </a>
         ))}
       </div>

@@ -416,6 +416,7 @@ body {
 .btn-ink,
 .btn-pink,
 .btn-ghost,
+.btn-ghost-on-dark,
 .btn-pink-ghost {
   display: inline-flex;
   align-items: center;
@@ -454,6 +455,20 @@ body {
   background: var(--color-surface-dark);
   color: #fff;
 }
+
+/* Outline button on inverted / dark bands (.btn-ghost alone uses ink text and loses contrast here). */
+.btn-ghost-on-dark {
+  background: transparent;
+  color: #f8f6f4;
+  border: 1px solid rgba(248, 246, 244, 0.55);
+}
+.btn-ghost-on-dark:hover {
+  background: var(--color-wall);
+  color: var(--color-ink);
+  border-color: var(--color-wall);
+  transform: translateY(-1px);
+}
+
 .btn-pink-ghost {
   background: transparent;
   color: var(--color-mb-pink);
