@@ -32,7 +32,7 @@ const designs = [
         </a>
 
         <div class="hidden lg:block absolute top-full left-0 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-          <div class="bg-wall border border-divider py-2 min-w-[260px] shadow-[0_18px_40px_-18px_rgba(11,11,11,0.22)] rounded-2xl">
+          <div class="bg-wall border border-divider py-2 min-w-[260px] shadow-[0_18px_40px_-18px_rgba(42,40,38,0.18)] rounded-2xl">
             <p class="px-4 pt-3 pb-1 text-[0.7rem] font-grotesk font-medium text-ink-muted tracking-wide">Design directions</p>
             {designs.map((d, i) => (
               <a
@@ -40,7 +40,7 @@ const designs = [
                 class="flex items-baseline justify-between gap-6 px-4 py-2.5 hover:bg-wall-cool transition-colors"
               >
                 <span class="text-sm font-grotesk font-medium text-ink">
-                  <span class="font-display italic text-mb-pink mr-2">{`${i + 1}.`}</span>
+                  <span class="font-mono text-xs text-ink-muted tabular-nums mr-3">{`${i + 1}.`}</span>
                   {d.label}
                 </span>
                 <span class="text-xs text-ink-muted">{d.note}</span>
@@ -51,14 +51,14 @@ const designs = [
       </div>
 
       <nav class="hidden lg:flex lg:items-center lg:justify-self-center lg:gap-7">
-        <a href="/marketplace" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Marketplace</a>
-        <a href="/vision" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Vision</a>
-        <a href="/products" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Products</a>
+        <a href="/marketplace" class="text-ink text-sm font-medium hover:text-mb-teal transition-colors">Marketplace</a>
+        <a href="/vision" class="text-ink text-sm font-medium hover:text-mb-teal transition-colors">Vision</a>
+        <a href="/products" class="text-ink text-sm font-medium hover:text-mb-teal transition-colors">Products</a>
 
         <div class="relative group" data-dropdown>
           <button
             type="button"
-            class="text-ink text-sm font-medium flex items-center gap-1 hover:text-mb-pink transition-colors"
+            class="text-ink text-sm font-medium flex items-center gap-1 hover:text-mb-teal transition-colors"
           >
             Learn
             <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-0.5 transition-transform group-hover:rotate-180">
@@ -66,7 +66,7 @@ const designs = [
             </svg>
           </button>
           <div class="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-            <div class="bg-wall border border-divider py-2 min-w-[220px] shadow-[0_12px_30px_-16px_rgba(11,11,11,0.2)] rounded-2xl">
+            <div class="bg-wall border border-divider py-2 min-w-[220px] shadow-[0_12px_30px_-16px_rgba(42,40,38,0.16)] rounded-2xl">
               <a href="/learn/memories" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">Memories</a>
               <a href="/learn/wallets" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">Wallets &amp; Walls</a>
               <a href="/learn" class="block px-4 py-2 text-sm text-ink hover:bg-wall-cool transition-colors">All concepts</a>
@@ -74,8 +74,8 @@ const designs = [
           </div>
         </div>
 
-        <a href="/trust" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Trust</a>
-        <a href="/blog" class="text-ink text-sm font-medium hover:text-mb-pink transition-colors">Blog</a>
+        <a href="/trust" class="text-ink text-sm font-medium hover:text-mb-teal transition-colors">Trust</a>
+        <a href="/blog" class="text-ink text-sm font-medium hover:text-mb-teal transition-colors">Blog</a>
       </nav>
 
       <div class="flex items-center gap-2 sm:gap-4 lg:justify-self-end lg:gap-3">

@@ -91,7 +91,7 @@ const skins = [
         {tiers.map((t) => {
           const isFeatured = t.featured;
           const cardBase = isFeatured
-            ? "bg-ink text-wall border-ink"
+            ? "bg-surface-dark text-wall border-white/18"
             : "bg-wall text-ink border-divider";
           const accentClass =
             t.accent === "pink" ? "text-mb-pink" : t.accent === "purple" ? "text-mb-purple" : "text-ink";
@@ -112,7 +112,7 @@ const skins = [
               <ul class={`flex flex-col gap-3 mt-2 text-sm ${isFeatured ? "text-wall/85" : "text-ink"}`}>
                 {t.features.map((f) => (
                   <li class="flex gap-3 items-start">
-                    <span class={`mt-1.5 inline-block w-1.5 h-1.5 rounded-full ${isFeatured ? "bg-mb-pink" : "bg-ink"}`}></span>
+                    <span class={`mt-1.5 inline-block w-1.5 h-1.5 rounded-full ${isFeatured ? "bg-mb-pink" : "bg-surface-dark"}`}></span>
                     <span>{f}</span>
                   </li>
                 ))}
@@ -202,7 +202,7 @@ const skins = [
   </section>
 
   <!-- CTA -->
-  <section class="bg-ink text-wall">
+  <section class="bg-surface-dark text-wall">
     <Wrapper variant="standard" class="py-20 lg:py-28">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
         <div class="lg:col-span-8">

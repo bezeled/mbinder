@@ -5,186 +5,152 @@ import SectionRule from "@/components/fundations/containers/SectionRule.astro";
 import BinderMark from "@/components/fundations/icons/BinderMark.astro";
 
 const wallMemories = [
-  { img: "/assets/01.webp", title: "Poppy, the morning after rain", who: "Amani · 12 Apr" },
-  { img: "/assets/04.webp", title: "Mum's prize-winning rose", who: "Amani · 02 Mar" },
-  { img: "/assets/08.webp", title: "Kilimanjaro, treeline", who: "Hari · 28 Mar" },
-  { img: "/assets/07.webp", title: "Magpie, the one who sings back", who: "Tia · 15 Feb" },
-  { img: "/assets/03.webp", title: "Gerbera, market stall, Tuesday", who: "Amani · 04 Jan" },
-  { img: "/assets/06.webp", title: "River shard, Daintree", who: "Hari · 09 Nov" },
+  {
+    img: "/assets/pexels-rdne-5637731.jpg",
+    title: "Three generations, one ledger",
+    who: "Gifted privately",
+  },
+  {
+    img: "/assets/pexels-olia-danilevich-8524992.jpg",
+    title: "Where plans meet paper",
+    who: "Stories & wills",
+  },
+  {
+    img: "/assets/pexels-isabella-mendes-107313-30196897.jpg",
+    title: "Fragments worth keeping",
+    who: "Audio & prose",
+  },
+  {
+    img: "/assets/pexels-anastasia-haritonov-898480-31316443.jpg",
+    title: "The table stays set",
+    who: "Traditions captured",
+  },
+  {
+    img: "/assets/pexels-84327456-8972881.jpg",
+    title: "Light after rain",
+    who: "Places that shaped you",
+  },
+  {
+    img: "/assets/pexels-vitalyagorbachev-26927324.jpg",
+    title: "The road remembered",
+    who: "Across borders",
+  },
 ];
+
+const heroCollage = [
+  {
+    img: "/assets/pexels-mart-production-7330707.jpg",
+    alt: "Cherished photographs arranged with care",
+    span: "row-span-2 min-h-[240px] sm:min-h-[280px]",
+  },
+  {
+    img: "/assets/pexels-mikhail-nilov-6957431.jpg",
+    alt: "Reviewing albums and handwritten notes",
+    span: "min-h-[120px] sm:min-h-[136px]",
+  },
+  {
+    img: "/assets/pexels-pavel-danilyuk-5789585.jpg",
+    alt: "Family gathered with documents nearby",
+    span: "min-h-[120px] sm:min-h-[136px]",
+  },
+];
+
+const phonePreview = wallMemories.slice(0, 4);
 
 const features = [
   {
-    n: "i.",
+    n: "01",
     label: "Memories",
-    accent: "pink",
     description:
       "Every photo, audio note, and story you upload becomes legally authenticated property. Provenance recorded. Ownership established.",
     href: "/learn/memories",
   },
   {
-    n: "ii.",
+    n: "02",
     label: "Wallets",
-    accent: "teal",
     description:
       "Group memories into wallets. Share, gift, license. The legal record travels with the asset — everywhere it goes.",
     href: "/learn/wallets",
   },
   {
-    n: "iii.",
+    n: "03",
     label: "Marketplace",
-    accent: "purple",
     description:
       "An authenticated marketplace where personal property finds its value. Licensed. Traded. Gifted. Always with clear title.",
     href: "/marketplace",
   },
   {
-    n: "iv.",
+    n: "04",
     label: "Registry",
-    accent: "ink",
     description:
       "An independent legal registry for consumer data and consumer agents. Real-time. Machine-readable. Operative across borders.",
     href: "/registry",
   },
 ];
-
-const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
-  pink: { ring: "border-mb-pink", bg: "bg-mb-pink-soft", text: "text-mb-pink" },
-  teal: { ring: "border-mb-teal", bg: "bg-mb-teal-soft", text: "text-mb-teal" },
-  purple: { ring: "border-mb-purple", bg: "bg-mb-purple-soft", text: "text-mb-purple" },
-  ink: { ring: "border-ink", bg: "bg-wall-warm", text: "text-ink" },
-};
 ---
 
-<BaseLayout seo={{ title: "Don't lose your marbles" }}>
+<BaseLayout seo={{ title: "MemoryBinder — Legal property layer for your digital life" }}>
   <!-- Hero -->
   <section class="relative">
-    <Wrapper variant="standard" class="pt-16 pb-20 lg:pt-24 lg:pb-28">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-        <div class="lg:col-span-7 relative z-10">
-          <div class="eyebrow mb-8">
-            <BinderMark size={32} variant="duo" glow={false} />
-            <span>The legal property layer for personal data</span>
+    <Wrapper variant="standard" class="pt-14 pb-16 lg:pt-20 lg:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div class="lg:col-span-5 relative z-10">
+          <div class="eyebrow mb-7">
+            <BinderMark size={30} variant="duo" glow={false} />
+            <span>Legal property for personal memories</span>
             <span class="eyebrow-dot"></span>
             <span>iOS · Q3 2026</span>
           </div>
-          <h1 id="hero-title" class="page-hero-title text-ink kerning-display"></h1>
-          <p class="mt-10 max-w-xl text-lg lg:text-xl leading-relaxed text-ink-soft">
-            MemoryBinder is the legal property layer for your digital life. Photos,
-            stories, audio, the moments that make a life — owned by you, recorded
+          <h1 class="page-hero-title text-ink kerning-display text-balance">
+            <span class="block">MemoryBinder is the legal property layer</span>
+            <span class="block text-mb-teal mt-1 lg:mt-2">for your digital life.</span>
+          </h1>
+          <p class="mt-8 max-w-xl text-lg lg:text-[1.125rem] leading-[1.65] text-ink-soft font-grotesk font-normal">
+            Photos, stories, audio, the moments that make a life — owned by you, recorded
             in law, portable everywhere they go.
           </p>
-          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-12">
+          <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mt-10">
             <a href="/waitlist" class="btn-pink shimmer-hover">
               Try MemoryBinder
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a href="/vision" class="btn-ghost">
-              Read the vision
-            </a>
+            <a href="/vision" class="btn-ghost"> Read the vision </a>
           </div>
         </div>
 
-        <!-- Phone with App Store QR -->
-        <div class="lg:col-span-5 relative z-10">
-          <div class="relative mx-auto max-w-[300px] sm:max-w-[340px]">
-            <div class="phone-frame float-slow">
-              <div class="phone-screen">
-                <div class="phone-notch"></div>
-                <!-- App preview -->
-                <div class="absolute inset-0 flex flex-col px-5 pt-12 pb-6 bg-wall">
-                  <div class="flex items-center justify-between mb-4">
-                    <p class="text-[10px] mono-label text-ink-muted">10:28</p>
-                    <BinderMark size={20} variant="duo" glow={false} />
-                  </div>
-                  <p class="font-grotesk text-base font-semibold text-ink mb-1">Amani's Personal Wall</p>
-                  <p class="mono-label text-ink-muted mb-4">12 memories &middot; private</p>
-                  <div class="grid grid-cols-2 gap-3 grow">
-                    {wallMemories.slice(0, 4).map((m) => (
-                      <div>
-                        <div class="glass-orb">
-                          <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
-                        </div>
-                        <p class="text-[10px] font-grotesk text-ink mt-2 leading-tight">{m.title}</p>
-                      </div>
-                    ))}
-                  </div>
-                  <div class="flex items-center justify-around pt-3 mt-3 border-t border-divider">
-                    <span class="mono-label text-ink-muted">create</span>
-                    <span class="mono-label text-mb-pink">wallet</span>
-                    <span class="mono-label text-ink-muted">market</span>
-                    <span class="mono-label text-ink-muted">more</span>
-                  </div>
-                </div>
+        <div class="lg:col-span-7 lg:pt-8">
+          <div class="grid grid-cols-2 grid-rows-2 gap-3 sm:gap-4 lg:gap-5">
+            {heroCollage.map((c, i) => (
+              <div
+                class={`relative overflow-hidden rounded-2xl sm:rounded-[1.35rem] ${c.span} shadow-couture border border-divider-soft bg-wall-warm`}
+              >
+                <img
+                  src={c.img}
+                  alt={c.alt}
+                  class="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out hover:scale-[1.02]"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
               </div>
-            </div>
-
-            <!-- QR sticker -->
-            <div class="absolute -bottom-6 -right-2 sm:-right-6 rotate-3">
-              <div class="bg-wall border border-ink p-3 rounded-2xl shadow-[0_18px_30px_-16px_rgba(11,11,11,0.3)]">
-                <div class="grid grid-cols-7 gap-[2px] w-[78px]">
-                  {Array.from({ length: 49 }).map((_, i) => (
-                    <span class={`block w-full aspect-square ${[0,1,2,5,6,7,9,11,12,14,15,16,18,20,23,24,26,28,30,31,33,35,38,40,42,43,44,46,47,48].includes(i) ? "bg-ink" : ""}`}></span>
-                  ))}
-                </div>
-                <p class="mono-label text-ink mt-2 text-[8px] tracking-[0.18em]">App&nbsp;Store</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </Wrapper>
   </section>
 
-  <script>
-    (function () {
-      const lines = [
-        ["Don't", "lose"],
-        ["your", "marbles."],
-      ];
-      const el = document.getElementById("hero-title");
-      if (!el) return;
-      const fragment = document.createDocumentFragment();
-      let wordIndex = 0;
-      lines.forEach(function (words, lineIndex) {
-        const line = document.createElement("span");
-        line.className = "hero-title-line";
-        words.forEach(function (word, i) {
-          const span = document.createElement("span");
-          span.className = "word";
-          if (lineIndex === 0 && i === 1) {
-            span.classList.add("couture-wonky");
-            span.style.color = "var(--color-mb-pink)";
-          }
-          if (lineIndex === 1 && i === 1) {
-            span.classList.add("couture-wonky");
-          }
-          span.textContent = word;
-          span.style.setProperty("--word-delay", wordIndex * 0.07 + "s");
-          wordIndex += 1;
-          line.appendChild(span);
-          if (i < words.length - 1) {
-            line.appendChild(document.createTextNode(" "));
-          }
-        });
-        fragment.appendChild(line);
-      });
-      el.appendChild(fragment);
-    })();
-  </script>
-
   <!-- Manifesto -->
   <section class="relative">
-    <Wrapper variant="standard" class="py-24 lg:py-36">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
       <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-10 items-start">
         <h2 class="col-span-12 lg:col-span-5 section-title text-ink">
           When rights are clear,
-          <span class="couture-wonky text-mb-pink">everyone wins.</span>
+          <span class="block mt-3 text-mb-teal font-display italic font-normal tracking-tight">everyone wins.</span>
         </h2>
         <div class="col-span-12 lg:col-span-6 lg:col-start-6">
-          <div class="flex flex-col gap-6 text-base lg:text-lg leading-relaxed text-ink-soft">
+          <div class="flex flex-col gap-6 text-base lg:text-lg leading-relaxed text-ink-soft font-grotesk">
             <p>
               The personal data economy is broken. Not because the supply does
               not exist. Because there is no legal infrastructure underneath it.
@@ -195,12 +161,12 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
               what they already do.
             </p>
             <p class="text-ink">
-              <strong class="font-grotesk font-semibold">Not another pay-for-data platform.</strong>
+              <strong class="font-semibold">Not another pay-for-data platform.</strong>
               Payment without ownership is still extraction. We start earlier.
               Before the transaction. At the property right itself.
             </p>
           </div>
-          <a href="/vision" class="inline-flex items-center gap-2 mt-10 text-sm font-medium text-ink hover:text-mb-pink transition-colors">
+          <a href="/vision" class="inline-flex items-center gap-2 mt-10 text-sm font-semibold font-grotesk text-ink hover:text-mb-teal transition-colors">
             Read the full vision
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
@@ -211,27 +177,25 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     </Wrapper>
   </section>
 
-  <!-- Editorial wall of memory orbs -->
+  <!-- Editorial — real photography -->
   <section class="relative bg-wall-warm border-y border-divider">
     <Wrapper variant="standard" class="py-24 lg:py-32">
-      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-8 items-end mb-16">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-8 items-end mb-14 lg:mb-16">
         <h2 class="col-span-12 lg:col-span-8 section-title text-ink">
-          Photos. Stories. Audio. <span class="couture-wonky">Moments that make a life.</span>
+          Photos. Stories. Audio.<span class="block mt-1 text-mb-teal font-display italic tracking-tight">Moments that make a life.</span>
         </h2>
         <div class="col-span-12 lg:col-span-3 lg:col-start-10 lg:flex lg:justify-end">
-          <a href="/marketplace" class="btn-ghost">
-            See the marketplace
-          </a>
+          <a href="/marketplace" class="btn-ghost">See the marketplace</a>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 sm:gap-x-6 lg:gap-x-10 lg:gap-y-12">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 sm:gap-x-6 lg:gap-x-8 lg:gap-y-12">
         {wallMemories.map((m, i) => (
           <a href="/learn/memories" class={`group block ${i % 2 === 0 ? "float-slow" : "float-med"}`}>
-            <div class="glass-orb">
+            <div class="memory-orb">
               <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
             </div>
-            <p class="font-grotesk font-medium text-sm text-ink mt-4 group-hover:text-mb-pink transition-colors">{m.title}</p>
+            <p class="font-grotesk font-semibold text-sm text-ink mt-4 group-hover:text-mb-teal transition-colors">{m.title}</p>
             <p class="mono-label text-ink-muted">{m.who}</p>
           </a>
         ))}
@@ -239,46 +203,46 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
     </Wrapper>
   </section>
 
-  <!-- Features — vertical chapter list -->
+  <!-- Four layers -->
   <section class="bg-wall">
-    <Wrapper variant="standard" class="py-24 lg:py-36">
-      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-6 mb-16 lg:mb-20 items-baseline">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
+      <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-6 mb-14 lg:mb-16 items-baseline">
         <h2 class="col-span-12 lg:col-span-5 section-title text-ink">
-          Four layers. <span class="couture-wonky text-mb-pink italic">One property system.</span>
+          Four layers.
+          <span class="block mt-2 text-lg sm:text-xl font-grotesk font-normal text-ink-muted leading-snug tracking-normal max-w-md">
+            One property system built for everyday people — not jargon, not gimmicks.
+          </span>
         </h2>
-        <p class="col-span-12 lg:col-span-6 lg:col-start-6 text-base lg:text-lg text-ink-muted leading-relaxed max-w-xl">
+        <p class="col-span-12 lg:col-span-6 lg:col-start-6 text-base lg:text-lg text-ink-muted leading-relaxed max-w-xl font-grotesk">
           Each layer makes the next more valuable. Together, they put consumer
           personal data on the legal footing it has never had.
         </p>
       </div>
 
       <ol class="flex flex-col">
-        {features.map((f) => {
-          const a = accentMap[f.accent];
-          return (
-            <li>
-              <a
-                href={f.href}
-                class="feature-row group grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-2 py-8 lg:py-10 border-t border-divider hover:border-ink transition-colors items-baseline"
-              >
-                <span class={`col-span-2 lg:col-span-1 font-display italic text-3xl lg:text-4xl leading-none ${a.text}`}>
-                  {f.n}
-                </span>
-                <h3 class={`col-span-10 lg:col-span-4 couture text-2xl lg:text-3xl text-ink group-hover:${a.text} transition-colors`}>
-                  {f.label}
-                </h3>
-                <p class="col-span-12 lg:col-span-6 text-sm lg:text-base text-ink-soft leading-relaxed">
-                  {f.description}
-                </p>
-                <span class="hidden lg:flex col-span-1 justify-end items-center text-ink-muted group-hover:text-ink transition-colors">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </a>
-            </li>
-          );
-        })}
+        {features.map((f) => (
+          <li>
+            <a
+              href={f.href}
+              class="feature-row group grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-3 py-8 lg:py-10 border-t border-divider hover:border-mb-teal/35 transition-colors items-start"
+            >
+              <span class="col-span-2 lg:col-span-1 font-mono text-xs sm:text-sm tabular-nums tracking-[0.12em] text-ink-muted pt-1">
+                {f.n}
+              </span>
+              <h3 class="col-span-10 lg:col-span-4 font-display font-normal text-[1.65rem] sm:text-[1.85rem] lg:text-[2.1rem] text-ink leading-[1.1] tracking-[-0.02em] group-hover:text-mb-teal transition-colors">
+                {f.label}
+              </h3>
+              <p class="col-span-12 lg:col-span-6 text-sm lg:text-base text-ink-soft leading-relaxed font-grotesk">
+                {f.description}
+              </p>
+              <span class="hidden lg:flex col-span-1 justify-end items-center pt-1 text-ink-muted group-hover:text-mb-teal transition-colors">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+          </li>
+        ))}
       </ol>
     </Wrapper>
   </section>
@@ -286,32 +250,91 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
   <!-- Pull quote -->
   <section class="relative overflow-hidden">
     <SectionRule />
-    <Wrapper variant="standard" class="py-24 lg:py-36">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
       <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 items-center">
-        <div class="col-span-12 lg:col-span-2 hidden lg:flex justify-start">
-          <BinderMark size={92} variant="duo" />
+        <div class="col-span-12 lg:col-span-2 hidden lg:flex justify-start opacity-85">
+          <BinderMark size={88} variant="duo" />
         </div>
         <blockquote class="col-span-12 lg:col-span-9 lg:col-start-4">
           <p class="section-title text-ink">
             People keep doing what they love. Sharing memories. Gifting content.
-            Telling their story. <span class="couture-wonky text-mb-pink">MemoryBinder makes sure that story
-            and the responsibility is legally theirs.</span>
+            Telling their story. <span class="text-mb-teal font-display italic tracking-tight">MemoryBinder keeps that responsibility legally yours.</span>
           </p>
         </blockquote>
       </div>
     </Wrapper>
   </section>
 
+  <!-- Preview strip + device -->
+  <section class="border-t border-divider bg-wall-cool/40">
+    <Wrapper variant="standard" class="py-16 lg:py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 order-2 lg:order-1">
+          <p class="mono-label text-mb-teal-deep mb-4">Inside the binder</p>
+          <h2 class="section-title text-ink mb-5">Designed like the gallery on your desk.</h2>
+          <p class="text-ink-soft font-grotesk text-base lg:text-[1.05rem] leading-relaxed max-w-md">
+            Wallets organise what matters. Memories stay portable. Marketplace and registry layers sit quietly behind —
+            visible only when you need them.
+          </p>
+        </div>
+        <div class="lg:col-span-7 order-1 lg:order-2">
+          <div class="relative mx-auto max-w-[300px] sm:max-w-[340px]">
+            <div class="phone-frame float-slow">
+              <div class="phone-screen">
+                <div class="phone-notch"></div>
+                <div class="absolute inset-0 flex flex-col px-5 pt-12 pb-6 bg-wall">
+                  <div class="flex items-center justify-between mb-4">
+                    <p class="text-[10px] mono-label text-ink-muted">10:28</p>
+                    <BinderMark size={22} variant="duo" glow={false} />
+                  </div>
+                  <p class="font-grotesk text-base font-semibold text-ink mb-1">Amani's Personal Wall</p>
+                  <p class="mono-label text-ink-muted mb-4">12 memories · private</p>
+                  <div class="grid grid-cols-2 gap-3 grow">
+                    {phonePreview.map((m) => (
+                      <div>
+                        <div class="memory-orb rounded-2xl">
+                          <img src={m.img} alt={m.title} loading="lazy" decoding="async" />
+                        </div>
+                        <p class="text-[11px] font-grotesk text-ink mt-2 leading-tight line-clamp-2">{m.title}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div class="flex items-center justify-around pt-3 mt-3 border-t border-divider">
+                    <span class="mono-label text-ink-muted">create</span>
+                    <span class="mono-label text-mb-teal font-medium">wallet</span>
+                    <span class="mono-label text-ink-muted">market</span>
+                    <span class="mono-label text-ink-muted">more</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-5 -right-2 sm:-right-5 rotate-3">
+              <div class="bg-wall border border-divider-soft p-3 rounded-2xl shadow-[0_18px_30px_-16px_rgba(42,40,38,0.22)]">
+                <div class="grid grid-cols-7 gap-[2px] w-[78px]">
+                  {Array.from({ length: 49 }).map((_, i) => (
+                    <span class={`block w-full aspect-square ${[0,1,2,5,6,7,9,11,12,14,15,16,18,20,23,24,26,28,30,31,33,35,38,40,42,43,44,46,47,48].includes(i) ? "bg-surface-dark" : ""}`}></span>
+                  ))}
+                </div>
+                <p class="mono-label text-surface-dark mt-2 text-[8px] tracking-[0.18em]">App&nbsp;Store</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+
   <!-- CTA -->
-  <section class="relative bg-ink text-wall">
-    <Wrapper variant="standard" class="py-24 lg:py-36">
+  <section class="relative bg-surface-dark text-wall">
+    <Wrapper variant="standard" class="py-20 lg:py-28">
       <div class="grid grid-cols-12 gap-x-6 lg:gap-x-10 gap-y-10 items-end">
         <h2 class="col-span-12 lg:col-span-7 section-title">
-          Be one of the <span class="couture-wonky text-mb-pink">first million</span>
+          Be one of the <span class="text-mb-teal-soft font-display italic">first million</span>
           to legally own what they create.
         </h2>
         <div class="col-span-12 lg:col-span-4 lg:col-start-9">
-          <p class="text-base lg:text-lg text-wall/70 leading-relaxed">
+          <p class="text-base lg:text-lg text-wall/72 leading-relaxed font-grotesk">
             500+ sign-ups across 23 countries. iOS launch Q3 2026.
             Get notified the moment we hit the App Store.
           </p>
@@ -325,5 +348,4 @@ const accentMap: Record<string, { ring: string; bg: string; text: string }> = {
       </div>
     </Wrapper>
   </section>
-
 </BaseLayout>

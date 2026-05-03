@@ -208,7 +208,7 @@ const tones = {
         </label>
         <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide -mx-1 px-1">
           {filters.map((f, i) => (
-            <button class={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-[0.18em] whitespace-nowrap transition-colors ${i === 0 ? "bg-ink text-mb-pink" : "border border-divider text-ink hover:border-ink"}`}>
+            <button class={`px-4 py-2 rounded-full text-[11px] font-mono uppercase tracking-[0.18em] whitespace-nowrap transition-colors ${i === 0 ? "bg-surface-dark text-mb-pink" : "border border-divider text-ink hover:border-ink"}`}>
               {f.label}
             </button>
           ))}
@@ -242,10 +242,10 @@ const tones = {
         </div>
         <div class="flex items-center gap-3">
           <span class="mono-label text-ink-muted">06 of 14</span>
-          <button aria-label="Previous" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-ink hover:text-wall transition-colors">
+          <button aria-label="Previous" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-surface-dark hover:text-wall transition-colors">
             <span aria-hidden>←</span>
           </button>
-          <button aria-label="Next" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-ink hover:text-wall transition-colors">
+          <button aria-label="Next" class="w-10 h-10 rounded-full border border-ink flex items-center justify-center hover:bg-surface-dark hover:text-wall transition-colors">
             <span aria-hidden>→</span>
           </button>
         </div>
@@ -399,7 +399,7 @@ const tones = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-7">
         {collections.map((c) => (
           <article class="group">
-            <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-ink">
+            <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-surface-dark">
               <SiteImage src={c.img} alt={c.title} class="w-full h-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-[1.025]" widths={[300, 480, 640]} sizes="(min-width: 1024px) 24vw, 48vw" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-black/0 pointer-events-none"></div>
               <span class={`absolute top-4 left-4 sticker bg-wall ${tones[c.tone as keyof typeof tones]}`}>
@@ -417,7 +417,7 @@ const tones = {
   </section>
 
   <!-- The floor / all memories -->
-  <section id="gallery" class="bg-ink text-wall">
+  <section id="gallery" class="bg-surface-dark text-wall">
     <Wrapper variant="wide" class="py-20 lg:py-28">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
         <div>

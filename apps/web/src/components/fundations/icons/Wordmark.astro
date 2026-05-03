@@ -22,15 +22,18 @@ const sizeMap = {
   lg: { mark: 56, text: "text-[2rem]" },
 };
 const s = sizeMap[size];
+void variant;
 ---
-<span class={`logo-wordmark group/logo font-grotesk font-semibold tracking-tightest text-ink ${className}`}>
-  <BinderMark size={s.mark} variant={variant} decorative={showWord} ariaLabel="MemoryBinder" glow={false} />
+<span class={`logo-wordmark group/logo font-grotesk font-semibold tracking-tight text-ink ${className}`}>
+  <BinderMark size={s.mark} variant="duo" decorative={showWord} ariaLabel="MemoryBinder" glow={false} />
   {showWord && (
     <span class={`relative z-10 leading-none ${s.text}`}>
       {wordVariant === "duo" ? (
-        <><span class="text-mb-teal">memory</span><span class="text-mb-pink">binder</span></>
+        <span class="text-ink tracking-tight"
+          ><span class="font-semibold text-mb-teal">Memory</span><span class="font-semibold text-ink">Binder</span></span
+        >
       ) : (
-        <span class="text-ink">memorybinder</span>
+        <span class="text-ink font-semibold">MemoryBinder</span>
       )}
     </span>
   )}
